@@ -1,0 +1,76 @@
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesctop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+$shadow: #e2e6e9;
+$gray-primary: #313237;
+$gray-secondary: #89939a;
+
+$header-height: 48px;
+$header-height-desktop: 64px;
+
+.nav {
+  display: flex;
+
+  &__list {
+    display: none;
+
+    margin-left: 16px;
+
+    @include onTablet {
+      display: flex;
+      width: 330px;
+
+      justify-content: space-between;
+
+      list-style: none;
+
+      text-transform: uppercase;
+    }
+
+    @include onDesctop {
+      margin-left: 24px;
+
+      width: 425px;
+    }
+  }
+
+  &__link {
+    display: block;
+    height: $header-height;
+
+    font-size: 12px;
+    font-family: "Mont", sans-serif;
+    font-weight: bold;
+
+    text-decoration: none;
+
+    line-height: $header-height;
+
+    color: $gray-secondary;
+
+    &:hover {
+      color: $gray-primary;
+    }
+
+    @include onDesctop {
+      height: $header-height-desktop;
+
+      line-height: $header-height-desktop;
+    }
+  }
+
+  &__link.is-active {
+    color: $gray-primary;
+
+    border-bottom: 3px solid $gray-primary;
+  }
+}
