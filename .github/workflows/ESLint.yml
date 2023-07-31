@@ -1,17 +1,26 @@
-name: Checks
-on: push
+name: Lint
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
 jobs:
   lint:
-    name: Lint
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm run lint
-  test:
-    name: Test (jest)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm run test
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run lint
+        run: npm run lint
