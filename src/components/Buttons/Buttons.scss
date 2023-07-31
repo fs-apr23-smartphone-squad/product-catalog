@@ -1,3 +1,22 @@
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesctop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+$shadow: #e2e6e9;
+$gray-primary: #313237;
+$gray-secondary: #89939a;
+
+$header-height: 48px;
+$header-height-desktop: 64px;
+
 .buttons {
   display: flex;
 }
@@ -50,14 +69,14 @@
   text-decoration: none;
 
   &--menu {
-    background-image: url(../images/Icons/Menu.svg);
+    background-image: url(../../images/Icons/Menu.svg);
   }
 
   &--favourites {
-    background-image: url(../images/Icons/Favourites.svg);
+    background-image: url(../../images/Icons/Favourites.svg);
   }
 
   &--cart {
-    background-image: url(../images/Icons/Cart.svg);
+    background-image: url(../../images/Icons/Cart.svg);
   }
 }
