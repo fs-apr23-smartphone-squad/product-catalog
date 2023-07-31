@@ -13,13 +13,13 @@ function App() {
       <Page />
 
       <Routes>
-          <Route path="home" element={<HomePage />} />
-          <Route path="/" element={<Navigate to="home" />} />
-          <Route path="phones" element={<PhonesPage />} />
-          <Route path="tablets" element={<TabletsPage />} />
-          <Route path="accessories" element={<AccessoriesPage />} />
-          <Route path="*" element={<h1 className="title">Page not found</h1>} />
-        </Routes>
+        <Route path="home" element={<HomePage />} />
+        <Route path="/" element={<Navigate to="home" />} />
+        <Route path="phones" element={<PhonesPage />} />
+        <Route path="tablets" element={<TabletsPage />} />
+        <Route path="accessories" element={<AccessoriesPage />} />
+        <Route path="*" element={<h1 className="title">Page not found</h1>} />
+      </Routes>
     </div>
   );
 }
