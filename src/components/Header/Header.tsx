@@ -1,7 +1,7 @@
 import { Buttons } from '../Buttons';
 import { Logo } from '../Logo';
 import { Navigation } from '../Navigation/Navigation';
-import './header.scss';
+import './Header.scss';
 
 export const Header = () => (
   <header className="header">

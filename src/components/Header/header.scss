@@ -1,21 +1,4 @@
-@mixin onTablet {
-  @media (min-width: 640px) {
-    @content;
-  }
-}
-
-@mixin onDesctop {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-
-$shadow: #e2e6e9;
-$gray-primary: #313237;
-$gray-secondary: #89939a;
-
-$header-height: 48px;
-$header-height-desktop: 64px;
+@import '../../styles/index.scss';
 
 .header {
   display: flex;
