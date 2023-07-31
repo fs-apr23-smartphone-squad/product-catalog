@@ -1,0 +1,52 @@
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+$shadow: #e2e6e9;
+$gray-primary: #313237;
+$gray-secondary: #89939a;
+
+.contacts {
+  margin-bottom: 32px;
+
+  @include onTablet {
+    margin-bottom: 0;
+
+    max-width: 380px;
+    width: 100%;
+
+    margin-left: 100px;
+    margin-right: 74px;
+  }
+
+  &__list {
+    list-style: none;
+    text-transform: uppercase;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    margin-bottom: 16px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    font-size: 12px;
+    font-family: "Mont", sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.48px;
+
+    text-decoration: none;
+
+    color: $gray-secondary;
+  }
+}

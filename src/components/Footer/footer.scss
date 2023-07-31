@@ -1,0 +1,67 @@
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+$shadow: #e2e6e9;
+$gray-primary: #313237;
+$gray-secondary: #89939a;
+
+.footer {
+  display: block;
+
+  border-top: solid 1px $shadow;;
+
+  &__container {
+    max-width: 1200px;
+    padding: 32px 16px;
+
+    @include onTablet {
+      margin: 0 auto;
+
+      padding: 32px;
+
+      align-items: center;
+      justify-content: space-between;
+      display: flex;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 32px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__back-to-top-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    white-space: nowrap;
+    font-size: 12px;
+    font-family: "Mont", sans-serif;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    color: $gray-secondary;
+
+    &-icon {
+      height: 32px;
+      width: 32px;
+
+      margin-left: 16px;
+
+      border: 1px solid var(--gray-icons-placeholders, #B4BDC3);;
+
+      background-image: url(../../../public/images/Icons/Chevron.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
