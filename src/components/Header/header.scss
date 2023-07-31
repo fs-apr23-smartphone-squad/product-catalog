@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  height: $header-height;
+
+  border-bottom: solid 1px $shadow;
+
+  &__left {
+    display: flex;
+    justify-content: start;
+  }
+
+  @include onDesctop {
+    height: $header-height-desktop;
+  }
+}

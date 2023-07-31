@@ -1,0 +1,63 @@
+.buttons {
+  display: flex;
+}
+
+.icon-wrapper {
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  width: $header-height;
+  height: $header-height;
+
+  border-left: solid 1px $shadow;
+
+  @include onTablet {
+    display: flex;
+  }
+
+  @include onDesctop {
+    width: $header-height-desktop;
+    height: $header-height-desktop;
+  }
+}
+
+.icon--menu-wrapper {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  border-left: solid 1px $shadow;
+
+  @include onTablet {
+    display: none;
+  }
+}
+
+.icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+
+  &--menu {
+    background-image: url(../images/Icons/Menu.svg);
+  }
+
+  &--favourites {
+    background-image: url(../images/Icons/Favourites.svg);
+  }
+
+  &--cart {
+    background-image: url(../images/Icons/Cart.svg);
+  }
+}
