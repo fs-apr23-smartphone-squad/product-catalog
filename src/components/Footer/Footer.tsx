@@ -8,8 +8,8 @@ export const Footer = () => (
       <div className="footer__logo">
         <a href="#">
           <img
-          src={logo}
-          alt="Nice gadgets logo"
+            src={logo}
+            alt="Nice gadgets logo"
           />
         </a>
       </div>
