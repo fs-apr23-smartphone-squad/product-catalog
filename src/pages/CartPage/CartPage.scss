@@ -1,19 +1,4 @@
-@mixin onTablet {
-  @media (min-width: 640px) {
-    @content;
-  }
-}
-
-@mixin onDesctop {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-
-$shadow: #e2e6e9;
-$gray-white: #fff;
-$gray-primary: #313237;
-$gray-secondary: #89939a;
+@import '../../styles/index.scss';
 
 .cart {
   padding: 24px 16px 56px;
@@ -46,7 +31,7 @@ $gray-secondary: #89939a;
 
       position: absolute;
       top: 50%;
-      left: 4px;
+      left: 0;
       transform: translateY(-50%);
 
       display: inline-block;
@@ -59,10 +44,8 @@ $gray-secondary: #89939a;
   }
 
   &__title {
-    margin-top: 0;
     margin-bottom: 32px;
 
-    font-size: 32px;
     font-weight: 800;
     color: $gray-primary;
   }
@@ -75,6 +58,15 @@ $gray-secondary: #89939a;
 
   &__items {
     margin-bottom: 32px;
+    width: 100%;
+
+    @include onDesctop {
+      margin-right: 16px;
+    }
+  }
+
+  &__item {
+    margin-bottom: 16px;
   }
 
   &__total {
@@ -112,7 +104,7 @@ $gray-secondary: #89939a;
     width: 100%;
     font-size: 14px;
     font-weight: 700;
-    color: $gray-white;
+    color: #fff;
     background-color: $gray-primary;
 
     @include onDesctop {

@@ -1,24 +1,14 @@
-@mixin onDesktop {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-
-$shadow: #e2e6e9;
-$gray-white: #fff;
-$gray-primary: #313237;
-$gray-secondary: #89939a;
+@import '../../styles/index.scss';
 
 .cart-item {
-  width: 288px;
-  border: 1px solid $shadow;
   padding: 16px;
+  border: 1px solid $shadow;
 
-  @include onDesktop {
+  @include onTablet {
     display: flex;
     justify-content: space-between;
+
     padding: 24px;
-    width: 750px;
   }
 
   &__info {
@@ -30,23 +20,27 @@ $gray-secondary: #89939a;
   &__delete {
     display: block;
     margin-right: 25px;
-    width: 16px;
+
+    min-width: 16px;
     height: 16px;
     background-color: transparent;
     background-image: url(../../images/Icons/Close.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
     border: none;
 
-    @include onDesktop {
+    @include onTablet {
       margin-right: 30px;
     }
   }
 
   &__image {
+    flex-shrink: 0;
     margin-right: 25px;
     width: 66px;
     height: 66px;
 
-    @include onDesktop {
+    @include onTablet {
       margin-right: 30px;
     }
   }
@@ -56,12 +50,20 @@ $gray-secondary: #89939a;
     font-size: 14px;
     font-weight: 600;
     color: $gray-primary;
+
+    @include onTablet {
+      margin-right: 25px;
+    }
   }
 
   &__details {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include onTablet {
+      flex-shrink: 0;
+    }
   }
 
   &__button {
