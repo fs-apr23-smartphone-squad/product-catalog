@@ -1,0 +1,101 @@
+@import '../../styles/index.scss';
+
+.cart-item {
+  padding: 16px;
+  border: 1px solid $shadow;
+
+  @include onTablet {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 24px;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  &__delete {
+    display: block;
+    margin-right: 25px;
+
+    min-width: 16px;
+    height: 16px;
+    background-color: transparent;
+    background-image: url(../../images/Icons/Close.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+
+    @include onTablet {
+      margin-right: 30px;
+    }
+  }
+
+  &__image {
+    flex-shrink: 0;
+    margin-right: 25px;
+    width: 66px;
+    height: 66px;
+
+    @include onTablet {
+      margin-right: 30px;
+    }
+  }
+
+  &__title {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: $gray-primary;
+
+    @include onTablet {
+      margin-right: 25px;
+    }
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      flex-shrink: 0;
+    }
+  }
+
+  &__button {
+    padding: 8px;
+    background-color: transparent;
+    border: 1px solid $shadow;
+  }
+
+  &__button-icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+
+    &--reduce {
+      background-image: url(../../images/Icons/Minus.svg);
+    }
+
+    &--increase {
+      background-image: url(../../images/Icons/Plus.svg);
+    }
+  }
+
+  &__amount {
+    margin: 0 13px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__price {
+    margin: 0 0 0 43px;
+    font-size: 22px;
+    font-weight: 700;
+    color: $gray-primary;
+  }
+}

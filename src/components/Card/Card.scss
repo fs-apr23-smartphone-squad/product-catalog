@@ -1,0 +1,140 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 272px;
+  height: 506px;
+  border: 1px solid $shadow;
+
+  &_image {
+    height: 196px;
+    width: auto;
+
+    &-container {
+      display: flex;
+      justify-content: center;
+      width: 208px;
+      height: 196px;
+      display: flex;
+      margin-bottom: 24px;
+      margin-top: 24px;
+      margin-left: 24px;
+    }
+
+    img {
+
+      object-fit: contain;
+
+    }
+  }
+
+  &_title {
+    @include title-text();
+    color: $text-color;
+    margin-bottom: 8px;
+    padding: 0 32px;
+    &--container {
+      height: 42px;
+    }
+  }
+
+  &_price {
+    display: flex;
+    padding-left: 32px;
+    align-items: center;
+
+    &-new {
+      @include new-price-text();
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    &-old {
+      @include old-price-text();
+      color: $description-color;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+  }
+
+  &_divider {
+    width: 208px;
+    height: 1px;
+    background-color: $border-color;
+    border: 1px solid $border-color;
+    margin: 0 0 16px 32px;
+    justify-content: center;
+  }
+
+  &_specs {
+    margin-bottom: 8px;
+
+    &--1,
+    &--2,
+    &--3 {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 32px;
+    }
+
+    &--description {
+      @include description-text();
+      margin-bottom: 8px;
+      color: $description-color;
+    }
+
+    &--value {
+      @include description-text();
+      color: $text-color;
+    }
+  }
+
+  &_buttons_container {
+    display: flex;
+    padding: 0 32px 32px 32px;
+  }
+
+  &_button {
+    @include button-text();
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 0;
+    background-color: $text-color;
+    color: $c-white;
+    margin-right: 8px;
+    transition: 0.2s;
+    padding: 0;
+
+    &:hover {
+      border: 1px solid $border-color;
+      background-color: $c-white;
+      color: $text-color;
+      cursor: pointer;
+    }
+  }
+
+  &_like_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid $like-border-color;
+    flex-shrink: 0;
+    background-image: url(../../images/Icons/Favourites.svg);
+    background-size: 16px 16px;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+
+    &--image {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+  }
+}
