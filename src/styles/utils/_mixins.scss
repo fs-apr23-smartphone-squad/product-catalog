@@ -16,3 +16,48 @@
     @content;
   }
 }
+
+// card mixins
+@mixin text {
+  font-family: 'Mont', sans-serif;
+  font-style: normal;
+}
+
+@mixin title-text {
+  @include text();
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  text-align: left;
+}
+
+@mixin new-price-text {
+  @include text();
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 140%;
+}
+
+@mixin old-price-text {
+  @include text();
+  font-size: 22px;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: line-through;
+}
+
+@mixin description-text {
+  @include text();
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+
+}
+
+@mixin button-text {
+  @include text();
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+}
