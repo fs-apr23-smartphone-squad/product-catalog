@@ -1,10 +1,15 @@
-/* eslint-disable max-len */
-export const PhoneImage = () => {
+import React from 'react';
+/* eslint-disable */
+export interface Props {
+  src: string;
+}
+const Base = 'https://api.smartphonesquad.shop/';
+export const PhoneImage: React.FC<Props> = ({ src }) => {
   return (
     <img
-      src="https://api.smartphonesquad.shop/img/phones/apple-iphone-11-pro-max/gold/00.jpg"
+      src={Base + src}
       alt="Apple iPhone Xs 64GB Silver"
       className="card_image"
     />
   );
-}; // eslint-disable-line
+};
