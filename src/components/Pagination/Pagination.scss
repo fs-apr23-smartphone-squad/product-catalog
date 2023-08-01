@@ -1,0 +1,32 @@
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+
+  &__page-item {
+    height: 32px;
+    width: 32px;
+    font-size: 18px;
+    border: 1px solid grey;
+  }
+
+  &__next-page {
+    height: 32px;
+    width: 32px;
+    background-image: url(../../images/Icons/ArrowBack.svg);
+    transform: rotate(180deg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid grey;
+  }
+
+  &__prev-page {
+    height: 32px;
+    width: 32px;
+    background-image: url(../../images/Icons/ArrowBack.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid grey;
+  }
+}
