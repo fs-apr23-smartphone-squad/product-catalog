@@ -1,0 +1,122 @@
+@mixin onTablet {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin onDesctop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+$shadow: #e2e6e9;
+$gray-white: #fff;
+$gray-primary: #313237;
+$gray-secondary: #89939a;
+
+.cart {
+  padding: 24px 16px 56px;
+
+  text-align: left;
+
+  @include onTablet {
+    padding: 40px 24px 64px;
+  }
+
+  @include onDesctop {
+    padding: 40px 32px 64px;
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+    margin-bottom: 24px;
+    padding-left: 20px;
+
+    color: $gray-secondary;
+    text-decoration: none;
+
+    @include onTablet {
+      margin-bottom: 16px;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 4px;
+      transform: translateY(-50%);
+
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+
+      background-image: url(../../images/Icons/ArrowBack.svg);
+      background-size: cover;
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    margin-bottom: 32px;
+
+    font-size: 32px;
+    font-weight: 800;
+    color: $gray-primary;
+  }
+
+  &__wrapper {
+    @include onDesctop {
+      display: flex;
+    }
+  }
+
+  &__items {
+    margin-bottom: 32px;
+  }
+
+  &__total {
+    padding: 24px;
+    text-align: center;
+    border: 1px solid $shadow;
+  }
+
+  &__price {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 800;
+    color: $gray-primary;
+  }
+
+  &__amount {
+    display: block;
+    margin: auto;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    width: 100%;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: $gray-secondary;
+    border-bottom: 1px solid $shadow;
+
+    @include onDesctop {
+      width: 320px;
+    }
+  }
+
+  &__button {
+    height: 48px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 700;
+    color: $gray-white;
+    background-color: $gray-primary;
+
+    @include onDesctop {
+      width: 320px;
+    }
+  }
+}
