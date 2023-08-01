@@ -24,12 +24,12 @@ export const Card: React.FC<Props> = ({ phone }) => {
 
   return (
     <article className={cn('card', {})}>
-      <div className='card_image-container'>
         <PhoneImage src={image} />
-      </div>
-      <h3 className="card_title">
+        <div className='card_title--container'>
+        <h3 className="card_title">
         {phoneName}
       </h3>
+        </div>
       <div className="card_price">
         <p className="card_price-new">
           {`$${price}`}
@@ -58,11 +58,6 @@ export const Card: React.FC<Props> = ({ phone }) => {
           Add to cart
         </button>
         <button className="card_like_button">
-          <img
-            className="card_like_button--image"
-            src='../../images/logo.svg'
-            alt="like"
-          />
         </button>
       </div>
     </article>
