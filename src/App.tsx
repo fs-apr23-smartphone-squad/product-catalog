@@ -8,6 +8,8 @@ import { TabletsPage } from './pages/TabletsPage';
 import { AccessoriesPage } from './pages/AccessoriesPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { CartPage } from './pages/CartPage';
+import { PageNotFound } from './pages/PageNotFound';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
@@ -22,8 +24,10 @@ function App() {
         <Route path="accessories" element={<AccessoriesPage />} />
         <Route path="favourites" element={<FavouritesPage />} />
         <Route path="cart" element={<CartPage />} />
-        <Route path="*" element={<h1 className="title">Page not found</h1>} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
+
+      <Footer />
     </div>
   );
 }

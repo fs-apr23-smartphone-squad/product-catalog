@@ -1,5 +1,6 @@
 import { Contacts } from '../Contacts';
 import './footer.scss';
+import logo from '../../images/logo.svg';
 
 export const Footer = () => (
   <footer className="footer">
@@ -7,7 +8,7 @@ export const Footer = () => (
       <div className="footer__logo">
         <a href="#">
           <img
-          src=""
+          src={logo}
           alt="Nice gadgets logo"
           />
         </a>
