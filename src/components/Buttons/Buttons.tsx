@@ -1,26 +1,28 @@
+import { Link } from 'react-router-dom';
+
 import './Buttons.scss';
 
 export const Buttons = () => (
   <div className="buttons">
     <div className="icon--menu-wrapper">
-      <a
-        href="#menu"
+      <Link
+        to="menu"
         className="icon icon--menu"
-      ></a>
+      ></Link>
     </div>
 
     <div className="icon-wrapper">
-      <a
-        href="#favourites"
+      <Link
+        to="favourites"
         className="icon icon--favourites"
-      ></a>
+      ></Link>
     </div>
 
     <div className="icon-wrapper">
-      <a
-        href="#cart"
+      <Link
+        to="cart"
         className="icon icon--cart"
-      ></a>
+      ></Link>
     </div>
   </div>
 );
