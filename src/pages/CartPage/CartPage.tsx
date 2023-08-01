@@ -1,3 +1,4 @@
+import { CartItem } from '../../components/CartItem';
 import './CartPage.scss';
 
 export const CartPage = () => {
@@ -9,7 +10,9 @@ export const CartPage = () => {
 
     <div className="cart__wrapper">
       <div className="cart__items">
-        Items
+        <div className="cart__item">
+          <CartItem />
+        </div>
       </div>
       <div className="cart__total">
         <h3 className="cart__price">$2657</h3>
