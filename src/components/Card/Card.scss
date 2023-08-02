@@ -96,7 +96,7 @@
     padding: 0 32px 32px 32px;
   }
 
-  &_button {
+  &_button-active {
     @include button-text();
     display: flex;
     height: 40px;
@@ -115,6 +115,20 @@
       color: $text-color;
       cursor: pointer;
     }
+  }
+
+  &_button-disabled {
+    @include button-text();
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 0;
+    color: $c-white;
+    margin-right: 8px;
+    transition: 0.2s;
+    padding: 0;
+    background-color: white;
   }
 
   &_like_button {

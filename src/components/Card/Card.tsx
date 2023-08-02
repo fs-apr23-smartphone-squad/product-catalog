@@ -1,4 +1,3 @@
-import React from 'react';
 import cn from 'classnames';
 import { PhoneImage } from './PhoneImage';
 import { Phone } from '../Types/Types';
@@ -8,9 +7,15 @@ import './Card.scss';
 /* eslint-disable */
 interface Props {
   phone: Phone;
+  onAddToCart: (id: number) => void;
+  phoneIdsInCart: number[];
 }
 
-export const Card: React.FC<Props> = ({ phone }) => {
+export const Card: React.FC<Props> = ({
+  phone,
+  onAddToCart,
+  phoneIdsInCart,
+ }) => {
   const {
     id,
     name: phoneName,
@@ -22,21 +27,17 @@ export const Card: React.FC<Props> = ({ phone }) => {
     image,
   } = phone;
 
+  const isPhoneInCart = phoneIdsInCart.includes(id);
+
   return (
-    <article className={cn('card', {})}>
-        <PhoneImage src={image} />
-        <div className='card_title--container'>
-        <h3 className="card_title">
-        {phoneName}
-      </h3>
-        </div>
+    <article className={cn("card", {})}>
+      <PhoneImage src={image} />
+      <div className="card_title--container">
+        <h3 className="card_title">{phoneName}</h3>
+      </div>
       <div className="card_price">
-        <p className="card_price-new">
-          {`$${price}`}
-        </p>
-        <p className="card_price-old">
-        {`$${fullPrice}`}
-        </p>
+        <p className="card_price-new">{`$${price}`}</p>
+        <p className="card_price-old">{`$${fullPrice}`}</p>
       </div>
       <div className="card_divider"></div>
       <div className="card_specs">
@@ -54,11 +55,13 @@ export const Card: React.FC<Props> = ({ phone }) => {
         </div>
       </div>
       <div className="card_buttons_container">
-        <button className="card_button">
+        <button
+          className={isPhoneInCart ? "card_button-disabled" : "card_button-active"}
+          onClick={() => onAddToCart(id)}
+        >
           Add to cart
         </button>
-        <button className="card_like_button">
-        </button>
+        <button className="card_like_button"></button>
       </div>
     </article>
   );
