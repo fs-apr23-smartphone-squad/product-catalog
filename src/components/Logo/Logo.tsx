@@ -9,7 +9,7 @@ export const Logo = () => (
     <Link to="home">
       <img
         className="logo__img"
-        src={logo}
+        src={`${logo}`}
         alt="Nice gadgets logo"
       >
       </img>
