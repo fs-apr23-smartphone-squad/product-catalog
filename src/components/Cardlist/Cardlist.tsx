@@ -26,11 +26,6 @@ export const Cardlist: React.FC<Props> = ({ phones }) => {
     localStorage.setItem('phoneIds', JSON.stringify(phoneIdsInCart))
   }, [phoneIdsInCart])
 
-  useEffect(() => {
-    console.log('Current phoneIdsInCart:', phoneIdsInCart);
-  }, [phoneIdsInCart]);
-
-
   return (
     <div className='grid'>
       {phones.map((phone: Phone) => (
