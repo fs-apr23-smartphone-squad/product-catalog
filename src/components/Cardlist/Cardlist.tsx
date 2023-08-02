@@ -17,9 +17,19 @@ export const Cardlist: React.FC<Props> = ({ phones }) => {
     setPhoneIdsInCart(prevIds => [...prevIds, id])
   }
 
+  const removeFromCart = (id: number) => {
+    const filter = phoneIdsInCart.filter(phoneId => phoneId !==id);
+    setPhoneIdsInCart(filter);
+  }
+
   useEffect(() => {
     localStorage.setItem('phoneIds', JSON.stringify(phoneIdsInCart))
   }, [phoneIdsInCart])
+
+  useEffect(() => {
+    console.log('Current phoneIdsInCart:', phoneIdsInCart);
+  }, [phoneIdsInCart]);
+
 
   return (
     <div className='grid'>
@@ -28,6 +38,7 @@ export const Cardlist: React.FC<Props> = ({ phones }) => {
           <Card
             phone={phone}
             onAddToCart={handleAddToCart}
+            onRemoveFromCart={removeFromCart}
             phoneIdsInCart={phoneIdsInCart}
           />
         </div>

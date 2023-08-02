@@ -9,13 +9,15 @@ interface Props {
   phone: Phone;
   onAddToCart: (id: number) => void;
   phoneIdsInCart: number[];
+  onRemoveFromCart: (id: number) => void;
 }
 
 export const Card: React.FC<Props> = ({
   phone,
   onAddToCart,
   phoneIdsInCart,
- }) => {
+  onRemoveFromCart,
+}) => {
   const {
     id,
     name: phoneName,
@@ -55,14 +57,24 @@ export const Card: React.FC<Props> = ({
         </div>
       </div>
       <div className="card_buttons_container">
-        <button
-          className={isPhoneInCart ? "card_button-disabled" : "card_button-active"}
+        {isPhoneInCart ? (
+          <button
+            className="card_button-disabled"
+            onClick={() => onRemoveFromCart(id)}
+          >
+            Added
+          </button>
+        ) : (
+          <button
+          className="card_button-active"
           onClick={() => onAddToCart(id)}
         >
           Add to cart
         </button>
+        )}
+
         <button className="card_like_button"></button>
       </div>
-    </article>
+    </article >
   );
 };
