@@ -1,6 +1,6 @@
-import { Contacts } from "../Contacts";
-import "./footer.scss";
-import logo from "../../images/logo.svg";
+import { Contacts } from '../Contacts';
+import './footer.scss';
+import logo from '../../images/logo.svg';
 
 export const Footer = () => (
   <footer className="footer">
