@@ -6,16 +6,24 @@
 }
 
 @mixin onTablet {
-  @media (min-width: 640px) {
+  @media (min-width: 640px) and (max-width: 1199px) {
     @content;
   }
 }
+
 
 @mixin onDesctop {
   @media (min-width: 1200px) {
     @content;
   }
 }
+
+@mixin onMobile {
+  @media (min-width: 320px) and (max-width: 639px) {
+    @content;
+  }
+}
+
 
 // card mixins
 @mixin text {
