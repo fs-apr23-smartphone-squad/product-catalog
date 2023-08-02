@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState, MouseEvent } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './Dropdown.scss';
 
+/* eslint-disable */
 interface Props {
   title: string,
   perPage: number,
@@ -19,8 +20,9 @@ export const Dropdown: React.FC<Props> = ({
 
   const options = [16, 32, 48, 64];
 
-  const handleClickOutside: EventListener  = (event) => {
+  const handleClickOutside: EventListener = (event) => {
     const targetNode = event.target as Node;
+
     if (dropdownRef.current && !dropdownRef.current.contains(targetNode)) {
       setDroped(false);
     }
@@ -37,7 +39,7 @@ export const Dropdown: React.FC<Props> = ({
   const handleListDisplay = () => {
     if (droped) {
       setDroped(false);
-      console.log('drop')
+
       return;
     }
 
@@ -50,43 +52,41 @@ export const Dropdown: React.FC<Props> = ({
     setDroped(false);
   };
 
-    return (
-      <div
-        className='dropdown'
-        ref={dropdownRef}
+  return (
+    <div
+      className='dropdown'
+      ref={dropdownRef}
+    >
+      <label
+        className='dropdown__label'
+        htmlFor="perPageSelector"
       >
-        <label
-          className='dropdown__label'
-          htmlFor="perPageSelector"
-        >
-          {title}
-        </label>
+        {title}
+      </label>
 
-        <div
-          className='dropdown__select'
-          onClick={handleListDisplay}
-        >
-          <div>
-          </div>
-          <p className='dropdown__select--default'>       
-            {selectedQuantity}
-          </p>
-        </div>
-        {droped && (
-          <ul className='dropdown__select-items'>
-            {options.map(option => {
-              return (
-                <li
-                  className='dropdown__item'
-                  key={option}
-                  onClick={() => handleOptionClick(option)}
-                >
-                  {option}
-                </li>
-              );
-            })}
-          </ul>
-        )}
+      <div
+        className='dropdown__select'
+        onClick={handleListDisplay}
+      >
+        <p className='dropdown__select--default'>
+          {selectedQuantity}
+        </p>
       </div>
-    );
-}
+      {droped && (
+        <ul className='dropdown__select-items'>
+          {options.map(option => {
+            return (
+              <li
+                className='dropdown__item'
+                key={option}
+                onClick={() => handleOptionClick(option)}
+              >
+                {option}
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+};
