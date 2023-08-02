@@ -1,0 +1,97 @@
+@import '../../styles/index.scss';
+
+.phone {
+  padding: 35px 16px 56px;
+  max-width: 1136px;
+
+  text-align: left;
+
+  @include onTablet {
+    padding: 60px 24px 64px;
+  }
+
+  &__back-link {
+    position: relative;
+    display: block;
+    margin-bottom: 16px;
+    padding-left: 20px;
+
+    color: $gray-secondary;
+    text-decoration: none;
+
+    &:hover {
+      color: $gray-primary
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+
+      background-image: url(../../images/Icons/ArrowBack.svg);
+      background-size: cover;
+    }
+  }
+
+  &__title {
+    margin-bottom: 40px;
+
+    font-size: 22px;
+    font-weight: 800;
+    color: $gray-primary;
+
+    @include onTablet {
+      font-size: 32px;
+    }
+  }
+
+  &__details {
+    margin-bottom: 56px;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    @include onDesctop {
+      gap: 64px;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__description {
+    margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesctop {
+      display: flex;
+      justify-content: space-between;
+      gap: 64px;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__about {
+    margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesctop {
+      margin-bottom: 0;
+    }
+  }
+}
