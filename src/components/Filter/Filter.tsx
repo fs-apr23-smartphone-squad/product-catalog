@@ -1,6 +1,8 @@
+import React from 'react';
 import { Dropdown } from '../Dropdown/Dropdown';
 import './Filter.scss';
 
+/* eslint-disable */
 interface Props {
   perPage: number,
   handlePerPage: (option: number) => void,
@@ -10,7 +12,6 @@ export const Filter: React.FC<Props> = ({
   perPage,
   handlePerPage,
 }) => {
-
   return (
     <div className='filter'>
       <Dropdown
@@ -26,4 +27,4 @@ export const Filter: React.FC<Props> = ({
       />
     </div>
   );
-}
+};

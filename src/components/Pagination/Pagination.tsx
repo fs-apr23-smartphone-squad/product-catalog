@@ -5,7 +5,8 @@ import {
   generateVisiblePages,
 } from '../Helpers/generateVisiblePages';
 
-type Props = {
+/* eslint-disable */
+interface Props {
   total: number,
   perPage: number
   currentPage: number
@@ -23,7 +24,7 @@ export const Pagination: React.FC<Props> = ({
     currentPage,
     totalPages,
     5, // number of pages to show
-    );
+  );
 
   const handlePageChange = (page: number) => {
     if (currentPage !== page && page >= 1 && page <= totalPages) {
@@ -33,9 +34,10 @@ export const Pagination: React.FC<Props> = ({
 
   return (
     <ul className="pagination">
-      <li className={cn('pagination__page-item pagination__page-item--prev-page', {
-        'pagination__page-item--inActive': currentPage <= 1,
-      })}
+      <li className={
+        cn('pagination__page-item pagination__page-item--prev-page', {
+          'pagination__page-item--inActive': currentPage <= 1,
+        })}
       >
         <a
           className="pagination__page-link"
@@ -61,9 +63,10 @@ export const Pagination: React.FC<Props> = ({
         </li>
       ))}
 
-      <li className={cn('pagination__page-item pagination__page-item--next-page', {
-        'pagination__page-item--inActive': currentPage === totalPages,
-      })}
+      <li className={
+        cn('pagination__page-item pagination__page-item--next-page', {
+          'pagination__page-item--inActive': currentPage === totalPages,
+        })}
       >
         <a
           className="pagination__page-link"
