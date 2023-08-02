@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { CartItem } from '../../components/CartItem';
+import { ModalWindow } from '../../components/ModalWindow';
 import './CartPage.scss';
 
 export const CartPage = () => {
+  const [isModal, setIsModal] = useState(false);
+
   return (
   <div className="cart">
     <a href="#" className="cart__link">Back</a>
@@ -17,9 +21,16 @@ export const CartPage = () => {
       <div className="cart__total">
         <h3 className="cart__price">$2657</h3>
         <span className="cart__amount">Total for 3 items</span>
-        <button className="cart__button">Checkout</button>
+        <button
+          className="cart__button"
+          onClick={() => setIsModal(!isModal)}
+        >
+          Checkout
+        </button>
       </div>
     </div>
+
+    {isModal && <ModalWindow />}
   </div>
   );
 };
