@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import './App.css';
@@ -13,6 +14,22 @@ import { Footer } from './components/Footer';
 import { PhoneDetailsPage } from './pages/PnoneDetailsPage';
 
 function App() {
+  const [phoneIdsInCart, setPhoneIdsInCart] = useState<number[]>(() => {
+    const storedIds = localStorage.getItem('phoneIds');
+
+    return storedIds ? JSON.parse(storedIds) : [];
+  });
+
+  const handleAddToCart = (id: number) => {
+    setPhoneIdsInCart(prevIds => [...prevIds, id]);
+  };
+
+  const removeFromCart = (id: number) => {
+    const filter = phoneIdsInCart.filter(phoneId => phoneId !== id);
+
+    setPhoneIdsInCart(filter);
+  };
+
   return (
     <div className="App">
       <Page />
@@ -20,8 +37,20 @@ function App() {
       <Routes>
         <Route path="home" element={<HomePage />} />
         <Route path="/" element={<Navigate to="home" />} />
-        <Route path="phones" element={<PhonesPage />}/>
-        <Route path="phones/:phoneId" element={<PhoneDetailsPage />} />
+        <Route path="phones" element={
+          <PhonesPage
+            phoneIdsInCart={phoneIdsInCart}
+            handleAddToCart={handleAddToCart}
+            removeFromCart={removeFromCart}
+          />
+        }/>
+        <Route path="phones/:phoneId" element={
+          <PhoneDetailsPage
+            phoneIdsInCart={phoneIdsInCart}
+            handleAddToCart={handleAddToCart}
+            removeFromCart={removeFromCart}
+          />
+        }/>
         <Route path="tablets" element={<TabletsPage />} />
         <Route path="accessories" element={<AccessoriesPage />} />
         <Route path="favourites" element={<FavouritesPage />} />

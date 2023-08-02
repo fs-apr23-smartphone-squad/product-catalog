@@ -1,6 +1,15 @@
+import React from 'react';
 import './PhoneDetailsPage.scss';
+import { Recommended } from '../../components/Recommended';
 
-export const PhoneDetailsPage = () => {
+/* eslint-disable */
+interface Props {
+  phoneIdsInCart: number[];
+  handleAddToCart: (id: number) => void;
+  removeFromCart: (id: number) => void;
+}
+
+export const PhoneDetailsPage: React.FC<Props> = ({ phoneIdsInCart, handleAddToCart, removeFromCart }) => {
   return (
     <div className="phone">
       <a href="#" className="phone__back-link">Back</a>
@@ -18,7 +27,13 @@ export const PhoneDetailsPage = () => {
           <div className="phone__about"></div>
         <div className="phone__tech-specs"></div>
         </div>
-        <div className="phone__reccomended"></div>
+        <div className="phone__recommended">
+          <Recommended
+            phoneIdsInCart={phoneIdsInCart}
+            handleAddToCart={handleAddToCart}
+            removeFromCart={removeFromCart}
+          />
+        </div>
       </div>
     </div>
   );

@@ -7,24 +7,19 @@ import { Filter } from '../Filter/Filter';
 /* eslint-disable */
 interface Props {
   phones: Phone[];
+  phoneIdsInCart: number[];
+  handleAddToCart: (id: number) => void;
+  removeFromCart: (id: number) => void;
 }
 
-export const Cardlist: React.FC<Props> = ({ phones }) => {
-  const [phoneIdsInCart, setPhoneIdsInCart] = useState<number[]>(() => {
-    const storedIds = localStorage.getItem('phoneIds');
-    return storedIds ? JSON.parse(storedIds) : []
-  });
+export const Cardlist: React.FC<Props> = ({
+  phones,
+  phoneIdsInCart,
+  handleAddToCart,
+  removeFromCart,
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(16);
-
-  const handleAddToCart = (id: number) => {
-    setPhoneIdsInCart(prevIds => [...prevIds, id])
-  }
-
-  const removeFromCart = (id: number) => {
-    const filter = phoneIdsInCart.filter(phoneId => phoneId !==id);
-    setPhoneIdsInCart(filter);
-  }
 
   useEffect(() => {
     localStorage.setItem('phoneIds', JSON.stringify(phoneIdsInCart))

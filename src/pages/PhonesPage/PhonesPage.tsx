@@ -5,8 +5,14 @@ import { getPhones } from '../../components/Helpers/fetchClient';
 import { Phone } from '../../components/Types/Types';
 
 /* eslint-disable no-console */
+/* eslint-disable */
+interface Props {
+  phoneIdsInCart: number[];
+  handleAddToCart: (id: number) => void;
+  removeFromCart: (id: number) => void;
+}
 
-export const PhonesPage = () => {
+export const PhonesPage: React.FC<Props> = ({ phoneIdsInCart, handleAddToCart, removeFromCart }) => {
   const [phones, setPhones] = useState<Phone[]>([]);
 
   useEffect(() => {
@@ -25,7 +31,12 @@ export const PhonesPage = () => {
 
   return (
     <div className='phones_page_container'>
-      <Cardlist phones={phones}/>
+      <Cardlist
+        phones={phones}
+        phoneIdsInCart={phoneIdsInCart}
+        handleAddToCart={handleAddToCart}
+        removeFromCart={removeFromCart}
+      />
     </div>
   );
 };
