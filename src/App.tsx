@@ -10,6 +10,7 @@ import { FavouritesPage } from './pages/FavouritesPage';
 import { CartPage } from './pages/CartPage';
 import { PageNotFound } from './pages/PageNotFound';
 import { Footer } from './components/Footer';
+import { PhoneDetailsPage } from './pages/PnoneDetailsPage';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       <Routes>
         <Route path="home" element={<HomePage />} />
         <Route path="/" element={<Navigate to="home" />} />
-        <Route path="phones" element={<PhonesPage />} />
+        <Route path="phones" element={<PhonesPage />}/>
+        <Route path="phones/:phoneId" element={<PhoneDetailsPage />} />
         <Route path="tablets" element={<TabletsPage />} />
         <Route path="accessories" element={<AccessoriesPage />} />
         <Route path="favourites" element={<FavouritesPage />} />
