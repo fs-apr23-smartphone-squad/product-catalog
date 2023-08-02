@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product-catalog/static/css/main.c31b3741.css",
-    "main.js": "/product-catalog/static/js/main.70a38dff.js",
+    "main.css": "/product-catalog/static/css/main.f76cbb69.css",
+    "main.js": "/product-catalog/static/js/main.1ec3f7b6.js",
     "static/js/787.10a53ce6.chunk.js": "/product-catalog/static/js/787.10a53ce6.chunk.js",
     "static/media/logo.svg": "/product-catalog/static/media/logo.3c6bd1886792ca6da9d59ce7bea7dc78.svg",
     "static/media/Mont-Regular.otf": "/product-catalog/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
@@ -12,13 +12,16 @@
     "index.html": "/product-catalog/index.html",
     "static/media/Close.svg": "/product-catalog/static/media/Close.0594ac0ef702db8fbc79.svg",
     "static/media/Menu.svg": "/product-catalog/static/media/Menu.744ac0b04d84e4feeeb5.svg",
+    "static/media/Plus.svg": "/product-catalog/static/media/Plus.eb7b6e98db9f2c61f9be.svg",
     "static/media/ArrowBack.svg": "/product-catalog/static/media/ArrowBack.138ed065138e159d8a9c.svg",
-    "main.c31b3741.css.map": "/product-catalog/static/css/main.c31b3741.css.map",
-    "main.70a38dff.js.map": "/product-catalog/static/js/main.70a38dff.js.map",
+    "static/media/Chevron.svg": "/product-catalog/static/media/Chevron.dbcfbcafc20dbfe9d8c9.svg",
+    "static/media/Minus.svg": "/product-catalog/static/media/Minus.e7ca08225306197731df.svg",
+    "main.f76cbb69.css.map": "/product-catalog/static/css/main.f76cbb69.css.map",
+    "main.1ec3f7b6.js.map": "/product-catalog/static/js/main.1ec3f7b6.js.map",
     "787.10a53ce6.chunk.js.map": "/product-catalog/static/js/787.10a53ce6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c31b3741.css",
-    "static/js/main.70a38dff.js"
+    "static/css/main.f76cbb69.css",
+    "static/js/main.1ec3f7b6.js"
   ]
 }
