@@ -1,0 +1,65 @@
+@import '../../styles/utils/vars';
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+  user-select: none;
+
+  &__page-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 8px;
+    margin-bottom: 80px;
+
+    font-size: 14px;
+    border: 1px solid $like-border-color;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &:first-child {
+      margin-right: 16px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+
+    &--next-page {
+      border: 1px solid $description-color;
+      background-image: url(../../images/Icons/ArrowBack.svg);
+      transform: rotate(180deg);
+      &:active {
+        background-color: $text-color;
+      }
+    }
+
+    &--prev-page {
+      border: 1px solid $description-color;
+      background-image: url(../../images/Icons/ArrowBack.svg);
+    }
+
+    &--active {
+      color: #fff;
+      background-color: $text-color;
+      border: 0;
+    }
+
+    &--inActive {
+      pointer-events: none;
+    }
+  }
+
+  &__page-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    width: 32px;
+  }
+}
