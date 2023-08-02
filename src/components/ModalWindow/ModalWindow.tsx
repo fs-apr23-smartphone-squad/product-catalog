@@ -7,7 +7,7 @@ export const ModalWindow = () => {
   const [isModal, setIsModal] = useState(true);
   const closeModal = () => {
     return () => setIsModal(false);
-  }
+  };
 
   return (
     <div
