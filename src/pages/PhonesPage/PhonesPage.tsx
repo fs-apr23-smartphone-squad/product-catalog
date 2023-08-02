@@ -24,11 +24,8 @@ export const PhonesPage = () => {
   }, []);
 
   return (
-    <>
-    <h1 className="title">Phones page</h1>
     <div className='phones_page_container'>
-    <Cardlist phones={phones}/>
+      <Cardlist phones={phones}/>
     </div>
-    </>
   );
 };

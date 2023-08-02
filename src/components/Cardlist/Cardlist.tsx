@@ -3,6 +3,7 @@ import { Card } from '../Card/Card';
 import { Phone } from '../Types/Types';
 import { Pagination } from '../Pagination/Pagination';
 import './Cardlist.scss';
+import { Filter } from '../Filter/Filter';
 /* eslint-disable */
 interface Props {
   phones: Phone[];
@@ -13,8 +14,8 @@ export const Cardlist: React.FC<Props> = ({ phones }) => {
     const storedIds = localStorage.getItem('phoneIds');
     return storedIds ? JSON.parse(storedIds) : []
   });
-  const [currentPage, setCurrentPage] = useState(2);
-  const [perPage, setPerPage] = useState(5);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [perPage, setPerPage] = useState(16);
 
   const handleAddToCart = (id: number) => {
     setPhoneIdsInCart(prevIds => [...prevIds, id])
@@ -24,8 +25,8 @@ export const Cardlist: React.FC<Props> = ({ phones }) => {
     localStorage.setItem('phoneIds', JSON.stringify(phoneIdsInCart))
   }, [phoneIdsInCart])
 
-  const handlePerPage = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setPerPage(+e.target.value);
+  const handlePerPage = (option: number) => {
+    setPerPage(option);
     setCurrentPage(1);
   };
 
@@ -42,8 +43,10 @@ export const Cardlist: React.FC<Props> = ({ phones }) => {
 
   return (
     <>
-    <h1 className='cardList__title'>Mobile phones</h1>
-    <h4 className='cardList__quantity'>{`${phones.length} models`}</h4>
+    <div className='cardList'>
+      <h1 className='cardList__title'>Mobile phones</h1>
+      <h4 className='cardList__quantity'>{`${phones.length} models`}</h4>
+    </div>
 
     <Filter
       handlePerPage={handlePerPage}
