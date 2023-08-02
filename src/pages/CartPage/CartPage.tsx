@@ -23,7 +23,7 @@ export const CartPage = () => {
         <span className="cart__amount">Total for 3 items</span>
         <button
           className="cart__button"
-          onClick={() => setIsModal(!isModal)}
+          onClick={() => setIsModal(true)}
         >
           Checkout
         </button>
