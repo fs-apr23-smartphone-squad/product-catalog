@@ -1,15 +1,22 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone } from '../Types/Types';
 import './CartItem.scss';
 
 type Props = {
   onRemoveFromCart: (id: number) => void;
   phone: Phone;
+  setTotalItems: React.Dispatch<React.SetStateAction<number>>;
+  setIsLoaded: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const Base = 'https://api.smartphonesquad.shop/';
 
-export const CartItem: React.FC<Props> = ({ onRemoveFromCart, phone }) => {
+export const CartItem: React.FC<Props> = ({
+  onRemoveFromCart,
+  phone,
+  setTotalItems,
+  setIsLoaded,
+}) => {
   const {
     id,
     name: phoneName,
@@ -22,6 +29,7 @@ export const CartItem: React.FC<Props> = ({ onRemoveFromCart, phone }) => {
 
     return storedCounter ? JSON.parse(storedCounter).itemCount : 1;
   });
+
   const storedItem = {
     id,
     itemCount,
@@ -30,14 +38,17 @@ export const CartItem: React.FC<Props> = ({ onRemoveFromCart, phone }) => {
 
   useEffect(() => {
     localStorage.setItem(`id#${id} phone in cart`, JSON.stringify({ ...storedItem, itemCount }));
+    setIsLoaded(true);
   }, [itemCount]);
 
   const handleIncreaseCount = () => {
     setItemCount((prevCount) => prevCount + 1);
+    setTotalItems((prevTotal) => prevTotal + 1);
   };
 
   const handleDecreaseCount = () => {
     setItemCount((prevCount) => prevCount - 1);
+    setTotalItems((prevTotal) => prevTotal - 1);
   };
 
   const handleRemoveFromCart = () => {

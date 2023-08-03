@@ -22,6 +22,10 @@
     color: $gray-secondary;
     text-decoration: none;
 
+    &:hover {
+      color: $gray-primary
+    }
+
     @include onTablet {
       margin-bottom: 16px;
     }
