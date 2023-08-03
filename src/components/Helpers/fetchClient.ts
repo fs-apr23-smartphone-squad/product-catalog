@@ -16,3 +16,4 @@ export async function get<T>(url: string): Promise<T> {
 }
 
 export const getPhones = () => get<Phone[]>('/products');
+export const getPhonesByIds = (phoneIds: string[]) => get<Phone[]>(`/products?ids=${phoneIds.join(',')}`);
