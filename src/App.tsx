@@ -54,7 +54,12 @@ function App() {
         <Route path="tablets" element={<TabletsPage />} />
         <Route path="accessories" element={<AccessoriesPage />} />
         <Route path="favourites" element={<FavouritesPage />} />
-        <Route path="cart" element={<CartPage />} />
+        <Route path="cart" element={
+          <CartPage
+            phoneIdsInCart={phoneIdsInCart}
+            removeFromCart={removeFromCart}
+          />
+        } />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
 
