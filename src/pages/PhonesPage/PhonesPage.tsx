@@ -10,13 +10,22 @@ interface Props {
   phoneIdsInCart: number[];
   handleAddToCart: (id: number) => void;
   removeFromCart: (id: number) => void;
+  phoneIdsInFavourites: number[];
+  handleAddToFavourites: (id: number) => void;
+  removeFromFavourites: (id: number) => void;
 }
 
-export const PhonesPage: React.FC<Props> = ({ phoneIdsInCart, handleAddToCart, removeFromCart }) => {
+export const PhonesPage: React.FC<Props> = ({ phoneIdsInCart,
+  handleAddToCart,
+  removeFromCart,
+  phoneIdsInFavourites,
+  handleAddToFavourites,
+  removeFromFavourites,
+}) => {
   const [phones, setPhones] = useState<Phone[]>([]);
 
   useEffect(() => {
-    const fetchPhones = async() => {
+    const fetchPhones = async () => {
       try {
         const fetchedPhones = await getPhones();
 
@@ -36,6 +45,9 @@ export const PhonesPage: React.FC<Props> = ({ phoneIdsInCart, handleAddToCart, r
         phoneIdsInCart={phoneIdsInCart}
         handleAddToCart={handleAddToCart}
         removeFromCart={removeFromCart}
+        phoneIdsInFavourites={phoneIdsInFavourites}
+        handleAddToFavourites={handleAddToFavourites}
+        removeFromFavourites={removeFromFavourites}
       />
     </div>
   );

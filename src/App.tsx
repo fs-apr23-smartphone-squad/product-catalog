@@ -20,6 +20,11 @@ function App() {
     return storedIds ? JSON.parse(storedIds) : [];
   });
 
+  const [phoneIdsInFavourites, setPhoneIdsInFavourites] = useState<number[]>(() => {
+    const storedIds = localStorage.getItem('phoneIdsInFavourites');
+    return storedIds ? JSON.parse(storedIds) : [];
+  });
+
   const handleAddToCart = (id: number) => {
     setPhoneIdsInCart(prevIds => [...prevIds, id]);
   };
@@ -30,9 +35,20 @@ function App() {
     setPhoneIdsInCart(filter);
   };
 
+  const handleAddToFavourites = (id: number) => {
+    console.log('Adding to favourites:', id);
+    setPhoneIdsInFavourites(prevIds => [...prevIds, id])
+  }
+
+  const removeFromFavourites = (id: number) => {
+    console.log('rem to favourites:', id);
+    const filter = phoneIdsInFavourites.filter(phoneId => phoneId !== id);
+    setPhoneIdsInFavourites(filter);
+  }
+
   return (
     <div className="App">
-      <Page />
+      <Page phoneIdsInFavourites={phoneIdsInFavourites} />
 
       <Routes>
         <Route path="home" element={<HomePage />} />
@@ -42,18 +58,30 @@ function App() {
             phoneIdsInCart={phoneIdsInCart}
             handleAddToCart={handleAddToCart}
             removeFromCart={removeFromCart}
+            handleAddToFavourites={handleAddToFavourites}
+            removeFromFavourites={removeFromFavourites}
+            phoneIdsInFavourites={phoneIdsInFavourites}
           />
-        }/>
+        } />
         <Route path="phones/:phoneId" element={
           <PhoneDetailsPage
             phoneIdsInCart={phoneIdsInCart}
             handleAddToCart={handleAddToCart}
             removeFromCart={removeFromCart}
           />
-        }/>
+        } />
         <Route path="tablets" element={<TabletsPage />} />
         <Route path="accessories" element={<AccessoriesPage />} />
-        <Route path="favourites" element={<FavouritesPage />} />
+        <Route path="favourites" element={
+            <FavouritesPage
+              phoneIdsInFavourites={phoneIdsInFavourites}
+              removeFromFavourites={removeFromFavourites}
+              phoneIdsInCart={phoneIdsInCart}
+              handleAddToCart={handleAddToCart}
+              removeFromCart={removeFromCart}
+              handleAddToFavourites={handleAddToFavourites}
+            />
+        } />
         <Route path="cart" element={
           <CartPage
             phoneIdsInCart={phoneIdsInCart}

@@ -1,5 +1,6 @@
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
+
   &:hover {
     #{$_property}: $_toValue;
   }
@@ -35,6 +36,14 @@
 @mixin text {
   font-family: 'Mont', sans-serif;
   font-style: normal;
+}
+
+@mixin headerText {
+  @include text();
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 56px;
+  letter-spacing: -0.48px;
 }
 
 @mixin title-text {

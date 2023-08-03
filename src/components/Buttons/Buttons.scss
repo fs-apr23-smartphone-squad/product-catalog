@@ -1,4 +1,5 @@
 @import '../../styles/index.scss';
+@import '../../styles/utils/mixins';
 
 .buttons {
   display: flex;
@@ -65,9 +66,28 @@
 
   &--favourites {
     background-image: url(../../images/Icons/Favourites.svg);
+    position: relative;
   }
 
   &--cart {
     background-image: url(../../images/Icons/Cart.svg);
   }
+}
+
+.ellipse {
+  @include description-text();
+  font-size: 8px;
+  color: white;
+  background-image: url(../../images/Icons/Ellipse.svg);
+  position: absolute;
+  top: -3px;
+  right: -5px;
+  width: 12px;
+  height: 12px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

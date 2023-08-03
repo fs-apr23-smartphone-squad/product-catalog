@@ -1,9 +1,9 @@
 @import "./styles/utils/_normalize.scss";
 @import "./styles/main.scss";
 
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 .App-logo {
   height: 40vmin;

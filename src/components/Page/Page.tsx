@@ -1,10 +1,15 @@
+import React from 'react';
 import { Header } from '../Header';
 import './Page.scss';
 
-export const Page = () => {
+interface Props {
+  phoneIdsInFavourites: number[];
+}
+
+export const Page: React.FC<Props> = ({ phoneIdsInFavourites }) => {
   return (
     <>
-      <Header />
+      <Header phoneIdsInFavourites={phoneIdsInFavourites} />
     </>
   );
 };

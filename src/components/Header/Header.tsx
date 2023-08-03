@@ -1,9 +1,14 @@
+import React from 'react';
 import { Buttons } from '../Buttons';
 import { Logo } from '../Logo';
 import { Navigation } from '../Navigation/Navigation';
 import './Header.scss';
 
-export const Header = () => (
+interface Props {
+  phoneIdsInFavourites: number[];
+}
+
+export const Header: React.FC<Props> = ({ phoneIdsInFavourites }) => (
   <header className="header">
     <div className="header__left">
       <Logo />
@@ -11,6 +16,6 @@ export const Header = () => (
       <Navigation />
     </div>
 
-    <Buttons />
+    <Buttons phoneIdsInFavourites={phoneIdsInFavourites} />
   </header>
 );
