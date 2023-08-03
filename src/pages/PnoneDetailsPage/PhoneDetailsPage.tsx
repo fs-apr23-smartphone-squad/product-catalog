@@ -23,30 +23,35 @@ export const PhoneDetailsPage: React.FC<Props> = ({ phoneIdsInCart, handleAddToC
           <div className="phone__photos">
             <img
               className='phone__photo--big'
+              // eslint-disable-next-line max-len
               src="https://api.smartphonesquad.shop/img/phones/apple-iphone-7/gold/00.jpg"
               alt="Phone photo"
             />
             <div className="phone__photos--small">
               <img
                 className='phone__photo--small'
+                // eslint-disable-next-line max-len
                 src="https://api.smartphonesquad.shop/img/phones/apple-iphone-7/gold/01.jpg"
                 alt="Phone photo"
               />
 
               <img
                 className='phone__photo--small'
+                // eslint-disable-next-line max-len
                 src="https://api.smartphonesquad.shop/img/phones/apple-iphone-7/gold/02.jpg"
                 alt="Phone photo"
               />
 
               <img
                 className='phone__photo--small'
+                // eslint-disable-next-line max-len
                 src="https://api.smartphonesquad.shop/img/phones/apple-iphone-7/gold/03.jpg"
                 alt="Phone photo"
               />
 
               <img
                 className='phone__photo--small'
+                // eslint-disable-next-line max-len
                 src="https://api.smartphonesquad.shop/img/phones/apple-iphone-7/gold/04.jpg"
                 alt="Phone photo"
               />
