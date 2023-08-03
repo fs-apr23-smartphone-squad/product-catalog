@@ -81,7 +81,7 @@
     border: 1px solid $shadow;
 
     &:hover {
-      background-color: $gray-secondary;
+      border-color: $gray-primary;
       cursor: pointer;
     }
 
