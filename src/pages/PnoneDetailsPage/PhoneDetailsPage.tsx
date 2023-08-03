@@ -20,7 +20,38 @@ export const PhoneDetailsPage: React.FC<Props> = ({ phoneIdsInCart, handleAddToC
 
       <div className="phone__container">
         <div className="phone__details">
-          <div className="phone__photos"></div>
+          <div className="phone__photos">
+            <img
+              className='phone__photo--big'
+              src="https://api.smartphonesquad.shop/img/phones/apple-iphone-7/gold/00.jpg"
+              alt="Phone photo"
+            />
+            <div className="phone__photos--small">
+              <img
+                className='phone__photo--small'
+                src="https://api.smartphonesquad.shop/img/phones/apple-iphone-7/gold/01.jpg"
+                alt="Phone photo"
+              />
+
+              <img
+                className='phone__photo--small'
+                src="https://api.smartphonesquad.shop/img/phones/apple-iphone-7/gold/02.jpg"
+                alt="Phone photo"
+              />
+
+              <img
+                className='phone__photo--small'
+                src="https://api.smartphonesquad.shop/img/phones/apple-iphone-7/gold/03.jpg"
+                alt="Phone photo"
+              />
+
+              <img
+                className='phone__photo--small'
+                src="https://api.smartphonesquad.shop/img/phones/apple-iphone-7/gold/04.jpg"
+                alt="Phone photo"
+              />
+            </div>
+          </div>
           <div className="phone__actions-block"></div>
         </div>
         <div className="phones__description">
