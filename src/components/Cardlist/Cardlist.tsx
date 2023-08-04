@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { Card } from '../Card/Card';
 import { Phone } from '../Types/Types';
 import './Cardlist.scss';
-import { Filter } from '../Filter/Filter';
-
 
 /* eslint-disable */
 interface Props {
@@ -32,22 +30,6 @@ export const Cardlist: React.FC<Props> = ({
   useEffect(() => {
     localStorage.setItem('phoneIdsInFavourites', JSON.stringify(phoneIdsInFavourites))
   }, [phoneIdsInFavourites])
-
-  const handlePerPage = (option: number) => {
-    setPerPage(option);
-    setCurrentPage(1);
-  };
-
-  const onPageChange = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-  };
-
-  const start = perPage * currentPage - perPage;
-  const end = perPage * currentPage <= phones.length
-    ? perPage * currentPage
-    : phones.length;
-
-  const phonesToShow = phones.slice(start, end);
 
   return (
     <div className='grid'>
