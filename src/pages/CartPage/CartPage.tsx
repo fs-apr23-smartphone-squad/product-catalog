@@ -68,8 +68,6 @@ export const CartPage: React.FC<Props> = ({
       return 0;
     });
 
-    console.log(priceArray);
-
     const total = priceArray.reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
     }, 0);
@@ -91,8 +89,6 @@ export const CartPage: React.FC<Props> = ({
 
       return 0;
     });
-
-    console.log(amountsArray);
 
     const total = amountsArray.reduce((accumulator, currentValue) => {
       return accumulator + currentValue;

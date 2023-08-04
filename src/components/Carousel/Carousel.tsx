@@ -1,15 +1,30 @@
 import React, { useRef } from 'react';
-import './Recommended.scss';
+import './Carousel.scss';
 import { Card } from '../Card';
+import { Phone } from '../Types/Types';
 
 /* eslint-disable */
 interface Props {
+  title: string;
+  phones: Phone[];
   phoneIdsInCart: number[];
   handleAddToCart: (id: number) => void;
   removeFromCart: (id: number) => void;
+  phoneIdsInFavourites: number[];
+  handleAddToFavourites: (id: number) => void;
+  removeFromFavourites: (id: number) => void;
 }
 
-export const Recommended: React.FC<Props> = ({ phoneIdsInCart, handleAddToCart, removeFromCart }) => {
+export const Carousel: React.FC<Props> = ({
+  title,
+  phones,
+  phoneIdsInCart,
+  handleAddToCart,
+  removeFromCart,
+  phoneIdsInFavourites,
+  handleAddToFavourites,
+  removeFromFavourites,
+}) => {
   const listRef = useRef<HTMLDivElement | null>(null);
 
   const handlePrevClick = () => {
@@ -24,26 +39,10 @@ export const Recommended: React.FC<Props> = ({ phoneIdsInCart, handleAddToCart, 
     }
   };
 
-  const phone = {
-    id: 1,
-    category: 'phones',
-    phoneId: 'apple-iphone-7-32gb-black',
-    itemId: 'apple-iphone-7-32gb-black',
-    name: 'Apple iPhone 7 32GB Black',
-    fullPrice: 400,
-    price: 375,
-    screen: '4.7` IPS',
-    capacity: '32GB',
-    color: 'black',
-    year: 2016,
-    ram: '2GB',
-    image: 'img/phones/apple-iphone-7/black/00.jpg',
-  };
-
   return (
     <div className="recommended">
       <div className="recommended__top">
-        <h3 className="recommended__title">You may also like</h3>
+        <h3 className="recommended__title">{title}</h3>
 
         <div className="recommended__slider">
           <button
@@ -71,36 +70,16 @@ export const Recommended: React.FC<Props> = ({ phoneIdsInCart, handleAddToCart, 
 
       <div className="recommended__content" ref={listRef}>
         <div className="recommended__scroll-wrapper">
-          <Card
+          {phones.map(phone => <Card
+            key={phone.phoneId}
             phone={phone}
             phoneIdsInCart={phoneIdsInCart}
-            onAddToCart={handleAddToCart}
-            onRemoveFromCart={removeFromCart}
-          />
-          <Card
-            phone={phone}
-            phoneIdsInCart={phoneIdsInCart}
-            onAddToCart={handleAddToCart}
-            onRemoveFromCart={removeFromCart}
-          />
-          <Card
-            phone={phone}
-            phoneIdsInCart={phoneIdsInCart}
-            onAddToCart={handleAddToCart}
-            onRemoveFromCart={removeFromCart}
-          />
-          <Card
-            phone={phone}
-            phoneIdsInCart={phoneIdsInCart}
-            onAddToCart={handleAddToCart}
-            onRemoveFromCart={removeFromCart}
-          />
-          <Card
-            phone={phone}
-            phoneIdsInCart={phoneIdsInCart}
-            onAddToCart={handleAddToCart}
-            onRemoveFromCart={removeFromCart}
-          />
+            handleAddToCart={handleAddToCart}
+            removeFromCart={removeFromCart}
+            phoneIdsInFavourites={phoneIdsInFavourites}
+            handleAddToFavourites={handleAddToFavourites}
+            removeFromFavourites={removeFromFavourites}
+          />)}
         </div>
       </div>
     </div>

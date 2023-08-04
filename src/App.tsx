@@ -68,6 +68,9 @@ function App() {
             phoneIdsInCart={phoneIdsInCart}
             handleAddToCart={handleAddToCart}
             removeFromCart={removeFromCart}
+            phoneIdsInFavourites={phoneIdsInFavourites}
+            handleAddToFavourites={handleAddToFavourites}
+            removeFromFavourites={removeFromFavourites}
           />
         } />
         <Route path="tablets" element={<TabletsPage />} />
