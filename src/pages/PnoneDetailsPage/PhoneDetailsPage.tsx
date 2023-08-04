@@ -1,6 +1,6 @@
 import React from 'react';
 import './PhoneDetailsPage.scss';
-import { Recommended } from '../../components/Recommended';
+import { Carousel } from '../../components/Carousel';
 
 /* eslint-disable */
 interface Props {
@@ -10,6 +10,54 @@ interface Props {
 }
 
 export const PhoneDetailsPage: React.FC<Props> = ({ phoneIdsInCart, handleAddToCart, removeFromCart }) => {
+  const phones = [
+    {
+      id: 1,
+      category: 'phones',
+      phoneId: 'apple-iphone-7-32gb-black',
+      itemId: 'apple-iphone-7-32gb-black',
+      name: 'Apple iPhone 7 32GB Black',
+      fullPrice: 400,
+      price: 375,
+      screen: '4.7` IPS',
+      capacity: '32GB',
+      color: 'black',
+      year: 2016,
+      ram: '2GB',
+      image: 'img/phones/apple-iphone-7/black/00.jpg',
+    },
+    {
+      id: 1,
+      category: 'phones',
+      phoneId: 'apple-iphone-7-32gb-black',
+      itemId: 'apple-iphone-7-32gb-black',
+      name: 'Apple iPhone 7 32GB Black',
+      fullPrice: 400,
+      price: 375,
+      screen: '4.7` IPS',
+      capacity: '32GB',
+      color: 'black',
+      year: 2016,
+      ram: '2GB',
+      image: 'img/phones/apple-iphone-7/black/00.jpg',
+    },
+    {
+      id: 1,
+      category: 'phones',
+      phoneId: 'apple-iphone-7-32gb-black',
+      itemId: 'apple-iphone-7-32gb-black',
+      name: 'Apple iPhone 7 32GB Black',
+      fullPrice: 400,
+      price: 375,
+      screen: '4.7` IPS',
+      capacity: '32GB',
+      color: 'black',
+      year: 2016,
+      ram: '2GB',
+      image: 'img/phones/apple-iphone-7/black/00.jpg',
+    },
+  ];
+
   return (
     <div className="phone">
       <a href="#" className="phone__back-link">Back</a>
@@ -64,7 +112,9 @@ export const PhoneDetailsPage: React.FC<Props> = ({ phoneIdsInCart, handleAddToC
         <div className="phone__tech-specs"></div>
         </div>
         <div className="phone__recommended">
-          <Recommended
+          <Carousel
+            title="You may also like"
+            phones={phones}
             phoneIdsInCart={phoneIdsInCart}
             handleAddToCart={handleAddToCart}
             removeFromCart={removeFromCart}
