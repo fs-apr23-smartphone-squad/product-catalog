@@ -20,10 +20,13 @@ function App() {
     return storedIds ? JSON.parse(storedIds) : [];
   });
 
-  const [phoneIdsInFavourites, setPhoneIdsInFavourites] = useState<number[]>(() => {
-    const storedIds = localStorage.getItem('phoneIdsInFavourites');
-    return storedIds ? JSON.parse(storedIds) : [];
-  });
+  const [phoneIdsInFavourites, setPhoneIdsInFavourites] = useState<number[]>(
+    () => {
+      const storedIds = localStorage.getItem('phoneIdsInFavourites');
+
+      return storedIds ? JSON.parse(storedIds) : [];
+    },
+  );
 
   const handleAddToCart = (id: number) => {
     setPhoneIdsInCart(prevIds => [...prevIds, id]);
@@ -36,22 +39,30 @@ function App() {
   };
 
   const handleAddToFavourites = (id: number) => {
-    console.log('Adding to favourites:', id);
-    setPhoneIdsInFavourites(prevIds => [...prevIds, id])
-  }
+    setPhoneIdsInFavourites(prevIds => [...prevIds, id]);
+  };
 
   const removeFromFavourites = (id: number) => {
-    console.log('rem to favourites:', id);
     const filter = phoneIdsInFavourites.filter(phoneId => phoneId !== id);
+
     setPhoneIdsInFavourites(filter);
-  }
+  };
 
   return (
     <div className="App">
       <Page phoneIdsInFavourites={phoneIdsInFavourites} />
 
       <Routes>
-        <Route path="home" element={<HomePage />} />
+        <Route path="home" element={
+          <HomePage
+            phoneIdsInCart={phoneIdsInCart}
+            handleAddToCart={handleAddToCart}
+            removeFromCart={removeFromCart}
+            handleAddToFavourites={handleAddToFavourites}
+            removeFromFavourites={removeFromFavourites}
+            phoneIdsInFavourites={phoneIdsInFavourites}
+          />
+        } />
         <Route path="/" element={<Navigate to="home" />} />
         <Route path="phones" element={
           <PhonesPage
