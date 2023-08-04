@@ -15,5 +15,11 @@ export async function get<T>(url: string): Promise<T> {
   }
 }
 
-export const getPhones = () => get<Phone[]>('/products');
+export const getPhones = (
+  limit: number,
+  offset: number,
+  sortBy: string = 'price',
+  sortOrder: 'ASC' | 'DESC' = 'ASC',
+) => get<Phone[]>(`/products?limit=${limit}&offset=${offset}&sortBy=${sortBy}&sortOrder=${sortOrder}`);
+
 export const getPhonesByIds = (phoneIds: string[]) => get<Phone[]>(`/products?ids=${phoneIds.join(',')}`);

@@ -1,6 +1,6 @@
 @import '../../styles/utils/vars';
 
-.dropdown {
+.sorting {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -40,7 +40,7 @@
       background-repeat: no-repeat;
       transform: rotate(270deg);
       position: relative;
-      left: 63px;
+      left: 28px;
       width: 15px;
       height: 15px;
     }

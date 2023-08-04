@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Card } from '../Card/Card';
 import { Phone } from '../Types/Types';
-import { Pagination } from '../Pagination/Pagination';
 import './Cardlist.scss';
 import { Filter } from '../Filter/Filter';
 
+
+/* eslint-disable */
 interface Props {
-  phones: Phone[];
+  phonesToShow: Phone[];
   phoneIdsInCart: number[];
   handleAddToCart: (id: number) => void;
   removeFromCart: (id: number) => void;
@@ -16,7 +17,7 @@ interface Props {
 }
 
 export const Cardlist: React.FC<Props> = ({
-  phones,
+  phonesToShow,
   phoneIdsInCart,
   handleAddToCart,
   removeFromCart,
@@ -24,9 +25,6 @@ export const Cardlist: React.FC<Props> = ({
   handleAddToFavourites,
   removeFromFavourites,
 }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [perPage, setPerPage] = useState(16);
-
   useEffect(() => {
     localStorage.setItem('phoneIds', JSON.stringify(phoneIdsInCart))
   }, [phoneIdsInCart])
@@ -52,17 +50,6 @@ export const Cardlist: React.FC<Props> = ({
   const phonesToShow = phones.slice(start, end);
 
   return (
-    <>
-    <div className='cardList'>
-      <h1 className='cardList__title'>Mobile phones</h1>
-      <h4 className='cardList__quantity'>{`${phones.length} models`}</h4>
-    </div>
-
-    <Filter
-      handlePerPage={handlePerPage}
-      perPage={perPage}
-    />
-
     <div className='grid'>
       {phonesToShow.map((phone: Phone) => (
         <div key={phone.id} className="card-container">
@@ -78,14 +65,6 @@ export const Cardlist: React.FC<Props> = ({
         </div>
       ))}
     </div>
-
-    <Pagination
-      total={phones.length}
-      perPage={perPage}
-      currentPage={currentPage}
-      onPageChange={onPageChange}
-    />
-  </>
   );
 };
 
