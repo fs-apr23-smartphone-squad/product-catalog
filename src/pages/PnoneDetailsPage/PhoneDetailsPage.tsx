@@ -1,6 +1,7 @@
 import React from 'react';
 import './PhoneDetailsPage.scss';
 import { Recommended } from '../../components/Recommended';
+import { PhoneActions } from '../../components/PhoneActions';
 
 /* eslint-disable */
 interface Props {
@@ -57,7 +58,7 @@ export const PhoneDetailsPage: React.FC<Props> = ({ phoneIdsInCart, handleAddToC
               />
             </div>
           </div>
-          <div className="phone__actions-block"></div>
+          <PhoneActions />
         </div>
         <div className="phones__description">
           <div className="phone__about"></div>

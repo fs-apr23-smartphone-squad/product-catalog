@@ -1,0 +1,274 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.phone-actions {
+  width: 100%;
+
+  max-width: 400px;
+  min-width: 236px;
+
+  &__info {
+    font-family: Mont;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: $text-color;
+
+    & h4 {
+      color: $description-color;
+    }
+
+    & div {
+      display: flex;
+      justify-content: space-between;
+
+      margin-bottom: 8px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+
+    font-family: Mont;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+
+    margin-bottom: 32px;
+
+    &-cart {
+      @include button-text();
+      display: flex;
+      height: 48px;
+      justify-content: center;
+      align-items: center;
+      flex: 1 0 0;
+      background-color: $text-color;
+      color: $c-white;
+      margin-right: 8px;
+      transition: 0.2s;
+      padding: 0;
+      cursor: pointer;
+
+      border: 1px solid $text-color;
+
+      &:hover {
+        border: 1px solid $text-color;
+        background-color: $c-white;
+        color: $text-color;
+      }
+
+      &.disabled {
+        @include button-text();
+        color:#27AE60;
+        border: 1px solid $border-color;
+        background-color: $c-white;
+
+        pointer-events: none;
+      }
+    }
+
+    &-like {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid $like-border-color;
+      background-image: url(../../images/Icons/Favourites.svg);
+      background-size: 16px 16px;
+      background-position: center;
+      background-repeat: no-repeat;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover {
+        border-color: $text-color;
+      }
+
+      &.disabled {
+        pointer-events: none;
+        background-image: url(../../images/Icons/FavouritesFilled.svg);
+        border-color: $border-color;
+      }
+    }
+  }
+
+  &__capacity {
+    margin-bottom: 56px;
+
+    font-family: Mont;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: $description-color;
+
+    &::after {
+      position: relative;
+      top: 24px;
+      content: "";
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $border-color;
+    }
+
+    &-select {
+      height: 32px;
+
+      padding: 8px;
+      margin-right: 8px;
+      margin-top: 8px;
+
+      font-family: Mont;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      border: 1px solid $like-border-color;
+
+      &:hover {
+        border-color: $text-color;
+      }
+
+      &.selected {
+        color: $c-white;
+        background-color: $text-color;
+        border-color: $text-color;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__price {
+    color: $text-color;
+    font-family: Mont;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 800;
+    letter-spacing: -0.32px;
+
+    margin-bottom: 16px;
+
+    align-items: center;
+    display: flex;
+
+    &-discount {
+      text-decoration: line-through;
+      font-family: Mont;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      color: $description-color;
+      line-height: 32px;
+
+      margin-left: 8px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: Mont;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: normal;
+    color: $description-color;
+
+    margin-bottom: 8px;
+  }
+
+  &__color {
+    height: 32px;
+
+    margin-bottom: 48px;
+
+    &::after {
+      position: relative;
+      top: 24px;
+      content: "";
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $border-color;
+    }
+
+    &-select {
+      height: 32px;
+      width: 32px;
+
+      margin-right: 8px;
+      padding: 2px;
+
+      border: 1px solid $border-color;
+      border-radius: 50%;
+      background-clip: content-box;
+
+      cursor: pointer;
+
+      &.silver {
+        background-color: $phone-silver;
+      }
+
+      &.gold {
+        background-color: $phone-gold;
+      }
+
+      &.rosegold {
+        background-color: $phone-rosegold;
+      }
+
+      &.black {
+        background-color: $phone-black;
+      }
+
+      &.spacegray {
+        background-color: $phone-spacegray;
+      }
+
+      &.yellow {
+        background-color: $phone-yellow;
+      }
+
+      &.red {
+        background-color: $phone-red;
+      }
+
+      &.white {
+        background-color: $phone-white;
+      }
+
+      &.coral {
+        background-color: $phone-coral;
+      }
+
+      &.midnightgreen {
+        background-color: $phone-midnightgreen;
+      }
+
+      &.purple {
+        background-color: $phone-purple;
+      }
+
+      &.green {
+        background-color: $phone-green;
+      }
+
+      &:hover {
+        border-color: $like-border-color;
+      }
+
+      &.selected {
+        border-color: $text-color;
+        pointer-events: none;
+      }
+    }
+  }
+}

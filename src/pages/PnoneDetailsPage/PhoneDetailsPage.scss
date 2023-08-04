@@ -1,18 +1,6 @@
 @import '../../styles/utils/vars';
 @import '../../styles/utils/mixins';
 
-.phone__actions-block { // !!! only for placeholder
-  background-image: url(https://placehold.co/290x435);
-  width: 290px;
-  height: 435px;
-
-  @include onDesctop {
-    width: 555px;
-    height: 444px;
-    background-image: url(https://placehold.co/555x444);
-  }
-} // !!! to remove
-
 .phone {
   padding: 35px 16px 56px;
   max-width: 1136px;
@@ -76,6 +64,7 @@
 
     @include onTablet {
       flex-direction: row;
+      align-items: inherit;
       justify-content: space-evenly;
       gap: 24px;
       margin-bottom: 64px;
