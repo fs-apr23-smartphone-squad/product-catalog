@@ -42,7 +42,14 @@
 
     text-decoration: none;
 
+    cursor: pointer;
+
     color: $gray-secondary;
+
+    &.disabled {
+      visibility: hidden;
+      pointer-events: none;
+    }
 
     &-icon {
       height: 32px;
