@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 import './BurgerMenu.scss';
 
@@ -53,19 +53,21 @@ export const BurgerMenu = () => (
     </nav>
 
     <div className="burger__buttons">
-      <div className="burger__icon">
-        <Link
-          to="favourites"
-          className="icon icon--favourites"
-        ></Link>
-      </div>
+      <NavLink
+        to="favourites"
+        className="burger__icon"
+      >
+        <div className="icon icon--favourites"></div>
+      </NavLink>
 
-      <div className="burger__icon">
-        <Link
-          to="cart"
-          className="icon icon--cart"
-        ></Link>
-      </div>
+      <NavLink
+        to="cart"
+        className={({ isActive }) => cn(
+          'burger__icon', { 'is-active': isActive },
+        )}
+      >
+        <div className="icon icon--cart"></div>
+      </NavLink>
     </div>
   </div>
 );

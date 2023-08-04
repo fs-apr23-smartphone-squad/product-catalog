@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 
 import './Buttons.scss';
@@ -14,12 +14,14 @@ export const Buttons: React.FC<Props> = ({ phoneIdsInFavourites }) => {
 
   return (
     <div className="buttons">
-      <div className="icon--menu-wrapper">
+      <div
+        className="icon-wrapper icon-wrapper--menu"
+        onClick={() => setIsActiveBurger(!isActiveBurger)}
+      >
         <div
           className={cn(
             'icon icon--menu', { 'is-active': isActiveBurger },
           )}
-          onClick={() => setIsActiveBurger(!isActiveBurger)}
         ></div>
       </div>
 
@@ -32,30 +34,29 @@ export const Buttons: React.FC<Props> = ({ phoneIdsInFavourites }) => {
       )}
 
       {phoneIdsInFavourites.length ? (
-        <div className="icon-wrapper">
-          <Link
-            to="favourites"
-            className="icon icon--favourites with-ellipse" //
-          >
+        <NavLink
+          to="favourites"
+          className='icon-wrapper'
+        >
+          <div className="icon icon--favourites with-ellipse">
             <div className='ellipse'>{phoneIdsInFavourites.length}</div>
-          </Link>
-        </div>
+          </div>
+        </NavLink>
       ) : (
-        <div className="icon-wrapper">
-          <Link
-            to="favourites"
-            className="icon icon--favourites" //
-          >
-          </Link>
-        </div>
+        <NavLink
+          to="favourites"
+          className="icon-wrapper" //
+        >
+          <div className="icon icon--favourites"></div>
+        </NavLink>
       )}
 
-      <div className="icon-wrapper">
-        <Link
-          to="cart"
-          className="icon icon--cart"
-        ></Link>
-      </div>
+      <NavLink
+        to="cart"
+        className="icon-wrapper" //
+      >
+        <div className="icon icon--cart"></div>
+      </NavLink>
     </div>
   );
 };

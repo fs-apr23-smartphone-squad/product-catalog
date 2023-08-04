@@ -1,4 +1,4 @@
-@import '../../styles/index.scss';
+@import '../../styles/utils/vars';
 
 .burger {
   position: absolute;
@@ -75,8 +75,15 @@
     width: 50%;
     height: 64px;
 
-    border-top: solid 1px $shadow;
-    border-right: solid 1px $shadow;
+    border: solid 1px $shadow;
+
+    &:hover {
+      border-color: $gray-primary;
+    }
+  }
+
+  &__icon.active,
+  &__icon.is-active {
+    border-bottom: 3px solid $gray-primary;
   }
 }
-
