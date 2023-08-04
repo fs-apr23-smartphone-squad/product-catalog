@@ -1,5 +1,5 @@
-@import '../../styles/index.scss';
 @import '../../styles/utils/mixins';
+@import '../../styles/utils/vars';
 
 .buttons {
   display: flex;
@@ -14,7 +14,13 @@
   width: $header-height;
   height: $header-height;
 
-  border-left: solid 1px $shadow;
+  cursor: pointer;
+
+  border: solid 1px $shadow;
+
+  &:hover {
+    border-color: $gray-primary;
+  }
 
   @include onTablet {
     display: flex;
@@ -24,22 +30,21 @@
     width: $header-height-desktop;
     height: $header-height-desktop;
   }
+
+  &--menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      display: none;
+    }
+  }
 }
 
-.icon--menu-wrapper {
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  width: 48px;
-  height: 48px;
-
-  border-left: solid 1px $shadow;
-
-  @include onTablet {
-    display: none;
-  }
+.icon-wrapper.active,
+.icon-wrapper.is-active {
+  border-bottom: 3px solid $gray-primary;
 }
 
 .icon {
@@ -56,10 +61,7 @@
     background-image: url(../../images/Icons/Menu.svg);
   }
 
-  &--menu.is-active {
-    background-image: url(../../images/Icons/Close.svg);
-  }
-
+  &--menu.is-active,
   &--close {
     background-image: url(../../images/Icons/Close.svg);
   }

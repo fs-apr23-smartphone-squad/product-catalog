@@ -1,4 +1,6 @@
-@import '../../styles/index.scss';
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/vars';
+
 
 .footer {
   display: block;
@@ -53,6 +55,10 @@
       background-image: url(../../images/Icons/Chevron.svg);
       background-repeat: no-repeat;
       background-position: center;
+
+      &:hover {
+        border-color: $gray-primary;
+      }
     }
   }
 }
