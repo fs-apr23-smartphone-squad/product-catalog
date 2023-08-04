@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card } from '../../components/Card';
 import { getPhonesByIds } from '../../components/Helpers/fetchClient';
 import { Phone } from '../../components/Types/Types';
-import '../../components/Cardlist/Cardlist.scss'
+import '../../components/Cardlist/Cardlist.scss';
 import './FavouritesPage.scss';
 
 interface Props {
