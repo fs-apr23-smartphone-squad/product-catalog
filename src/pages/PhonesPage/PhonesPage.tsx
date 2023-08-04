@@ -121,12 +121,6 @@ export const PhonesPage: React.FC<Props> = ({ phoneIdsInCart,
         onPageChange={onPageChange}
       />
 
-      <Pagination
-        total={totalPhones}
-        perPage={perPage}
-        currentPage={currentPage}
-        onPageChange={onPageChange}
-      />
     </div>
   );
 };
