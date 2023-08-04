@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import './Dropdown.scss';
+import './Select.scss';
 
 /* eslint-disable */
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   handlePerPage: (option: number) => void,
 }
 
-export const Dropdown: React.FC<Props> = ({
+export const Select: React.FC<Props> = ({
   title,
   perPage,
   handlePerPage,
@@ -16,14 +16,14 @@ export const Dropdown: React.FC<Props> = ({
   const [droped, setDroped] = useState(false);
   const [selectedQuantity, setSelectedQuantity] = useState(16);
 
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const selectRef = useRef<HTMLDivElement>(null);
 
   const options = [16, 32, 48, 64];
 
   const handleClickOutside: EventListener = (event) => {
     const targetNode = event.target as Node;
 
-    if (dropdownRef.current && !dropdownRef.current.contains(targetNode)) {
+    if (selectRef.current && !selectRef.current.contains(targetNode)) {
       setDroped(false);
     }
   };
@@ -54,30 +54,30 @@ export const Dropdown: React.FC<Props> = ({
 
   return (
     <div
-      className='dropdown'
-      ref={dropdownRef}
+      className='select'
+      ref={selectRef}
     >
       <label
-        className='dropdown__label'
+        className='select__label'
         htmlFor="perPageSelector"
       >
         {title}
       </label>
 
       <div
-        className='dropdown__select'
+        className='select__select'
         onClick={handleListDisplay}
       >
-        <p className='dropdown__select--default'>
+        <p className='select__select--default'>
           {selectedQuantity}
         </p>
       </div>
       {droped && (
-        <ul className='dropdown__select-items'>
+        <ul className='select__select-items'>
           {options.map(option => {
             return (
               <li
-                className='dropdown__item'
+                className='select__item'
                 key={option}
                 onClick={() => handleOptionClick(option)}
               >

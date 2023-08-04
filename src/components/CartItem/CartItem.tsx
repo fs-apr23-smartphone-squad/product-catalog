@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Phone } from '../Types/Types';
 import './CartItem.scss';
 
+/* eslint-disable */
 type Props = {
   onRemoveFromCart: (id: number) => void;
   phone: Phone;

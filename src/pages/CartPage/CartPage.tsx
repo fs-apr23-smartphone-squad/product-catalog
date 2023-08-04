@@ -7,6 +7,7 @@ import { ModalWindow } from '../../components/ModalWindow';
 import { getPhonesByIds } from '../../components/Helpers/fetchClient';
 import { Phone } from '../../components/Types/Types';
 
+/* eslint-disable */
 interface Props {
   phoneIdsInCart: number[];
   removeFromCart: (id: number) => void;
@@ -68,8 +69,6 @@ export const CartPage: React.FC<Props> = ({
       return 0;
     });
 
-    console.log(priceArray);
-
     const total = priceArray.reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
     }, 0);
@@ -91,8 +90,6 @@ export const CartPage: React.FC<Props> = ({
 
       return 0;
     });
-
-    console.log(amountsArray);
 
     const total = amountsArray.reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
