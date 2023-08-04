@@ -13,3 +13,14 @@ export interface Phone {
   year: number,
   image: string,
 }
+
+export enum SortTypes {
+  Newest = 'Newest',
+  LowestPrice = 'Price ⇂' ,
+  HighestPrice = 'Price ↾',
+}
+
+export enum SortOrders {
+  Increase = 'ASC',
+  Decrease = 'DESC',
+}

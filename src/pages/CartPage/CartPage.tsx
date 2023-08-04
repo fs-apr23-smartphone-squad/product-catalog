@@ -7,6 +7,7 @@ import { ModalWindow } from '../../components/ModalWindow';
 import { getPhonesByIds } from '../../components/Helpers/fetchClient';
 import { Phone } from '../../components/Types/Types';
 
+/* eslint-disable */
 interface Props {
   phoneIdsInCart: number[];
   removeFromCart: (id: number) => void;
