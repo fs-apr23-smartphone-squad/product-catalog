@@ -2,21 +2,25 @@ import cn from 'classnames';
 import { PhoneImage } from './PhoneImage';
 import { Phone } from '../Types/Types';
 import './Card.scss';
-/* eslint-disable eol-last */
-/* eslint-disable no-console */
-/* eslint-disable */
+
 interface Props {
   phone: Phone;
-  onAddToCart: (id: number) => void;
+  handleAddToCart: (id: number) => void;
   phoneIdsInCart: number[];
-  onRemoveFromCart: (id: number) => void;
+  removeFromCart: (id: number) => void;
+  phoneIdsInFavourites: number[];
+  handleAddToFavourites: (id: number) => void;
+  removeFromFavourites: (id: number) => void;
 }
 
 export const Card: React.FC<Props> = ({
   phone,
-  onAddToCart,
+  handleAddToCart,
   phoneIdsInCart,
-  onRemoveFromCart,
+  removeFromCart,
+  phoneIdsInFavourites,
+  handleAddToFavourites,
+  removeFromFavourites,
 }) => {
   const {
     id,
@@ -30,6 +34,7 @@ export const Card: React.FC<Props> = ({
   } = phone;
 
   const isPhoneInCart = phoneIdsInCart.includes(id);
+  const isPhoneInFavs = phoneIdsInFavourites.includes(id);
 
   return (
     <article className={cn("card", {})}>
@@ -60,20 +65,30 @@ export const Card: React.FC<Props> = ({
         {isPhoneInCart ? (
           <button
             className="card_button-disabled"
-            onClick={() => onRemoveFromCart(id)}
+            onClick={() => removeFromCart(id)}
           >
             Added
           </button>
         ) : (
           <button
-          className="card_button-active"
-          onClick={() => onAddToCart(id)}
-        >
-          Add to cart
-        </button>
+            className="card_button-active"
+            onClick={() => handleAddToCart(id)}
+          >
+            Add to cart
+          </button>
         )}
 
-        <button className="card_like_button"></button>
+        {isPhoneInFavs ? (
+          <button
+            className="card_like_button--red"
+            onClick={() => removeFromFavourites(id)}
+          ></button>
+        ) : (
+          <button
+            className="card_like_button"
+            onClick={() => handleAddToFavourites(id)}
+          ></button>
+        )}
       </div>
     </article >
   );

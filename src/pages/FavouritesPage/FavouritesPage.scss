@@ -1,0 +1,13 @@
+@import '../../styles/utils/mixins.scss';
+
+.fav_text {
+  @include headerText;
+  margin: 80px 152px 0 152px;
+
+  &--items {
+    @include title-text();
+    font-weight: 600;
+    color: #89939A;
+    margin: 8px 152px 0 152px;
+  }
+}

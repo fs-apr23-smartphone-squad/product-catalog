@@ -4,12 +4,15 @@ import { Phone } from '../Types/Types';
 import { Pagination } from '../Pagination/Pagination';
 import './Cardlist.scss';
 import { Filter } from '../Filter/Filter';
-/* eslint-disable */
+
 interface Props {
   phones: Phone[];
   phoneIdsInCart: number[];
   handleAddToCart: (id: number) => void;
   removeFromCart: (id: number) => void;
+  phoneIdsInFavourites: number[];
+  handleAddToFavourites: (id: number) => void;
+  removeFromFavourites: (id: number) => void;
 }
 
 export const Cardlist: React.FC<Props> = ({
@@ -17,6 +20,9 @@ export const Cardlist: React.FC<Props> = ({
   phoneIdsInCart,
   handleAddToCart,
   removeFromCart,
+  phoneIdsInFavourites,
+  handleAddToFavourites,
+  removeFromFavourites,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(16);
@@ -24,6 +30,10 @@ export const Cardlist: React.FC<Props> = ({
   useEffect(() => {
     localStorage.setItem('phoneIds', JSON.stringify(phoneIdsInCart))
   }, [phoneIdsInCart])
+
+  useEffect(() => {
+    localStorage.setItem('phoneIdsInFavourites', JSON.stringify(phoneIdsInFavourites))
+  }, [phoneIdsInFavourites])
 
   const handlePerPage = (option: number) => {
     setPerPage(option);
@@ -58,9 +68,12 @@ export const Cardlist: React.FC<Props> = ({
         <div key={phone.id} className="card-container">
           <Card
             phone={phone}
-            onAddToCart={handleAddToCart}
-            onRemoveFromCart={removeFromCart}
+            handleAddToCart={handleAddToCart}
+            removeFromCart={removeFromCart}
             phoneIdsInCart={phoneIdsInCart}
+            handleAddToFavourites={handleAddToFavourites}
+            removeFromFavourites={removeFromFavourites}
+            phoneIdsInFavourites={phoneIdsInFavourites}
           />
         </div>
       ))}
