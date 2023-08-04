@@ -3,6 +3,7 @@ import { Carousel } from '../../components/Carousel';
 import './HomePage.scss';
 import { Phone } from '../../components/Types/Types';
 import { getDiscount, getNew } from '../../components/Helpers/fetchClient';
+import { Categories } from '../../components/Categories';
 
 /* eslint-disable */
 interface Props {
@@ -74,7 +75,10 @@ export const HomePage: React.FC<Props> = ({
         />
       </div>
 
-      <div className="home-page__category">Shop by category here</div>
+      <div className="home-page__category">
+        <h3 className='home-page__category-title'>Shop by category</h3>
+        <Categories />
+      </div>
 
       <div className="home-page__hot">
         <Carousel

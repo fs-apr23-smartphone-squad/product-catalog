@@ -37,33 +37,58 @@
 
   &__new {
     margin-bottom: 56px;
+    margin-left: 16px;
 
     @include onTablet {
       margin-bottom: 64px;
+      margin-left: 24px;
     }
 
     @include onDesctop {
       margin-bottom: 80px;
+      margin-left: 32px;
     }
   }
 
   &__category {
     margin-bottom: 56px;
+    margin-left: 16px;
+    margin-right: 16px;
 
     @include onTablet {
       margin-bottom: 64px;
+      margin-left: 24px;
+      margin-right: 24px;
     }
 
     @include onDesctop {
       margin-bottom: 80px;
+      margin-left: 32px;
+      margin-right: 32px;
+    }
+
+    &-title {
+      color: $text-color;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 140%;
+
+      margin-bottom: 24px;
     }
   }
 
   &__hot {
     margin-bottom: 64px;
+    margin-left: 16px;
+
+    @include onTablet {
+      margin-left: 24px;
+    }
 
     @include onDesctop {
       margin-bottom: 80px;
+      margin-left: 32px;
     }
   }
 }
