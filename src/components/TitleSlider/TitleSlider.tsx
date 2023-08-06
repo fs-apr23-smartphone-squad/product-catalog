@@ -81,7 +81,6 @@ export const TitleSlider = () => {
             <div
               key={image}
               className={`slideshowDots__dot${index === idx ? ' active' : ''}`}
-
             ></div>
           </div>
         ))}
