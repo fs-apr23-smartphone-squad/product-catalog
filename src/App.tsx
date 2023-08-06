@@ -50,7 +50,10 @@ function App() {
 
   return (
     <div className="App">
-      <Page phoneIdsInFavourites={phoneIdsInFavourites} />
+      <Page
+       phoneIdsInFavourites={phoneIdsInFavourites}
+       phoneIdsInCart={phoneIdsInCart}
+        />
 
       <Routes>
         <Route path="home" element={
