@@ -4,6 +4,7 @@ import './HomePage.scss';
 import { Phone } from '../../components/Types/Types';
 import { getDiscount, getNew } from '../../components/Helpers/fetchClient';
 import { Categories } from '../../components/Categories';
+import { TitleSlider } from '../../components/TitleSlider';
 
 /* eslint-disable */
 interface Props {
@@ -60,7 +61,9 @@ export const HomePage: React.FC<Props> = ({
         Welcome to Nice Gadgets store!
       </h1>
 
-      <div className="home-page__slider">Home page slider here</div>
+      <div className="home-page__slider">
+        <TitleSlider />
+      </div>
 
       <div className="home-page__new">
         <Carousel

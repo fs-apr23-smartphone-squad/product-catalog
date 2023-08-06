@@ -1,0 +1,118 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.slideshow {
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 1040px;
+
+  &__back {
+    background-image: url(../../images/Icons/ArrowBack.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 32px;
+    height: 320px;
+
+    margin-right: 20px;
+    box-shadow: 0 0 0 20px $c-white;
+
+    border: 1px solid $like-border-color;
+    background-color: $c-white;
+
+    z-index: 1;
+
+    display: none;
+
+    cursor: pointer;
+
+    @include onTablet {
+      display: block;
+      height: 400px;
+    }
+
+    &:hover {
+      border-color: $text-color;
+    }
+  }
+
+  &__forward {
+    background-image: url(../../images/Icons/ArrowForward.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 32px;
+    height: 320px;
+
+    margin-left: 20px;
+    box-shadow: 0 0 0 20px $c-white;
+
+    border: 1px solid $like-border-color;
+    background-color: $c-white;
+
+    z-index: 1;
+
+    display: none;
+
+    cursor: pointer;
+
+    @include onTablet {
+      display: block;
+      height: 400px;
+    }
+
+    &:hover {
+      border-color: $text-color;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+  width: 100%;
+}
+
+.slide {
+  display: inline-block;
+
+  height: 320px;
+  width: 100%;
+
+  object-fit: cover;
+
+  @include onTablet {
+    height: 400px;
+  }
+}
+
+/* Buttons */
+
+.slideshowDots {
+  text-align: center;
+
+  &__dot {
+    display: inline-block;
+    height: 4px;
+    width: 14px;
+
+    margin: 15px 7px 0px;
+
+    background-color: $border-color;
+
+    &.active {
+      background-color: $text-color;
+    }
+  }
+
+  &__container {
+    display: inline;
+    padding: 10px 0;
+    cursor: pointer;
+  }
+}
