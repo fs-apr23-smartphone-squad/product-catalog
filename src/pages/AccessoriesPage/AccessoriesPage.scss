@@ -1,0 +1,19 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.accessoriespage {
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 48px - 283px);
+
+  align-items: center;
+  justify-content: center;
+
+  @include onTablet {
+    min-height: calc(100vh - 48px - 101px);
+  }
+
+  @include onDesctop {
+    min-height: calc(100vh - 64px - 101px);
+  }
+}

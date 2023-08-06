@@ -1,5 +1,9 @@
+import './TabletsPage.scss';
+
 export const TabletsPage = () => {
   return (
-    <h1 className="title">Tablets page</h1>
+    <div className="tabletspage">
+      <h1 className="title">{'No tablets yet 😔'}</h1>
+    </div>
   );
 };

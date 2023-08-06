@@ -1,0 +1,80 @@
+@import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
+
+.categories {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  @include onTablet {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  @include onDesctop {
+
+  }
+
+  &__category {
+    width: 100%;
+  }
+
+  &__info {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 21px;
+    color: $description-color;
+
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    color: $text-color;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration: none;
+
+    margin-bottom: 4px;
+  }
+
+  &__img-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    margin-bottom: 24px;
+
+    overflow: hidden;
+
+    &.phones {
+      background-color: $categories-phones-background;
+    }
+
+    &.tablets {
+      background-color: $categories-tablets-background;
+    }
+
+    &.accessories {
+      background-color: $categories-accessories-background;
+    }
+  }
+
+  &__image {
+    width: 120%;
+    aspect-ratio: 1 / 1;
+
+    object-position: left;
+    object-fit: cover;
+
+    cursor: pointer;
+
+    transition-duration: 0.5s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
