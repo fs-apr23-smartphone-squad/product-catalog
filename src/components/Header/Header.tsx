@@ -6,9 +6,10 @@ import './Header.scss';
 
 interface Props {
   phoneIdsInFavourites: number[];
+  phoneIdsInCart: number[];
 }
 
-export const Header: React.FC<Props> = ({ phoneIdsInFavourites }) => (
+export const Header: React.FC<Props> = ({ phoneIdsInFavourites, phoneIdsInCart }) => (
   <header className="header">
     <div className="header__left">
       <Logo />
@@ -16,6 +17,9 @@ export const Header: React.FC<Props> = ({ phoneIdsInFavourites }) => (
       <Navigation />
     </div>
 
-    <Buttons phoneIdsInFavourites={phoneIdsInFavourites} />
+    <Buttons
+      phoneIdsInFavourites={phoneIdsInFavourites}
+      phoneIdsInCart={phoneIdsInCart}
+    />
   </header>
 );

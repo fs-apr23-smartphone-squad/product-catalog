@@ -7,9 +7,10 @@ import { BurgerMenu } from '../BurgerMenu';
 
 interface Props {
   phoneIdsInFavourites: number[];
+  phoneIdsInCart: number[];
 }
 
-export const Buttons: React.FC<Props> = ({ phoneIdsInFavourites }) => {
+export const Buttons: React.FC<Props> = ({ phoneIdsInFavourites, phoneIdsInCart }) => {
   const [isActiveBurger, setIsActiveBurger] = useState(false);
 
   return (
@@ -38,7 +39,7 @@ export const Buttons: React.FC<Props> = ({ phoneIdsInFavourites }) => {
           to="favourites"
           className='icon-wrapper'
         >
-          <div className="icon icon--favourites with-ellipse">
+          <div className="icon icon--favourites">
             <div className='ellipse'>{phoneIdsInFavourites.length}</div>
           </div>
         </NavLink>
@@ -51,12 +52,23 @@ export const Buttons: React.FC<Props> = ({ phoneIdsInFavourites }) => {
         </NavLink>
       )}
 
-      <NavLink
-        to="cart"
-        className="icon-wrapper" //
-      >
-        <div className="icon icon--cart"></div>
-      </NavLink>
+      {phoneIdsInCart.length ? (
+        <NavLink
+          to="cart"
+          className='icon-wrapper'
+        >
+          <div className="icon icon--cart">
+            <div className='ellipse-for-cart'>{phoneIdsInCart.length}</div>
+          </div>
+        </NavLink>
+      ) : (
+        <NavLink
+          to="cart"
+          className="icon-wrapper" //
+        >
+          <div className="icon icon--cart"></div>
+        </NavLink>
+      )}
     </div>
   );
 };

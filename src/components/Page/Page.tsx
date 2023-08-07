@@ -4,12 +4,16 @@ import './Page.scss';
 
 interface Props {
   phoneIdsInFavourites: number[];
+  phoneIdsInCart: number[];
 }
 
-export const Page: React.FC<Props> = ({ phoneIdsInFavourites }) => {
+export const Page: React.FC<Props> = ({ phoneIdsInFavourites, phoneIdsInCart }) => {
   return (
     <>
-      <Header phoneIdsInFavourites={phoneIdsInFavourites} />
+      <Header
+        phoneIdsInFavourites={phoneIdsInFavourites}
+        phoneIdsInCart={phoneIdsInCart}
+      />
     </>
   );
 };
