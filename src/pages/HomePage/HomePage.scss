@@ -18,13 +18,14 @@
 
     text-align: left;
 
-    margin-left: 16px;
-    margin-top: 24px;
-    margin-bottom: 24px;
+    margin: 24px auto;
+
+    max-width: 1136px;
   }
 
   &__slider {
-    margin-bottom: 56px;
+    max-width: 1136px;
+    margin: 0 auto 56px;
 
     @include onTablet {
       margin-bottom: 64px;
@@ -36,6 +37,7 @@
   }
 
   &__new {
+    max-width: 1136px;
     margin-bottom: 56px;
     margin-left: 16px;
 
@@ -45,26 +47,22 @@
     }
 
     @include onDesctop {
-      margin-bottom: 80px;
-      margin-left: 32px;
+      margin: 80px auto;
     }
   }
 
   &__category {
+    max-width: 1136px;
     margin-bottom: 56px;
     margin-left: 16px;
     margin-right: 16px;
 
     @include onTablet {
-      margin-bottom: 64px;
-      margin-left: 24px;
-      margin-right: 24px;
+      margin: 64px auto;
     }
 
     @include onDesctop {
-      margin-bottom: 80px;
-      margin-left: 32px;
-      margin-right: 32px;
+      margin: 80px auto;
     }
 
     &-title {
@@ -79,16 +77,16 @@
   }
 
   &__hot {
+    max-width: 1136px;
     margin-bottom: 64px;
     margin-left: 16px;
 
     @include onTablet {
-      margin-left: 24px;
+      margin: auto;
     }
 
     @include onDesctop {
-      margin-bottom: 80px;
-      margin-left: 32px;
+      margin: 80px auto;
     }
   }
 }
