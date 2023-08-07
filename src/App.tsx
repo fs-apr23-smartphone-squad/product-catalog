@@ -77,7 +77,7 @@ function App() {
             phoneIdsInFavourites={phoneIdsInFavourites}
           />
         } />
-        <Route path="phones/:phoneId" element={
+        <Route path="products/:phoneId" element={
           <PhoneDetailsPage
             phoneIdsInCart={phoneIdsInCart}
             handleAddToCart={handleAddToCart}
