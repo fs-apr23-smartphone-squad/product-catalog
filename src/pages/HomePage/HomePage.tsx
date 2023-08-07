@@ -5,6 +5,7 @@ import { Phone } from '../../components/Types/Types';
 import { getDiscount, getNew } from '../../components/Helpers/fetchClient';
 import { Categories } from '../../components/Categories';
 import { TitleSlider } from '../../components/TitleSlider';
+import { Loader } from '../../components/Loader';
 
 /* eslint-disable */
 interface Props {
@@ -26,6 +27,7 @@ export const HomePage: React.FC<Props> = ({
 }) => {
   const [newPhones, setNewPhones] = useState<Phone[]>([]);
   const [bestDiscountPhones, setBestDiscountPhones] = useState<Phone[]>([]);
+  const [pageIsLoading, setPageIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchNewPhones = async() => {
@@ -47,6 +49,7 @@ export const HomePage: React.FC<Props> = ({
         const fetchedPhones = await getDiscount();
 
         setBestDiscountPhones(fetchedPhones);
+        setTimeout(() => setPageIsLoading(false), 1000);
       } catch (error) {
         throw new Error('Error fetching phones:' + error);
       }
@@ -56,7 +59,10 @@ export const HomePage: React.FC<Props> = ({
   }, []);
 
   return (
-    <div className="home-page">
+    pageIsLoading
+      ? (<Loader />)
+      : (
+        <div className="home-page">
       <h1 className="home-page__title">
         Welcome to Nice Gadgets store!
       </h1>
@@ -98,5 +104,6 @@ export const HomePage: React.FC<Props> = ({
         />
       </div>
     </div>
+      )
   );
 };
