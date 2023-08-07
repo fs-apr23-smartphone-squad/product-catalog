@@ -29,6 +29,7 @@ export const getPhonesByIds = (phoneIds: string[]) => get<Phone[]>(`/products?id
 export const getDiscount = () => get<Phone[]>('/products/discount');
 export const getNew = () => get<Phone[]>('/products/new');
 export const getRecommendedById = (phoneId: string) => get<Phone[]>(`/products/${phoneId}/recommended`);
+export const getPhoneById = (phoneId: string) => get<Phone>(`/products/${phoneId}`);
 
 export const getTablets = () => get<Phone[]>('/products?productType=tablets');
 export const getAccessories = () => get<Phone[]>('/products?productType=accessories');
