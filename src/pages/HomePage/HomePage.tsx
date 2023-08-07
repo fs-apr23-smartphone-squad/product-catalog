@@ -67,6 +67,7 @@ export const HomePage: React.FC<Props> = ({
 
       <div className="home-page__new">
         <Carousel
+          key="new-phones"
           phones={newPhones}
           phoneIdsInCart={phoneIdsInCart}
           handleAddToCart={handleAddToCart}
@@ -85,6 +86,7 @@ export const HomePage: React.FC<Props> = ({
 
       <div className="home-page__hot">
         <Carousel
+          key="hot-phones"
           phones={bestDiscountPhones}
           phoneIdsInCart={phoneIdsInCart}
           handleAddToCart={handleAddToCart}

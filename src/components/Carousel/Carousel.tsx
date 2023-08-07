@@ -71,7 +71,7 @@ export const Carousel: React.FC<Props> = ({
       <div className="recommended__content" ref={listRef}>
         <div className="recommended__scroll-wrapper">
           {phones.map(phone => <Card
-            key={phone.phoneId}
+            key={phone.id}
             phone={phone}
             phoneIdsInCart={phoneIdsInCart}
             handleAddToCart={handleAddToCart}

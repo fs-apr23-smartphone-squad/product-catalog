@@ -4,7 +4,6 @@
 .slideshow {
   margin: 0 auto;
   overflow: hidden;
-  max-width: 1040px;
 
   &__back {
     background-image: url(../../images/Icons/ArrowBack.svg);
@@ -83,6 +82,7 @@
 
   height: 320px;
   width: 100%;
+  max-width: 1040px;
 
   object-fit: cover;
 

@@ -63,7 +63,12 @@ export const TitleSlider = () => {
           style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
         >
           {images.map((image) => (
-            <img src={image} alt="banner image" className="slide"/>
+            <img
+              src={image}
+              alt="banner image"
+              className="slide"
+              key={image}
+            />
           ))}
         </div>
 
@@ -73,13 +78,13 @@ export const TitleSlider = () => {
       <div className="slideshowDots">
         {images.map((image, idx) => (
           <div
+            key={image}
             className="slideshowDots__container"
             onClick={() => {
               setIndex(idx);
             }}
           >
             <div
-              key={image}
               className={`slideshowDots__dot${index === idx ? ' active' : ''}`}
             ></div>
           </div>
