@@ -29,6 +29,11 @@
   @include onDesctop {
     width: $header-height-desktop;
     height: $header-height-desktop;
+
+    .ellipse-for-cart {
+      top: 20px;
+      right: 18px;
+    }
   }
 
   &--menu {
