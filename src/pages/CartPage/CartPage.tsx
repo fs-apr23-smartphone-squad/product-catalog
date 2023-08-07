@@ -6,6 +6,7 @@ import { CartItem } from '../../components/CartItem';
 import { ModalWindow } from '../../components/ModalWindow';
 import { getPhonesByIds } from '../../components/Helpers/fetchClient';
 import { Phone } from '../../components/Types/Types';
+import { Link } from 'react-router-dom';
 
 /* eslint-disable */
 interface Props {
@@ -100,6 +101,14 @@ export const CartPage: React.FC<Props> = ({
 
   return (
   <div className="cart">
+    <div className='breadcrumbs'>
+      <Link
+      className='breadcrumbs__home'
+      to='/home'
+      ></Link>
+      <div className='breadcrumbs__arrow'></div>
+      <p>Cart</p>
+    </div>
     <a href="#" className="cart__link">Back</a>
 
     <h1 className="cart__title">Cart</h1>

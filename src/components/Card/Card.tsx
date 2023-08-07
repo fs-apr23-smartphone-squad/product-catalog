@@ -3,6 +3,7 @@ import { PhoneImage } from './PhoneImage';
 import { Phone } from '../Types/Types';
 import './Card.scss';
 
+/* eslint-disable */
 interface Props {
   phone: Phone;
   handleAddToCart: (id: number) => void;
@@ -37,7 +38,7 @@ export const Card: React.FC<Props> = ({
   const isPhoneInFavs = phoneIdsInFavourites.includes(id);
 
   return (
-    <article className={cn("card", {})}>
+    <article className={cn('card', {})}>
       <PhoneImage src={image} />
       <div className="card_title--container">
         <h3 className="card_title">{phoneName}</h3>

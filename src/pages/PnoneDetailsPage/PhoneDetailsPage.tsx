@@ -4,6 +4,7 @@ import { Carousel } from '../../components/Carousel';
 import { PhoneActions } from '../../components/PhoneActions';
 import { Phone } from '../../components/Types/Types';
 import { getRecommendedById } from '../../components/Helpers/fetchClient';
+import { Link } from 'react-router-dom';
 
 /* eslint-disable */
 interface Props {
@@ -43,6 +44,19 @@ export const PhoneDetailsPage: React.FC<Props> = ({
 
   return (
     <div className="phone">
+      <div className='breadcrumbs'>
+        <Link
+        className='breadcrumbs__home'
+        to='/home'
+        ></Link>
+        <div className='breadcrumbs__arrow'></div>
+        <Link
+        className='breadcrumbs__phones'
+        to='/phones'
+        >Phones</Link>
+        <div className='breadcrumbs__arrow'></div>
+        <p>Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)</p>
+      </div>
       <a href="#" className="phone__back-link">Back</a>
 
       <h1 className="phone__title">

@@ -1,4 +1,5 @@
-import { Phone } from '../Types/Types';
+/* eslint-disable */
+import { Phone, PhoneApiResponse } from '../Types/Types';
 
 const BASE_URL = 'https://api.smartphonesquad.shop';
 
@@ -15,12 +16,14 @@ export async function get<T>(url: string): Promise<T> {
   }
 }
 
-export const getPhones = (
+export const getPhones = () => get<Phone[]>('/products');
+
+export const getPhonesForPagination = (
   limit: number,
   offset: number,
   sortBy: string = 'price',
   sortOrder: 'ASC' | 'DESC' = 'ASC',
-) => get<Phone[]>(`/products?limit=${limit}&offset=${offset}&sortBy=${sortBy}&sortOrder=${sortOrder}`);
+): Promise<PhoneApiResponse> => get(`/products?limit=${limit}&offset=${offset}&sortBy=${sortBy}&sortOrder=${sortOrder}`);
 
 export const getPhonesByIds = (phoneIds: string[]) => get<Phone[]>(`/products?ids=${phoneIds.join(',')}`);
 export const getDiscount = () => get<Phone[]>('/products/discount');
