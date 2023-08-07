@@ -14,13 +14,7 @@ export interface Phone {
   image: string,
 }
 
-export enum SortTypes {
-  Newest = 'Newest',
-  LowestPrice = 'Price ⇂' ,
-  HighestPrice = 'Price ↾',
-}
-
-export enum SortOrders {
-  Increase = 'ASC',
-  Decrease = 'DESC',
+export interface PhoneApiResponse {
+  count: number;
+  rows: Phone[];
 }

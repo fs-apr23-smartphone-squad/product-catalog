@@ -5,6 +5,7 @@ import cn from 'classnames';
 import './Buttons.scss';
 import { BurgerMenu } from '../BurgerMenu';
 
+/* eslint-disable */
 interface Props {
   phoneIdsInFavourites: number[];
   phoneIdsInCart: number[];

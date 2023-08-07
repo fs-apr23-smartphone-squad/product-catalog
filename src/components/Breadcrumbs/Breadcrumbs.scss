@@ -1,31 +1,4 @@
-@import '../../styles/utils/mixins';
-
-.phones_page {
-  
-  &__header {
-    margin-left: 150px;
-  margin-top: 40px;
-  }
-
-  &__title {
-    text-align: left;
-    margin-bottom: 8px;
-  }
-
-  &__filter {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    margin-left: 150px;
-  }
-  
-  &__quantity {
-    text-align: left;
-    margin-bottom: 40px;
-  }
-}
-
-.breadcrumbs1 {
+.breadcrumbs {
   display: flex;
   flex-direction: row;
   gap: 5px;

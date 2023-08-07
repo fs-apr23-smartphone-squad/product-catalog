@@ -186,3 +186,33 @@
     }
   }
 }
+
+
+.breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin: 0 0 40px 0;
+
+  &__home {
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-image: url('../../images/Icons/Home.svg');
+    margin-right: 8px;
+  }
+
+  &__arrow {
+    width: 16px;
+    height: 16px;
+    background-image: url('../../images/Icons/ArrowForward.svg');
+    margin-right: 8px;
+  }
+
+  &__phones {
+    text-decoration: none;
+    font-weight: 500;
+    color: $gray-primary;
+    margin-right: 8px;
+  }
+}

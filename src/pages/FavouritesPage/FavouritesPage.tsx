@@ -4,7 +4,9 @@ import { getPhonesByIds } from '../../components/Helpers/fetchClient';
 import { Phone } from '../../components/Types/Types';
 import '../../components/Cardlist/Cardlist.scss';
 import './FavouritesPage.scss';
+import { Link } from 'react-router-dom';
 
+/* eslint-disable */
 interface Props {
   phoneIdsInFavourites: number[];
   removeFromFavourites: (id: number) => void;
@@ -55,6 +57,14 @@ export const FavouritesPage: React.FC<Props> = ({
 
   return (
     <>
+      <div className='breadcrumbs1'>
+        <Link
+        className='breadcrumbs__home'
+        to='/home'
+        ></Link>
+        <div className='breadcrumbs__arrow'></div>
+        <p>Favourites</p>
+      </div>
       <h1 className='fav_text'>Favourites</h1>
       {phoneIdsInFavourites.length ? (
         <h3 className='fav_text--items'>{`${phoneIdsInFavourites.length} items`}</h3>

@@ -4,6 +4,7 @@ import { Logo } from '../Logo';
 import { Navigation } from '../Navigation/Navigation';
 import './Header.scss';
 
+/* eslint-disable */
 interface Props {
   phoneIdsInFavourites: number[];
   phoneIdsInCart: number[];

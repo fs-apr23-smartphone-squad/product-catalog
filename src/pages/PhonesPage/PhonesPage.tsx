@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 import { Cardlist } from '../../components/Cardlist';
-import { getPhones } from '../../components/Helpers/fetchClient';
+import { getPhonesForPagination } from '../../components/Helpers/fetchClient';
 import { Select } from '../../components/Select/Select';
 import { Sorting } from '../../components/Sorting/Sorting';
 import { Phone } from '../../components/Types/Types';
 import { Pagination } from '../../components/Pagination/Pagination';
 import './PhonePage.scss';
+import { Link } from 'react-router-dom';
 
 /* eslint-disable no-console */
 /* eslint-disable */
@@ -38,6 +39,11 @@ export const PhonesPage: React.FC<Props> = ({ phoneIdsInCart,
     fetchPhones();
   }, [currentPage, perPage, filter, sorting, sortOrder]);
 
+  interface PhoneApiResponse {
+    count: number;
+    rows: Phone[];
+  }
+  
   const fetchPhones = async () => {
     console.log(filter, sorting, sortOrder);
     try {
@@ -55,16 +61,15 @@ export const PhonesPage: React.FC<Props> = ({ phoneIdsInCart,
         updatedSortOrder = 'ASC';
       }
   
-      const response = await getPhones(
+      const response = await getPhonesForPagination(
         perPage,
         (currentPage - 1) * perPage,
         updatedSorting,
         updatedSortOrder
       );
   
-      const { count, rows } = response;
-      setTotalPhones(count);
-      setPhones(rows);
+      setTotalPhones(response.count);
+      setPhones(response.rows);
       setSorting(updatedSorting);
       setSortOrder(updatedSortOrder);
     } catch (error) {
@@ -84,6 +89,15 @@ export const PhonesPage: React.FC<Props> = ({ phoneIdsInCart,
 
   return (
     <div className='phones_page'>
+      <div className='breadcrumbs1'>
+        <Link
+        className='breadcrumbs__home'
+        to='/home'
+        ></Link>
+        <div className='breadcrumbs__arrow'></div>
+        <p>Phones</p>
+      </div>
+
       <div className='phones_page__header'>
         <h1 className='phones_page__title'>Mobile phones</h1>
         <h4 className='phones_page__quantity'>{`${totalPhones} models`}</h4>
