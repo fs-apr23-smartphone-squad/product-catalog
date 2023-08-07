@@ -4,6 +4,7 @@ import { getPhonesByIds } from '../../components/Helpers/fetchClient';
 import { Phone } from '../../components/Types/Types';
 import '../../components/Cardlist/Cardlist.scss';
 import './FavouritesPage.scss';
+import { EmptyFavourites } from '../../components/EmptyFavourites';
 
 interface Props {
   phoneIdsInFavourites: number[];
@@ -53,28 +54,34 @@ export const FavouritesPage: React.FC<Props> = ({
     localStorage.setItem('phoneIdsInFavourites', JSON.stringify(phoneIdsInFavourites));
   }, [phoneIdsInFavourites]);
 
-  return (
-    <>
-      <h1 className='fav_text'>Favourites</h1>
-      {phoneIdsInFavourites.length ? (
-        <h3 className='fav_text--items'>{`${phoneIdsInFavourites.length} items`}</h3>
-      ) : (
-        <h3 className='fav_text--items'>No favourite products</h3>
-      )}
+  const isSmthInFavourites = phoneIdsInFavourites.length !== 0;
 
-      <div className='grid'>
-        {favPhones.map(phone => (
-          <Card
-            phone={phone}
-            phoneIdsInFavourites={phoneIdsInFavourites}
-            removeFromFavourites={removeFromFavourites}
-            phoneIdsInCart={phoneIdsInCart}
-            handleAddToCart={handleAddToCart}
-            removeFromCart={removeFromCart}
-            handleAddToFavourites={handleAddToFavourites}
-          />
-        ))}
-      </div>
-    </>
+  return (
+    isSmthInFavourites
+      ? (
+        <>
+          <h1 className='fav_text'>Favourites</h1>
+          {phoneIdsInFavourites.length ? (
+            <h3 className='fav_text--items'>{`${phoneIdsInFavourites.length} items`}</h3>
+          ) : (
+            <h3 className='fav_text--items'>No favourite products</h3>
+          )}
+
+          <div className='grid'>
+            {favPhones.map(phone => (
+              <Card
+                phone={phone}
+                phoneIdsInFavourites={phoneIdsInFavourites}
+                removeFromFavourites={removeFromFavourites}
+                phoneIdsInCart={phoneIdsInCart}
+                handleAddToCart={handleAddToCart}
+                removeFromCart={removeFromCart}
+                handleAddToFavourites={handleAddToFavourites}
+              />
+            ))}
+          </div>
+        </>
+      )
+      : <EmptyFavourites />
   );
 };
