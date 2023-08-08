@@ -21,5 +21,5 @@ export const Loader = () => {
         </svg>
       </div>
     </div>
-  )
-}
+  );
+};

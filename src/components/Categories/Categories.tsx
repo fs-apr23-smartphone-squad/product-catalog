@@ -2,7 +2,9 @@ import { NavLink } from 'react-router-dom';
 import './Categories.scss';
 import { useEffect, useState } from 'react';
 import { Phone } from '../Types/Types';
-import { getPhones, getTablets, getAccessories, getAllPhones } from '../Helpers/fetchClient';
+import { getTablets,
+  getAccessories,
+  getAllPhones } from '../Helpers/fetchClient';
 
 const Base = 'https://api.smartphonesquad.shop/img/';
 
@@ -29,8 +31,6 @@ export const Categories = () => {
         if (Array.isArray(phonesFromServer)) {
           setPhones(phonesFromServer);
         }
-
-        return;
       } catch {
         throw new Error('Unable to load data');
       }

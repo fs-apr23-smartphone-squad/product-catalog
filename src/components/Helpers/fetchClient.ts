@@ -23,7 +23,8 @@ export const getPhonesForPagination = (
   offset: number,
   sortBy: string = 'price',
   sortOrder: 'ASC' | 'DESC' = 'ASC',
-): Promise<PhoneApiResponse> => get(`/products?limit=${limit}&offset=${offset}&sortBy=${sortBy}&sortOrder=${sortOrder}`);
+  group:string,
+): Promise<PhoneApiResponse> => get(`/products?limit=${limit}&offset=${offset}&sortBy=${sortBy}&sortOrder=${sortOrder}&group=${group}`);
 
 export const getPhonesByIds = (phoneIds: string[]) => get<Phone[]>(`/products?ids=${phoneIds.join(',')}`);
 export const getDiscount = () => get<Phone[]>('/products/discount');

@@ -65,7 +65,8 @@ export const PhonesPage: React.FC<Props> = ({ phoneIdsInCart,
         perPage,
         (currentPage - 1) * perPage,
         updatedSorting,
-        updatedSortOrder
+        updatedSortOrder,
+        'phones'
       );
   
       setTotalPhones(response.count);

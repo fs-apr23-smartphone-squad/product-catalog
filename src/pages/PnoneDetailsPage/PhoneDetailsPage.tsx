@@ -3,7 +3,8 @@ import './PhoneDetailsPage.scss';
 import { Carousel } from '../../components/Carousel';
 import { PhoneActions } from '../../components/PhoneActions';
 import { Phone } from '../../components/Types/Types';
-import { getPhoneById, getRecommendedById } from '../../components/Helpers/fetchClient';
+import { getPhoneById,
+  getRecommendedById } from '../../components/Helpers/fetchClient';
 import { Link } from 'react-router-dom';
 
 /* eslint-disable */

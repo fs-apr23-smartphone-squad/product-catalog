@@ -87,8 +87,24 @@ function App() {
             removeFromFavourites={removeFromFavourites}
           />
         } />
-        <Route path="tablets" element={<TabletsPage />} />
-        <Route path="accessories" element={<AccessoriesPage />} />
+        <Route path="tablets" element={
+        <TabletsPage
+          phoneIdsInCart={phoneIdsInCart}
+          handleAddToCart={handleAddToCart}
+          removeFromCart={removeFromCart}
+          phoneIdsInFavourites={phoneIdsInFavourites}
+          handleAddToFavourites={handleAddToFavourites}
+          removeFromFavourites={removeFromFavourites}
+        />} />
+        <Route path="accessories" element={
+        <AccessoriesPage
+          phoneIdsInCart={phoneIdsInCart}
+          handleAddToCart={handleAddToCart}
+          removeFromCart={removeFromCart}
+          phoneIdsInFavourites={phoneIdsInFavourites}
+          handleAddToFavourites={handleAddToFavourites}
+          removeFromFavourites={removeFromFavourites}
+        />} />
         <Route path="favourites" element={
             <FavouritesPage
               phoneIdsInFavourites={phoneIdsInFavourites}
