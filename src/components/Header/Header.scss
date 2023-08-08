@@ -16,7 +16,7 @@ iframe {
 
   &__left {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
   }
 
   @include onDesctop {

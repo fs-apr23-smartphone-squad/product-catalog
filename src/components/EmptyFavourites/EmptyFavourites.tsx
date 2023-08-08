@@ -14,5 +14,5 @@ export const EmptyFavourites = () => {
         Go to store
     </NavLink>
   </div>
-  )
-}
+  );
+};
