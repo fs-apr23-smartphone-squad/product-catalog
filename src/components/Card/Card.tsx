@@ -2,6 +2,7 @@ import cn from 'classnames';
 import { PhoneImage } from './PhoneImage';
 import { Phone } from '../Types/Types';
 import './Card.scss';
+import { Link, NavLink } from 'react-router-dom';
 
 /* eslint-disable */
 interface Props {
@@ -41,7 +42,12 @@ export const Card: React.FC<Props> = ({
     <article className={cn('card', {})}>
       <PhoneImage src={image} />
       <div className="card_title--container">
-        <h3 className="card_title">{phoneName}</h3>
+        <h3 className="card_title">
+          <NavLink 
+            to={`/products/${phone.itemId}`}
+          >
+          {phoneName}
+          </NavLink></h3>
       </div>
       <div className="card_price">
         <p className="card_price-new">{`$${price}`}</p>
