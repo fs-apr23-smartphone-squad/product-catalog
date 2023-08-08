@@ -30,7 +30,7 @@ export const getPhonesByIds = (phoneIds: string[]) => get<Phone[]>(`/products?id
 export const getDiscount = () => get<Phone[]>('/products/discount');
 export const getNew = () => get<Phone[]>('/products/new');
 export const getRecommendedById = (phoneId: string) => get<Phone[]>(`/phones/${phoneId}/recommended`);
-export const getPhoneById = (phoneId: string) => get<Phone>(`/phones/${phoneId}`);
+export const getPhoneById = (category: string, phoneId: string) => get<Phone>(`/${category}/${phoneId}`);
 
 export const getTablets = () => get<Phone[]>('/products?productType=tablets');
 export const getAccessories = () => get<Phone[]>('/products?productType=accessories');
