@@ -1,7 +1,8 @@
 import React from 'react';
-import { Buttons } from '../Buttons';
+import { Navigation } from '../Navigation';
 import { Logo } from '../Logo';
-import { Navigation } from '../Navigation/Navigation';
+import { Buttons } from '../Buttons';
+
 import './Header.scss';
 
 /* eslint-disable */
@@ -10,8 +11,9 @@ interface Props {
   phoneIdsInCart: number[];
 }
 
-export const Header: React.FC<Props> = ({ phoneIdsInFavourites, phoneIdsInCart }) => (
-  <header className="header">
+export const Header: React.FC<Props> = ({ phoneIdsInFavourites, phoneIdsInCart }) => {
+  return (
+    <header className="header">
     <div className="header__left">
       <Logo />
 
@@ -23,4 +25,5 @@ export const Header: React.FC<Props> = ({ phoneIdsInFavourites, phoneIdsInCart }
       phoneIdsInCart={phoneIdsInCart}
     />
   </header>
-);
+  );
+};
