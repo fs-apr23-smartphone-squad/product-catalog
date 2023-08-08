@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product-catalog/static/css/main.2fc87680.css",
-    "main.js": "/product-catalog/static/js/main.f71e3bda.js",
+    "main.css": "/product-catalog/static/css/main.39ddf4a9.css",
+    "main.js": "/product-catalog/static/js/main.3f60e09b.js",
     "static/js/787.10a53ce6.chunk.js": "/product-catalog/static/js/787.10a53ce6.chunk.js",
     "static/media/logo.svg": "/product-catalog/static/media/logo.3c6bd1886792ca6da9d59ce7bea7dc78.svg",
     "static/media/Mont-Regular.otf": "/product-catalog/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
@@ -21,12 +21,12 @@
     "static/media/Chevron.svg": "/product-catalog/static/media/Chevron.dbcfbcafc20dbfe9d8c9.svg",
     "static/media/Minus.svg": "/product-catalog/static/media/Minus.e7ca08225306197731df.svg",
     "static/media/Ellipse.svg": "/product-catalog/static/media/Ellipse.74ec7e268b5369cc84e3.svg",
-    "main.2fc87680.css.map": "/product-catalog/static/css/main.2fc87680.css.map",
-    "main.f71e3bda.js.map": "/product-catalog/static/js/main.f71e3bda.js.map",
+    "main.39ddf4a9.css.map": "/product-catalog/static/css/main.39ddf4a9.css.map",
+    "main.3f60e09b.js.map": "/product-catalog/static/js/main.3f60e09b.js.map",
     "787.10a53ce6.chunk.js.map": "/product-catalog/static/js/787.10a53ce6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2fc87680.css",
-    "static/js/main.f71e3bda.js"
+    "static/css/main.39ddf4a9.css",
+    "static/js/main.3f60e09b.js"
   ]
 }
