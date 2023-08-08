@@ -40,15 +40,17 @@ export const Card: React.FC<Props> = ({
 
   return (
     <article className={cn('card', {})}>
-      <PhoneImage src={image} />
-      <div className="card_title--container">
-        <h3 className="card_title">
-          <NavLink 
-            to={`/products/${phone.itemId}`}
-          >
-          {phoneName}
-          </NavLink></h3>
-      </div>
+      <NavLink
+        to={`/products/${phone.itemId}`}
+      >
+        <PhoneImage src={image} />
+        <div className="card_title--container">
+          <h3 className="card_title">
+            {phoneName}
+          </h3>
+        </div>
+      </NavLink>
+      
       <div className="card_price">
         <p className="card_price-new">{`$${price}`}</p>
         <p className="card_price-old">{`$${fullPrice}`}</p>

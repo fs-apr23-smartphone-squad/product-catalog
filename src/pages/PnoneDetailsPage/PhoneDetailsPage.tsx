@@ -3,26 +3,29 @@ import './PhoneDetailsPage.scss';
 import { Carousel } from '../../components/Carousel';
 import { PhoneActions } from '../../components/PhoneActions';
 import { Phone } from '../../components/Types/Types';
-import { getPhoneById,
-  getRecommendedById } from '../../components/Helpers/fetchClient';
+import {
+  getPhoneById,
+  getPhones,
+  getRecommendedById
+} from '../../components/Helpers/fetchClient';
 import { Link, useParams } from 'react-router-dom';
 import { PhonePhotos } from '../../components/PhonePhotos';
 
 /* eslint-disable */
 interface Props {
-  itemIdsInCart: number[];
+  phoneIdsInCart: number[];
   handleAddToCart: (id: number) => void;
   removeFromCart: (id: number) => void;
-  itemIdsInFavourites: number[];
+  phoneIdsInFavourites: number[];
   handleAddToFavourites: (id: number) => void;
   removeFromFavourites: (id: number) => void;
 }
 
 export const PhoneDetailsPage: React.FC<Props> = ({
-  itemIdsInCart,
+  phoneIdsInCart,
   handleAddToCart,
   removeFromCart,
-  itemIdsInFavourites,
+  phoneIdsInFavourites,
   handleAddToFavourites,
   removeFromFavourites
 }) => {
@@ -51,7 +54,7 @@ export const PhoneDetailsPage: React.FC<Props> = ({
   useEffect(() => {
     const fetchPhone = async () => {
       try {
-        const phoneFromServer: Phone = await getPhoneById(itemId);
+        const phoneFromServer: Phone = await getPhoneById('phones', itemId);
 
         setShowedPhone(phoneFromServer);
         console.log(phoneFromServer);
@@ -61,7 +64,7 @@ export const PhoneDetailsPage: React.FC<Props> = ({
     };
 
     fetchPhone();
-  }, []);
+  }, [itemId]);
 
 
   return (
@@ -189,10 +192,10 @@ export const PhoneDetailsPage: React.FC<Props> = ({
           <Carousel
             title="You may also like"
             phones={recommendedPhones}
-            itemIdsInCart={itemIdsInCart}
+            phoneIdsInCart={phoneIdsInCart}
             handleAddToCart={handleAddToCart}
             removeFromCart={removeFromCart}
-            itemIdsInFavourites={itemIdsInFavourites}
+            phoneIdsInFavourites={phoneIdsInFavourites}
             handleAddToFavourites={handleAddToFavourites}
             removeFromFavourites={removeFromFavourites}
           />

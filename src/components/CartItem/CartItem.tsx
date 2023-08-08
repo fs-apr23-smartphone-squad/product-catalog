@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Phone } from '../Types/Types';
 import './CartItem.scss';
+import { NavLink } from 'react-router-dom';
 
 /* eslint-disable */
 type Props = {
@@ -65,12 +66,18 @@ export const CartItem: React.FC<Props> = ({
           className="cart-item__delete"
           onClick={handleRemoveFromCart}
         ></button>
-        <img
-          className="cart-item__image"
-          src={`${Base + image}`}
-          alt={phoneName}
-        />
-        <div className="cart-item__title">{phoneName}</div>
+
+        <NavLink
+          className="cart-item__info"
+          to={`/products/${phone.itemId}`}
+        >
+          <img
+            className="cart-item__image"
+            src={`${Base + image}`}
+            alt={phoneName}
+          />
+          <div className="cart-item__title">{phoneName}</div>
+        </NavLink>
       </div>
 
       <div className="cart-item__details">
