@@ -3,9 +3,10 @@ import './PhonePhotos.scss';
 
 interface Props {
   BASE_API_URL: string;
-  setShowedPhoto: () => void;
+  setShowedPhoto: (url: string) => void;
   showedPhoto: string;
   productImages: string[];
+  phoneName: string;
 }
 
 export const PhonePhotos: React.FC<Props>  = ({
@@ -13,28 +14,29 @@ export const PhonePhotos: React.FC<Props>  = ({
   setShowedPhoto,
   showedPhoto,
   productImages,
+  phoneName,
 }) => (
-  <div className="phone__photos">
+  <div className="photos">
     <img
-      className='phone__photo--big'
+      className='photo--big'
       src={
         showedPhoto
         ? (`${BASE_API_URL}/${showedPhoto}`)
         : (`${BASE_API_URL}/${productImages?.[0]}`)
       }
-      alt="Phone photo"
+      alt={`${phoneName} photo`}
     />
 
-    <div className="phone__photos--small">
+    <div className="photos--small">
       {productImages?.map(image => (
         <img
           key={image}
-          className='phone__photo--small'
+          className='photo--small'
           src={`${BASE_API_URL}/${image}`}
           onMouseEnter={() => setShowedPhoto(image)}
           onClick={() => setShowedPhoto(image)}
 
-          alt="Phone photo"
+          alt={`${phoneName} photo`}
         />
       ))}
     </div>

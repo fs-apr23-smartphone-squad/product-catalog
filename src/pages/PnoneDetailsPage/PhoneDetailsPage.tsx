@@ -91,6 +91,7 @@ export const PhoneDetailsPage: React.FC<Props> = ({
             setShowedPhoto={setShowedPhoto}
             showedPhoto={showedPhoto}
             productImages={productImages}
+            phoneName={showedPhone?.name}
           />
 
           <PhoneActions />
