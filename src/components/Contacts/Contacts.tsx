@@ -6,7 +6,7 @@ export const Contacts = () => (
       <li className="contacts__item">
         <a
           className="contacts__link"
-          href="https://github.com/fs-apr23-smartphone-squad/layout"
+          href="https://github.com/fs-apr23-smartphone-squad"
           target="_blank"
         >
           github

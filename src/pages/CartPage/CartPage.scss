@@ -2,6 +2,17 @@
 @import '../../styles/utils/vars';
 
 .cart {
+  min-height: calc(100vh - 48px - 283px);
+
+  @include onTablet {
+    min-height: calc(100vh - 48px - 101px);
+  }
+
+  @include onDesctop {
+    min-height: calc(100vh - 64px - 101px);
+  }
+
+
   padding: 24px 16px 56px;
 
   text-align: left;

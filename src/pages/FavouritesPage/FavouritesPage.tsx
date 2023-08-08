@@ -5,6 +5,7 @@ import { Phone } from '../../components/Types/Types';
 import '../../components/Cardlist/Cardlist.scss';
 import './FavouritesPage.scss';
 import { Link } from 'react-router-dom';
+import { EmptyFavourites } from '../../components/EmptyFavourites';
 
 /* eslint-disable */
 interface Props {
@@ -55,9 +56,13 @@ export const FavouritesPage: React.FC<Props> = ({
     localStorage.setItem('phoneIdsInFavourites', JSON.stringify(phoneIdsInFavourites));
   }, [phoneIdsInFavourites]);
 
+  const isSmthInFavourites = phoneIdsInFavourites.length !== 0;
+
   return (
-    <>
-      <div className='breadcrumbs1'>
+    isSmthInFavourites
+      ? (
+        <>
+          <div className='breadcrumbs1'>
         <Link
         className='breadcrumbs__home'
         to='/home'
@@ -66,25 +71,27 @@ export const FavouritesPage: React.FC<Props> = ({
         <p>Favourites</p>
       </div>
       <h1 className='fav_text'>Favourites</h1>
-      {phoneIdsInFavourites.length ? (
-        <h3 className='fav_text--items'>{`${phoneIdsInFavourites.length} items`}</h3>
-      ) : (
-        <h3 className='fav_text--items'>No favourite products</h3>
-      )}
+          {phoneIdsInFavourites.length ? (
+            <h3 className='fav_text--items'>{`${phoneIdsInFavourites.length} items`}</h3>
+          ) : (
+            <h3 className='fav_text--items'>No favourite products</h3>
+          )}
 
-      <div className='grid'>
-        {favPhones.map(phone => (
-          <Card
-            phone={phone}
-            phoneIdsInFavourites={phoneIdsInFavourites}
-            removeFromFavourites={removeFromFavourites}
-            phoneIdsInCart={phoneIdsInCart}
-            handleAddToCart={handleAddToCart}
-            removeFromCart={removeFromCart}
-            handleAddToFavourites={handleAddToFavourites}
-          />
-        ))}
-      </div>
-    </>
+          <div className='grid'>
+            {favPhones.map(phone => (
+              <Card
+                phone={phone}
+                phoneIdsInFavourites={phoneIdsInFavourites}
+                removeFromFavourites={removeFromFavourites}
+                phoneIdsInCart={phoneIdsInCart}
+                handleAddToCart={handleAddToCart}
+                removeFromCart={removeFromCart}
+                handleAddToFavourites={handleAddToFavourites}
+              />
+            ))}
+          </div>
+        </>
+      )
+      : <EmptyFavourites />
   );
 };
