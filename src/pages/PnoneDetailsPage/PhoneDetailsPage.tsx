@@ -3,9 +3,9 @@ import './PhoneDetailsPage.scss';
 import { Carousel } from '../../components/Carousel';
 import { PhoneActions } from '../../components/PhoneActions';
 import { Phone } from '../../components/Types/Types';
-import { getPhoneById,
-  getRecommendedById } from '../../components/Helpers/fetchClient';
-import { Link } from 'react-router-dom';
+import { getPhoneById, getRecommendedById } from '../../components/Helpers/fetchClient';
+import { Link, useParams } from 'react-router-dom';
+import { PhonePhotos } from '../../components/PhonePhotos';
 
 /* eslint-disable */
 interface Props {
@@ -25,9 +25,12 @@ export const PhoneDetailsPage: React.FC<Props> = ({
   handleAddToFavourites,
   removeFromFavourites
 }) => {
+  const BASE_API_URL = 'https://api.smartphonesquad.shop';
   const [recommendedPhones, setRecommendedPhones] = useState<Phone[]>([]);
-  const phoneId = 'apple-watch-series-6';
   const [showedPhone, setShowedPhone] = useState<Phone>();
+  const productImages = (showedPhone?.images.slice(0, -1).slice(1))?.split(',');
+  const [showedPhoto, setShowedPhoto] = useState();
+  const { phoneId } = useParams();
 
   useEffect(() => {
     const fetchPhones = async () => {
@@ -59,6 +62,7 @@ export const PhoneDetailsPage: React.FC<Props> = ({
     fetchPhone();
   }, []);
 
+
   return (
     <div className="phone">
       <div className='breadcrumbs'>
@@ -82,46 +86,12 @@ export const PhoneDetailsPage: React.FC<Props> = ({
 
       <div className="phone__container">
         <div className="phone__details">
-          <div className="phone__photos">
-            <img
-              className='phone__photo--big'
-              src={`https://api.smartphonesquad.shop/${showedPhone?.image}`}
-              alt="Phone photo"
-            />
-            <div className="phone__photos--small">
-              <img
-                className='phone__photo--small'
-                // eslint-disable-next-line max-len
-                src={`https://api.smartphonesquad.shop/${showedPhone?.image}`}
-
-                alt="Phone photo"
-              />
-
-              <img
-                className='phone__photo--small'
-                // eslint-disable-next-line max-len
-                src={`https://api.smartphonesquad.shop/${showedPhone?.image}`}
-
-                alt="Phone photo"
-              />
-
-              <img
-                className='phone__photo--small'
-                // eslint-disable-next-line max-len
-                src={`https://api.smartphonesquad.shop/${showedPhone?.image}`}
-
-                alt="Phone photo"
-              />
-
-              <img
-                className='phone__photo--small'
-                // eslint-disable-next-line max-len
-                src={`https://api.smartphonesquad.shop/${showedPhone?.image}`}
-
-                alt="Phone photo"
-              />
-            </div>
-          </div>
+          <PhonePhotos
+            BASE_API_URL={BASE_API_URL}
+            setShowedPhoto={setShowedPhoto}
+            showedPhoto={showedPhoto}
+            productImages={productImages}
+          />
 
           <PhoneActions />
         </div>

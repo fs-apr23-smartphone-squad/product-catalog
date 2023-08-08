@@ -12,6 +12,7 @@ export interface Phone {
   ram: string,
   year: number,
   image: string,
+  images: string,
 }
 
 export interface PhoneApiResponse {
