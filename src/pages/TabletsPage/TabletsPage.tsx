@@ -43,24 +43,24 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
     count: number;
     rows: Phone[];
   }
-  
+
   const fetchPhones = async () => {
     console.log(filter, sorting, sortOrder);
     try {
       let updatedSorting = sorting;
       let updatedSortOrder = sortOrder;
-  
+
       if (filter === 'Newest') {
         updatedSorting = 'year';
         updatedSortOrder = 'DESC';
-      } else if (filter === 'Price ⇂') {
-        updatedSorting = 'price';
+      } else if (filter === 'priceRegular ⇂') {
+        updatedSorting = 'priceRegular';
         updatedSortOrder = 'DESC';
-      } else if (filter === 'Price ↾') {
-        updatedSorting = 'price';
+      } else if (filter === 'priceRegular ↾') {
+        updatedSorting = 'priceRegular';
         updatedSortOrder = 'ASC';
       }
-  
+
       const response = await getPhonesForPagination(
         perPage,
         (currentPage - 1) * perPage,
@@ -68,7 +68,7 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
         updatedSortOrder,
         'tablets'
       );
-  
+
       setTotalPhones(response.count);
       setPhones(response.rows);
       setSorting(updatedSorting);
@@ -77,7 +77,7 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
       console.error('Error fetching phones:', error);
     }
   };
-  
+
 
   const handlePerPage = (option: number) => {
     setPerPage(option);
@@ -103,7 +103,7 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
         <h1 className='phones_page__title'>Tablets</h1>
         <h4 className='phones_page__quantity'>{`${totalPhones} models`}</h4>
       </div>
- 
+
       <div className='phones_page__filter'>
         <Sorting
           title="Sort by"
@@ -118,7 +118,7 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
           perPage={perPage}
         />
       </div>
-      
+
       <Cardlist
         phonesToShow={phones}
         phoneIdsInCart={phoneIdsInCart}

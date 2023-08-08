@@ -18,7 +18,7 @@ export const Sorting: React.FC<Props> = ({
   const [droped, setDroped] = useState(false);
   const sortingRef = useRef<HTMLDivElement>(null);
 
-  const options = ['Newest', 'Price ⇂', 'Price ↾']
+  const options = ['Newest', 'priceRegular ⇂', 'priceRegular ↾']
 
   const handleClickOutside: EventListener = (event) => {
     const targetNode = event.target as Node;

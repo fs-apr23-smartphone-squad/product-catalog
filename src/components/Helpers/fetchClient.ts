@@ -21,7 +21,7 @@ export const getPhones = () => get<Phone[]>('/products');
 export const getPhonesForPagination = (
   limit: number,
   offset: number,
-  sortBy: string = 'price',
+  sortBy: string = 'priceRegular',
   sortOrder: 'ASC' | 'DESC' = 'ASC',
   group:string,
 ): Promise<PhoneApiResponse> => get(`/products?limit=${limit}&offset=${offset}&sortBy=${sortBy}&sortOrder=${sortOrder}&group=${group}`);
@@ -29,8 +29,8 @@ export const getPhonesForPagination = (
 export const getPhonesByIds = (phoneIds: string[]) => get<Phone[]>(`/products?ids=${phoneIds.join(',')}`);
 export const getDiscount = () => get<Phone[]>('/products/discount');
 export const getNew = () => get<Phone[]>('/products/new');
-export const getRecommendedById = (phoneId: string) => get<Phone[]>(`/phones/${phoneId}/recommended`);
-export const getPhoneById = (category: string, phoneId: string) => get<Phone>(`/${category}/${phoneId}`);
+export const getRecommendedById = (phoneId: string | undefined) => get<Phone[]>(`/phones/${phoneId}/recommended`);
+export const getPhoneById = (category: string, phoneId: string | undefined) => get<Phone>(`/${category}/${phoneId}`);
 
 export const getTablets = () => get<Phone[]>('/products?productType=tablets');
 export const getAccessories = () => get<Phone[]>('/products?productType=accessories');
