@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import './App.css';
-import { Page } from './components/Page';
+import { Header } from './components/Header';
 import { HomePage } from './pages/HomePage';
 import { PhonesPage } from './pages/PhonesPage';
 import { TabletsPage } from './pages/TabletsPage';
@@ -50,7 +50,7 @@ function App() {
 
   return (
     <div className="App">
-      <Page
+      <Header
        phoneIdsInFavourites={phoneIdsInFavourites}
        phoneIdsInCart={phoneIdsInCart}
         />
