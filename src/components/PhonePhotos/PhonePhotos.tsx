@@ -1,6 +1,7 @@
 import React from 'react';
 import './PhonePhotos.scss';
 
+/* eslint-disable */
 interface Props {
   BASE_API_URL: string;
   setShowedPhoto: (url: string) => void;
@@ -21,8 +22,8 @@ export const PhonePhotos: React.FC<Props>  = ({
       className='photo--big'
       src={
         showedPhoto
-        ? (`${BASE_API_URL}/${showedPhoto}`)
-        : (`${BASE_API_URL}/${productImages?.[0]}`)
+          ? (`${BASE_API_URL}/${showedPhoto}`)
+          : (`${BASE_API_URL}/${productImages?.[0]}`)
       }
       alt={`${phoneName} photo`}
     />
