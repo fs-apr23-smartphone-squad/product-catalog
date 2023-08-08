@@ -3,25 +3,26 @@ import './PhoneDetailsPage.scss';
 import { Carousel } from '../../components/Carousel';
 import { PhoneActions } from '../../components/PhoneActions';
 import { Phone } from '../../components/Types/Types';
-import { getPhoneById, getRecommendedById } from '../../components/Helpers/fetchClient';
+import { getPhoneById,
+  getRecommendedById } from '../../components/Helpers/fetchClient';
 import { Link, useParams } from 'react-router-dom';
 import { PhonePhotos } from '../../components/PhonePhotos';
 
 /* eslint-disable */
 interface Props {
-  phoneIdsInCart: number[];
+  itemIdsInCart: number[];
   handleAddToCart: (id: number) => void;
   removeFromCart: (id: number) => void;
-  phoneIdsInFavourites: number[];
+  itemIdsInFavourites: number[];
   handleAddToFavourites: (id: number) => void;
   removeFromFavourites: (id: number) => void;
 }
 
 export const PhoneDetailsPage: React.FC<Props> = ({
-  phoneIdsInCart,
+  itemIdsInCart,
   handleAddToCart,
   removeFromCart,
-  phoneIdsInFavourites,
+  itemIdsInFavourites,
   handleAddToFavourites,
   removeFromFavourites
 }) => {
@@ -30,12 +31,12 @@ export const PhoneDetailsPage: React.FC<Props> = ({
   const [showedPhone, setShowedPhone] = useState<Phone>();
   const productImages = (showedPhone?.images.slice(0, -1).slice(1))?.split(',');
   const [showedPhoto, setShowedPhoto] = useState();
-  const { phoneId } = useParams();
+  const { itemId } = useParams();
 
   useEffect(() => {
     const fetchPhones = async () => {
       try {
-        const phonesFromServer: Phone[] = await getRecommendedById(phoneId);
+        const phonesFromServer: Phone[] = await getRecommendedById(itemId);
 
         setRecommendedPhones(phonesFromServer);
         console.log(phonesFromServer);
@@ -50,7 +51,7 @@ export const PhoneDetailsPage: React.FC<Props> = ({
   useEffect(() => {
     const fetchPhone = async () => {
       try {
-        const phoneFromServer: Phone = await getPhoneById(phoneId);
+        const phoneFromServer: Phone = await getPhoneById(itemId);
 
         setShowedPhone(phoneFromServer);
         console.log(phoneFromServer);
@@ -188,10 +189,10 @@ export const PhoneDetailsPage: React.FC<Props> = ({
           <Carousel
             title="You may also like"
             phones={recommendedPhones}
-            phoneIdsInCart={phoneIdsInCart}
+            itemIdsInCart={itemIdsInCart}
             handleAddToCart={handleAddToCart}
             removeFromCart={removeFromCart}
-            phoneIdsInFavourites={phoneIdsInFavourites}
+            itemIdsInFavourites={itemIdsInFavourites}
             handleAddToFavourites={handleAddToFavourites}
             removeFromFavourites={removeFromFavourites}
           />
