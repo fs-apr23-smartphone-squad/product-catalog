@@ -62,8 +62,6 @@
         color:#27AE60;
         border: 1px solid $border-color;
         background-color: $c-white;
-
-        pointer-events: none;
       }
     }
 
@@ -86,7 +84,6 @@
       }
 
       &.disabled {
-        pointer-events: none;
         background-image: url(../../images/Icons/FavouritesFilled.svg);
         border-color: $border-color;
       }
@@ -141,7 +138,7 @@
     }
   }
 
-  &__price {
+  &__priceRegular {
     color: $text-color;
     font-size: 32px;
     font-style: normal;
@@ -246,8 +243,20 @@
         background-color: $phone-midnightgreen;
       }
 
+      &.midnight {
+        background-color: $phone-midnight;
+      }
+
       &.purple {
         background-color: $phone-purple;
+      }
+
+      &.sierrablue {
+        background-color: $phone-sierrablue;
+      }
+
+      &.graphite {
+        background-color: $phone-graphite;
       }
 
       &.green {

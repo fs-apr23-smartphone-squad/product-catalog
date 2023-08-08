@@ -50,7 +50,7 @@ export const Card: React.FC<Props> = ({
           </h3>
         </div>
       </NavLink>
-      
+
       <div className="card_price">
         <p className="card_price-new">{`$${price}`}</p>
         <p className="card_price-old">{`$${fullPrice}`}</p>
