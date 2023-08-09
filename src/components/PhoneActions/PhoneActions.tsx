@@ -4,7 +4,7 @@ import './PhoneActions.scss';
 import { NavLink } from 'react-router-dom';
 import { changeItemId } from '../../Helpers/changeItemId';
 import { getPhones } from '../../Helpers/fetchClient';
-import { Phone, phoneDescription } from '../../Types/Types';
+import { phoneDescription } from '../../Types/Types';
 import { Loader } from '../Loader';
 
 /* eslint-disable */
