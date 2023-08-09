@@ -4,7 +4,7 @@ import { Carousel } from '../../components/Carousel';
 import { PhoneActions } from '../../components/PhoneActions';
 import { Phone, phoneDescription } from '../../Types/Types';
 import { getSingleItem,
-  getRecommendedBySingle} from '../../Helpers/fetchClient';
+  getRecommendedBySingle } from '../../Helpers/fetchClient';
 import { Link, useParams } from 'react-router-dom';
 import { PhonePhotos } from '../../components/PhonePhotos';
 import { Loader } from '../../components/Loader';

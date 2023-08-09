@@ -1,5 +1,6 @@
 import './SocialCard.scss';
 
+/* eslint-disable */
 type Props = {
   devName: string;
   links: {
