@@ -29,7 +29,7 @@ export const getPhonesForPagination = (
 export const getPhonesByIds = (phoneIds: string[]) => get<Phone[]>(`/products?ids=${phoneIds.join(',')}`);
 export const getDiscount = () => get<Phone[]>('/products/discount');
 export const getNew = () => get<Phone[]>('/products/new');
-export const getRecommendedById = (phoneId: string | undefined) => get<Phone[]>(`/phones/${phoneId}/recommended`);
+export const getRecommendedById = (category: string, phoneId: string | undefined) => get<Phone[]>(`/${category}/${phoneId}/recommended`);
 export const getPhoneById = (category: string, phoneId: string | undefined) => get<Phone>(`/${category}/${phoneId}`);
 
 export const getTablets = () => get<Phone[]>('/products?productType=tablets');
