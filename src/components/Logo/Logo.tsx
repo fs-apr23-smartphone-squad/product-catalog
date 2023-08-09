@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 
-import logo from '../../images/logo.svg';
-
 import './Logo.scss';
 
 export const Logo = () => (
@@ -9,7 +7,7 @@ export const Logo = () => (
     <Link to="home">
       <img
         className="logo__img"
-        src={`${logo}`}
+        src="../../images/logo.svg"
         alt="Nice gadgets logo"
       >
       </img>
