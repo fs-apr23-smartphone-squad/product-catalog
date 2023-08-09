@@ -1,16 +1,25 @@
 @import '../../styles/utils/vars';
+@import '../../styles/utils/mixins';
 
 .burger {
   position: absolute;
   top: $header-height;
   right: 0;
 
+  width: 100vw;
+  
   padding-top: 24px;
+
+  z-index: 300;
 
   background-color: $burger-background;
 
   border-left: solid 1px $shadow;
   border-bottom: solid 1px $shadow;
+
+  @include onTablet {
+    display: none;
+  }
 
   &__nav {
     display: flex;
