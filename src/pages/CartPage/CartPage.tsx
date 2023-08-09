@@ -13,11 +13,13 @@ import { EmptyCart } from '../../components/EmptyCart';
 interface Props {
   phoneIdsInCart: number[];
   removeFromCart: (id: number) => void;
+  removeAllFromCart: () => void;
 }
 
 export const CartPage: React.FC<Props> = ({
   phoneIdsInCart,
   removeFromCart,
+  removeAllFromCart,
 }) => {
   const [isModal, setIsModal] = useState(false);
   const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -143,7 +145,12 @@ export const CartPage: React.FC<Props> = ({
           </div>
         </div>
 
-        {isModal && <ModalWindow />}
+        {isModal && <ModalWindow
+          phoneIdsInCart={phoneIdsInCart}
+          removeAllFromCart={removeAllFromCart}
+          isModal={isModal}
+          setIsModal={setIsModal}
+        />}
       </div>
     )
       : <EmptyCart />

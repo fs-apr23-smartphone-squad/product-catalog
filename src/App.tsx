@@ -42,6 +42,10 @@ function App() {
     setPhoneIdsInCart(filter);
   };
 
+  const removeAllFromCart = () => {
+    setPhoneIdsInCart([]);
+  };
+
   const handleAddToFavourites = (id: number) => {
     setPhoneIdsInFavourites(prevIds => [...prevIds, id]);
   };
@@ -130,6 +134,7 @@ function App() {
           <CartPage
             phoneIdsInCart={phoneIdsInCart}
             removeFromCart={removeFromCart}
+            removeAllFromCart={removeAllFromCart}
           />
         } />
         <Route path="register" element={<RegisterPage />} />
