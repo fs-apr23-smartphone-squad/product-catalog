@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
-import React, { useEffect, useState } from 'react';
-import cn from 'classnames';
 import './PhoneActions.scss';
 import { NavLink } from 'react-router-dom';
 import {
