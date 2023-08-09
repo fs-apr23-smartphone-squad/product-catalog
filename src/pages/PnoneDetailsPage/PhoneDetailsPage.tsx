@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PhoneDetailsPage.scss';
 import { Carousel } from '../../components/Carousel';
 import { PhoneActions } from '../../components/PhoneActions';
@@ -36,12 +36,10 @@ export const PhoneDetailsPage: React.FC<Props> = ({
   const [showedPhone, setShowedPhone] = useState<Phone | null>(null);
   const [showedPhoto, setShowedPhoto] = useState<string | null>(null);
 
-
-
   useEffect(() => {
     const fetchPhones = async () => {
       try {
-        const phonesFromServer: Phone[] = await getRecommendedById(itemId);
+        const phonesFromServer: Phone[] = await getRecommendedById(category, itemId);
 
         setRecommendedPhones(phonesFromServer);
         console.log(phonesFromServer);
