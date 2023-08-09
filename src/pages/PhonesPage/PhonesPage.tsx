@@ -56,11 +56,11 @@ export const PhonesPage: React.FC<Props> = ({ phoneIdsInCart,
       if (filter === 'Newest') {
         updatedSorting = 'year';
         updatedSortOrder = 'DESC';
-      } else if (filter === 'priceRegular ⇂') {
-        updatedSorting = 'priceRegular';
+      } else if (filter === 'Price ⇂') {
+        updatedSorting = 'price';
         updatedSortOrder = 'DESC';
-      } else if (filter === 'priceRegular ↾') {
-        updatedSorting = 'priceRegular';
+      } else if (filter === 'Price ↾') {
+        updatedSorting = 'price';
         updatedSortOrder = 'ASC';
       }
 

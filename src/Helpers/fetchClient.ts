@@ -22,7 +22,7 @@ export const getPhones = () => get<Phone[]>('/products');
 export const getPhonesForPagination = (
   limit: number,
   offset: number,
-  sortBy: string = 'priceRegular',
+  sortBy: string,
   sortOrder: 'ASC' | 'DESC' = 'ASC',
   group: string,
   query: string,
