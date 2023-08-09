@@ -1,7 +1,7 @@
 @import "../../styles/utils/mixins";
 @import "../../styles/utils/vars";
 
-.card__container {
+.contacts__container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,4 +21,10 @@
   @include onDesctop {
     min-height: calc(100vh - 64px - 101px);
   }
+}
+
+.contacts__title {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
 }

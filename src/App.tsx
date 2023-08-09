@@ -14,7 +14,7 @@ import { Footer } from './components/Footer';
 import { PhoneDetailsPage } from './pages/PnoneDetailsPage';
 import { AuthModal } from './components/AuthModal';
 import { RegisterPage } from './pages/RegisterPage';
-import { ContactsPage } from './pages/ContactsPage/ContacstPage';
+import { ContactsPage } from './pages/ContactsPage/ContactsPage';
 
 function App() {
   const [phoneIdsInCart, setPhoneIdsInCart] = useState<number[]>(() => {

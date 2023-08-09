@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import './contacts.scss';
 
 export const Contacts = () => (
@@ -14,7 +15,7 @@ export const Contacts = () => (
       </li>
 
       <li className="contacts__item">
-        <a className="contacts__link" href="#contacts"> contacts </a>
+        <NavLink className="contacts__link" to="/contacts"> contacts </NavLink>
       </li>
 
       <li className="contacts__item">
