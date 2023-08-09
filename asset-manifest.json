@@ -1,12 +1,9 @@
 {
   "files": {
-    "main.css": "/product-catalog/static/css/main.39ddf4a9.css",
-    "main.js": "/product-catalog/static/js/main.3f60e09b.js",
+    "main.css": "/product-catalog/static/css/main.167544e9.css",
+    "main.js": "/product-catalog/static/js/main.24431f39.js",
     "static/js/787.10a53ce6.chunk.js": "/product-catalog/static/js/787.10a53ce6.chunk.js",
     "static/media/logo.svg": "/product-catalog/static/media/logo.3c6bd1886792ca6da9d59ce7bea7dc78.svg",
-    "static/media/Mont-Regular.otf": "/product-catalog/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
-    "static/media/Mont-SemiBold.otf": "/product-catalog/static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf",
-    "static/media/Mont-Bold.otf": "/product-catalog/static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf",
     "static/media/Cart.svg": "/product-catalog/static/media/Cart.f9632dca8fdaed9bb696.svg",
     "static/media/Favourites.svg": "/product-catalog/static/media/Favourites.670cf5136eb8aecd15dc.svg",
     "static/media/Home.svg": "/product-catalog/static/media/Home.d4c29e4f137b3a79235a.svg",
@@ -21,12 +18,12 @@
     "static/media/Chevron.svg": "/product-catalog/static/media/Chevron.dbcfbcafc20dbfe9d8c9.svg",
     "static/media/Minus.svg": "/product-catalog/static/media/Minus.e7ca08225306197731df.svg",
     "static/media/Ellipse.svg": "/product-catalog/static/media/Ellipse.74ec7e268b5369cc84e3.svg",
-    "main.39ddf4a9.css.map": "/product-catalog/static/css/main.39ddf4a9.css.map",
-    "main.3f60e09b.js.map": "/product-catalog/static/js/main.3f60e09b.js.map",
+    "main.167544e9.css.map": "/product-catalog/static/css/main.167544e9.css.map",
+    "main.24431f39.js.map": "/product-catalog/static/js/main.24431f39.js.map",
     "787.10a53ce6.chunk.js.map": "/product-catalog/static/js/787.10a53ce6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.39ddf4a9.css",
-    "static/js/main.3f60e09b.js"
+    "static/css/main.167544e9.css",
+    "static/js/main.24431f39.js"
   ]
 }
