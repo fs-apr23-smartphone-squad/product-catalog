@@ -83,7 +83,7 @@ export const PhoneDetailsPage: React.FC<Props> = ({
         ></Link>
         <div className='breadcrumbs__arrow'></div>
         <Link
-        className='breadcrumbs__phones'
+        className='breadcrumbs__phones breadcrumbs__category'
         to={`/${category}`}
         >{category}</Link>
         <div className='breadcrumbs__arrow'></div>
