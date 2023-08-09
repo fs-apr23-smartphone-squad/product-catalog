@@ -8,6 +8,7 @@ import { Phone } from '../../components/Types/Types';
 import { Pagination } from '../../components/Pagination/Pagination';
 import './TabletsPage.scss';
 import { Link } from 'react-router-dom';
+import { Search } from '../../components/Search/Search';
 
 /* eslint-disable no-console */
 /* eslint-disable */
@@ -34,10 +35,11 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
   const [filter, setFilter] = useState('Newest');
   const [sorting, setSorting] = useState('year');
   const [sortOrder, setSortOrder] = useState<'ASC' | 'DESC'>('DESC');
+  const [appliedQuery, setAppliedQuery] = useState('');
 
   useEffect(() => {
     fetchPhones();
-  }, [currentPage, perPage, filter, sorting, sortOrder]);
+  }, [currentPage, perPage, filter, sorting, sortOrder, appliedQuery]);
 
   interface PhoneApiResponse {
     count: number;
@@ -47,6 +49,7 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
   const fetchPhones = async () => {
     console.log(filter, sorting, sortOrder);
     try {
+      const formattedQuery = appliedQuery.toLowerCase().trim();
       let updatedSorting = sorting;
       let updatedSortOrder = sortOrder;
 
@@ -66,7 +69,8 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
         (currentPage - 1) * perPage,
         updatedSorting,
         updatedSortOrder,
-        'tablets'
+        'tablets',
+        formattedQuery,
       );
 
       setTotalPhones(response.count);
@@ -116,6 +120,10 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
           title="Items on page"
           handlePerPage={handlePerPage}
           perPage={perPage}
+        />
+
+        <Search
+          setAppliedQuery={setAppliedQuery}
         />
       </div>
 
