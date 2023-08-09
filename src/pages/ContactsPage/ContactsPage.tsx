@@ -7,11 +7,11 @@ const developers = [
   {
     devName: 'Petruliak Volodymyr',
     links: {
-      gmail: 'mailto:',
-      github: '',
-      linkedin: '',
+      gmail: 'mailto:petruliak.v@gmail.com',
+      github: 'https://github.com/snuber-w',
+      linkedin: 'https://www.linkedin.com/in/volodymyr-petruliak/',
     },
-    photo: '',
+    photo: 'https://avatars.githubusercontent.com/u/106393188?v=4',
   },
   {
     devName: 'Balandiukh Iryna',
