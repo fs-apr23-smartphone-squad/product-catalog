@@ -7,7 +7,7 @@ import {
   replaceProderty,
 } from '../../Helpers/helpersFunctions';
 import { getPhones } from '../../Helpers/fetchClient';
-import { Phone } from '../../Types/Types';
+import { Phone, phoneDescription } from '../../Types/Types';
 import { Loader } from '../Loader';
 
 interface Props {
@@ -16,6 +16,7 @@ interface Props {
   color: string;
   avalibleColors: string[];
   productId: string | undefined;
+  category: string | undefined;
   priceRegular: number;
   priceDiscount: number | undefined,
   phoneIdsInCart: number[];
@@ -24,7 +25,7 @@ interface Props {
   phoneIdsInFavourites: number[];
   handleAddToFavourites: (id: number) => void;
   removeFromFavourites: (id: number) => void;
-  product: Phone;
+  product: phoneDescription;
 }
 
 export const PhoneActions: React.FC<Props> = ({
@@ -32,6 +33,7 @@ export const PhoneActions: React.FC<Props> = ({
   avalibleColors,
   capacityAvailable,
   productId,
+  category,
   phoneIdsInCart,
   handleAddToCart,
   removeFromCart,
@@ -87,7 +89,7 @@ export const PhoneActions: React.FC<Props> = ({
       <div className="phone-actions__color">
         {(avalibleColors && productId) && avalibleColors.map(col => (
           <NavLink
-            to={`/products/${getProductIdWithoutColor(productId)}${col}`}
+            to={`/${category}/${getProductIdWithoutColor(productId)}${col}`}
             key={col}
             onClick={() => setSelectedColor(col)}
           >
@@ -104,7 +106,7 @@ export const PhoneActions: React.FC<Props> = ({
         {(capacityAvailable && productId) && capacityAvailable.map(cap => (
           <NavLink
             key={cap}
-            to={`/products/${replaceProderty(productId, selectedCapacity, cap)}`}
+            to={`/${category}/${replaceProderty(productId, selectedCapacity, cap)}`}
           >
             <button
               className={cn(

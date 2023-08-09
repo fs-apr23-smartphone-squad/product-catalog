@@ -6,23 +6,13 @@ export interface Phone {
   name: string,
   fullPrice: number,
   price: number,
-  priceRegular: number,
-  priceDiscount: number,
   screen: string,
-  resolution: string,
-  processor: string,
   capacity: string,
-  capacityAvailable: string;
   color: string,
-  colorsAvailable: string,
   ram: string,
   year: number,
   image: string,
   images: string,
-  camera: string,
-  zoom: string,
-  cell: string,
-  description: Description[],
 }
 
 export interface PhoneApiResponse {
@@ -30,7 +20,29 @@ export interface PhoneApiResponse {
   rows: Phone[];
 }
 
-export interface Description {
+interface PhoneDescription {
   text: string[],
   title: string,
+}
+
+export interface phoneDescription {
+  id: string,
+  category: string,
+  namespaceId: string,
+  name: string,
+  capacityAvailable: string,
+  capacity: string,
+  priceRegular: number,
+  priceDiscount: number,
+  colorsAvailable: string,
+  color: string,
+  images: string,
+  description: PhoneDescription[],
+  screen: string,
+  resolution: string,
+  processor: string,
+  ram: string,
+  camera: string,
+  zoom: string,
+  cell: string,
 }

@@ -5,9 +5,9 @@ import './PhonePhotos.scss';
 interface Props {
   BASE_API_URL: string;
   setShowedPhoto: (url: string) => void;
-  showedPhoto: string | null;
-  productImages: string[];
-  phoneName: string;
+  showedPhoto: string | null | undefined;
+  productImages: string[] | undefined;
+  phoneName: string | undefined;
 }
 
 export const PhonePhotos: React.FC<Props>  = ({
