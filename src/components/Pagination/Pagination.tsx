@@ -29,6 +29,11 @@ export const Pagination: React.FC<Props> = ({
   const handlePageChange = (page: number) => {
     if (currentPage !== page && page >= 1 && page <= totalPages) {
       onPageChange(page);
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
     }
   };
 

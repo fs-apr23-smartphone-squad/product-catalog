@@ -38,10 +38,18 @@ export const Card: React.FC<Props> = ({
   const isPhoneInCart = phoneIdsInCart.includes(id);
   const isPhoneInFavs = phoneIdsInFavourites.includes(id);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', // Анімаційний плавний скролл
+    });
+  };
+
   return (
     <article className={cn('card', {})}>
       <NavLink
         to={`/${phone.category}/${phone.itemId}`}
+        onClick={scrollToTop}
       >
         <PhoneImage src={image} />
         <div className="card_title--container">
