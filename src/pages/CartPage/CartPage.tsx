@@ -4,8 +4,8 @@ import './CartPage.scss';
 
 import { CartItem } from '../../components/CartItem';
 import { ModalWindow } from '../../components/ModalWindow';
-import { getPhonesByIds } from '../../components/Helpers/fetchClient';
-import { Phone } from '../../components/Types/Types';
+import { getPhonesByIds } from '../../Helpers/fetchClient';
+import { Phone } from '../../Types/Types';
 import { Link } from 'react-router-dom';
 import { EmptyCart } from '../../components/EmptyCart';
 

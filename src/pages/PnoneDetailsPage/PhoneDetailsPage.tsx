@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './PhoneDetailsPage.scss';
 import { Carousel } from '../../components/Carousel';
 import { PhoneActions } from '../../components/PhoneActions';
-import { Phone } from '../../components/Types/Types';
+import { Phone } from '../../Types/Types';
 import {
   getPhoneById,
   getRecommendedById,
-} from '../../components/Helpers/fetchClient';
+} from '../../Helpers/fetchClient';
 import { Link, useParams } from 'react-router-dom';
 import { PhonePhotos } from '../../components/PhonePhotos';
 import { Loader } from '../../components/Loader';

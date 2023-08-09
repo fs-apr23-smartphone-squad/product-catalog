@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone } from '../Types/Types';
+import { Phone } from '../../Types/Types';
 import './CartItem.scss';
 import { NavLink } from 'react-router-dom';
 

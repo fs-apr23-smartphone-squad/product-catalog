@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from '../../components/Card';
-import { getPhonesByIds } from '../../components/Helpers/fetchClient';
-import { Phone } from '../../components/Types/Types';
+import { getPhonesByIds } from '../../Helpers/fetchClient';
+import { Phone } from '../../Types/Types';
 import '../../components/Cardlist/Cardlist.scss';
 import './FavouritesPage.scss';
 import { Link } from 'react-router-dom';
