@@ -9,6 +9,7 @@ import { Pagination } from '../../components/Pagination/Pagination';
 import './TabletsPage.scss';
 import { Link } from 'react-router-dom';
 import { Search } from '../../components/Search/Search';
+import { Loader } from '../../components/Loader';
 
 /* eslint-disable no-console */
 /* eslint-disable */
@@ -36,6 +37,7 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
   const [sorting, setSorting] = useState('year');
   const [sortOrder, setSortOrder] = useState<'ASC' | 'DESC'>('DESC');
   const [appliedQuery, setAppliedQuery] = useState('');
+  const [isLoaderVisible, setIsLoaderVisible] = useState(true);
 
   useEffect(() => {
     fetchPhones();
@@ -77,6 +79,7 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
       setPhones(response.rows);
       setSorting(updatedSorting);
       setSortOrder(updatedSortOrder);
+      setTimeout(() => (setIsLoaderVisible(false)), 500);
     } catch (error) {
       console.error('Error fetching phones:', error);
     }
@@ -93,57 +96,61 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
   };
 
   return (
-    <div className='phones_page'>
-      <div className='breadcrumbs1'>
-        <Link
-        className='breadcrumbs__home'
-        to='/home'
-        ></Link>
-        <div className='breadcrumbs__arrow'></div>
-        <p>Tablets</p>
-      </div>
+    isLoaderVisible
+      ? <Loader />
+      : (
+        <div className='phones_page'>
+        <div className='breadcrumbs1'>
+          <Link
+          className='breadcrumbs__home'
+          to='/home'
+          ></Link>
+          <div className='breadcrumbs__arrow'></div>
+          <p>Tablets</p>
+        </div>
 
-      <div className='phones_page__header'>
-        <h1 className='phones_page__title'>Tablets</h1>
-        <h4 className='phones_page__quantity'>{`${totalPhones} models`}</h4>
-      </div>
+        <div className='phones_page__header'>
+          <h1 className='phones_page__title'>Tablets</h1>
+          <h4 className='phones_page__quantity'>{`${totalPhones} models`}</h4>
+        </div>
 
-      <div className='phones_page__filter'>
-        <Sorting
-          title="Sort by"
-          filter={filter}
-          setFilter={setFilter}
-          setCurrentPage={setCurrentPage}
+        <div className='phones_page__filter'>
+          <Sorting
+            title="Sort by"
+            filter={filter}
+            setFilter={setFilter}
+            setCurrentPage={setCurrentPage}
+          />
+
+          <Select
+            title="Items on page"
+            handlePerPage={handlePerPage}
+            perPage={perPage}
+          />
+
+          <Search
+            setAppliedQuery={setAppliedQuery}
+          />
+        </div>
+
+        <Cardlist
+          phonesToShow={phones}
+          phoneIdsInCart={phoneIdsInCart}
+          handleAddToCart={handleAddToCart}
+          removeFromCart={removeFromCart}
+          phoneIdsInFavourites={phoneIdsInFavourites}
+          handleAddToFavourites={handleAddToFavourites}
+          removeFromFavourites={removeFromFavourites}
         />
 
-        <Select
-          title="Items on page"
-          handlePerPage={handlePerPage}
+        <Pagination
+          total={totalPhones}
           perPage={perPage}
+          currentPage={currentPage}
+          onPageChange={onPageChange}
         />
 
-        <Search
-          setAppliedQuery={setAppliedQuery}
-        />
       </div>
-
-      <Cardlist
-        phonesToShow={phones}
-        phoneIdsInCart={phoneIdsInCart}
-        handleAddToCart={handleAddToCart}
-        removeFromCart={removeFromCart}
-        phoneIdsInFavourites={phoneIdsInFavourites}
-        handleAddToFavourites={handleAddToFavourites}
-        removeFromFavourites={removeFromFavourites}
-      />
-
-      <Pagination
-        total={totalPhones}
-        perPage={perPage}
-        currentPage={currentPage}
-        onPageChange={onPageChange}
-      />
-
-    </div>
+      )
   );
 };

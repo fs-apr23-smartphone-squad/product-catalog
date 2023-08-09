@@ -2,7 +2,7 @@
 
 .grid {
   display: grid;
-  
+
   @include onDesctop {
     grid-template-columns: repeat(4, 1fr);
     max-width: 1200px;
