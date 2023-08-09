@@ -5,7 +5,7 @@ import './PhonePhotos.scss';
 interface Props {
   BASE_API_URL: string;
   setShowedPhoto: (url: string) => void;
-  showedPhoto: string;
+  showedPhoto: string | null;
   productImages: string[];
   phoneName: string;
 }

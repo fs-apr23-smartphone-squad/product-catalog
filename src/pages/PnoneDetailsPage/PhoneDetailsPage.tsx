@@ -5,11 +5,11 @@ import { PhoneActions } from '../../components/PhoneActions';
 import { Phone } from '../../components/Types/Types';
 import {
   getPhoneById,
-  getPhones,
-  getRecommendedById
+  getRecommendedById,
 } from '../../components/Helpers/fetchClient';
 import { Link, useParams } from 'react-router-dom';
 import { PhonePhotos } from '../../components/PhonePhotos';
+import { Loader } from '../../components/Loader';
 
 /* eslint-disable */
 interface Props {
@@ -27,19 +27,19 @@ export const PhoneDetailsPage: React.FC<Props> = ({
   removeFromCart,
   phoneIdsInFavourites,
   handleAddToFavourites,
-  removeFromFavourites
+  removeFromFavourites,
 }) => {
   const BASE_API_URL = 'https://api.smartphonesquad.shop';
+  const category = 'phones';
   const [recommendedPhones, setRecommendedPhones] = useState<Phone[]>([]);
-  const [showedPhone, setShowedPhone] = useState<Phone>();
-  const productImages = (showedPhone?.images.slice(0, -1).slice(1))?.split(',');
-  const [showedPhoto, setShowedPhoto] = useState();
   const { itemId } = useParams();
+  const [showedPhone, setShowedPhone] = useState<Phone | null>(null);
+  const [showedPhoto, setShowedPhoto] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPhones = async () => {
       try {
-        const phonesFromServer: Phone[] = await getRecommendedById(itemId);
+        const phonesFromServer: Phone[] = await getRecommendedById(category, itemId);
 
         setRecommendedPhones(phonesFromServer);
         console.log(phonesFromServer);
@@ -49,12 +49,12 @@ export const PhoneDetailsPage: React.FC<Props> = ({
     };
 
     fetchPhones();
-  }, []);
+  }, [itemId]);
 
   useEffect(() => {
     const fetchPhone = async () => {
       try {
-        const phoneFromServer: Phone = await getPhoneById('phones', itemId);
+        const phoneFromServer: Phone = await getPhoneById(category, itemId);
 
         setShowedPhone(phoneFromServer);
         console.log(phoneFromServer);
@@ -66,6 +66,15 @@ export const PhoneDetailsPage: React.FC<Props> = ({
     fetchPhone();
   }, [itemId]);
 
+  if (!showedPhone) {
+    return <Loader />
+  };
+
+  const productImages = (showedPhone.images.slice(0, -1).slice(1))?.split(',');
+  const productCapacityAvailable = (showedPhone.capacityAvailable.slice(0, -1).slice(1))?.split(',');
+  const productColors = (showedPhone.colorsAvailable.slice(0, -1).slice(1))?.split(',');
+
+  // console.log(showedPhone.description)
 
   return (
     <div className="phone">
@@ -98,7 +107,22 @@ export const PhoneDetailsPage: React.FC<Props> = ({
             phoneName={showedPhone?.name}
           />
 
-          <PhoneActions />
+          <PhoneActions
+            capacity={showedPhone.capacity}
+            capacityAvailable={productCapacityAvailable}
+            color={showedPhone?.color}
+            avalibleColors={productColors}
+            productId={itemId}
+            priceRegular={showedPhone.priceRegular}
+            priceDiscount={showedPhone.priceDiscount}
+            phoneIdsInCart={phoneIdsInCart}
+            handleAddToCart={handleAddToCart}
+            removeFromCart={removeFromCart}
+            phoneIdsInFavourites={phoneIdsInFavourites}
+            handleAddToFavourites={handleAddToFavourites}
+            removeFromFavourites={removeFromFavourites}
+            product={showedPhone}
+          />
         </div>
         <div className="phone__description">
           <div className="phone__about about">
@@ -106,86 +130,87 @@ export const PhoneDetailsPage: React.FC<Props> = ({
               About
             </h3>
 
-            <h4 className="about__subheader">
-              And then there was Pro
-            </h4>
-
-            <p className="about__text">
-              A transformative triple‑camera system that adds tons of capability without complexity.
-            </p>
-            <p className="about__text">
-              An unprecedented leap in battery life. And a mind‑blowing chip that doubles down on machine learning and pushes the boundaries of what a smartphone can do. Welcome to the first iPhone powerful enough to be called Pro.
-            </p>
-
-            <h4 className="about__subheader">
-              Camera
-            </h4>
-
-            <p className="about__text">
-              Meet the first triple‑camera system to combine cutting‑edge technology with the legendary simplicity of iPhone. Capture up to four times more scene. Get beautiful images in drastically lower light. Shoot the highest‑quality video in a smartphone — then edit with the same tools you love for photos. You’ve never shot with anything like it.
-            </p>
-
-            <h4 className="about__subheader">
-              Shoot it. Flip it. Zoom it. Crop it. Cut it. Light it. Tweak it. Love it.
-            </h4>
-
-            <p className="about__text">
-              iPhone 11 Pro lets you capture videos that are beautifully true to life, with greater detail and smoother motion. Epic processing power means it can shoot 4K video with extended dynamic range and cinematic video stabilization — all at 60 fps. You get more creative control, too, with four times more scene and powerful new editing tools to play with.
-            </p>
+            {showedPhone.description.map(desc => (
+              <React.Fragment>
+                <h4 className="about__subheader">
+                  {desc.title}
+                </h4>
+                {desc.text.map(p => (
+                  <p className="about__text">
+                    {p}
+                  </p>
+                ))}
+              </React.Fragment>
+            ))}
           </div>
 
           <div className="phone__tech-specs tech-specs">
             <h3 className='tech-specs__header'>
               Tech specs
             </h3>
+            {showedPhone.screen && (
+              <div className="tech-specs__speak spek">
+                <div className="spek__title">Screen</div>
 
-            <div className="tech-specs__speak spek">
-              <div className="spek__title">Screen</div>
+                <div className="spek__value">{showedPhone.screen}</div>
+              </div>
+            )}
 
-              <div className="spek__value">6.5” OLED</div>
-            </div>
+            {showedPhone.resolution && (
+              <div className="tech-specs__speak spek">
+                <div className="spek__title">Resolution</div>
 
-            <div className="tech-specs__speak spek">
-              <div className="spek__title">Resolution</div>
+                <div className="spek__value">{showedPhone.resolution}</div>
+              </div>
+            )}
 
-              <div className="spek__value">2688x1242</div>
-            </div>
+            {showedPhone.processor && (
+              <div className="tech-specs__speak spek">
+                <div className="spek__title">Processor</div>
 
-            <div className="tech-specs__speak spek">
-              <div className="spek__title">Processor</div>
+                <div className="spek__value">{showedPhone.processor}</div>
+              </div>
+            )}
 
-              <div className="spek__value">Apple A12 Bionic</div>
-            </div>
+            {showedPhone.ram && (
+              <div className="tech-specs__speak spek">
+                <div className="spek__title">RAM</div>
 
-            <div className="tech-specs__speak spek">
-              <div className="spek__title">RAM</div>
+                <div className="spek__value">{showedPhone.ram}</div>
+              </div>
+            )}
 
-              <div className="spek__value">3 GB</div>
-            </div>
+            {showedPhone.capacity && (
+              <div className="tech-specs__speak spek">
+                <div className="spek__title">Built in memory</div>
 
-            <div className="tech-specs__speak spek">
-              <div className="spek__title">Built in memory</div>
+                <div className="spek__value">{showedPhone.capacity}</div>
+              </div>
+            )}
 
-              <div className="spek__value">64 GB</div>
-            </div>
+            {showedPhone.camera && (
+              <div className="tech-specs__speak spek">
+                <div className="spek__title">Camera</div>
 
-            <div className="tech-specs__speak spek">
-              <div className="spek__title">Camera</div>
+                <div className="spek__value">{showedPhone.camera}</div>
+              </div>
+            )}
 
-              <div className="spek__value">12 Mp + 12 Mp + 12 Mp (Triple)</div>
-            </div>
+            {showedPhone.zoom && (
+              <div className="tech-specs__speak spek">
+                <div className="spek__title">Zoom</div>
 
-            <div className="tech-specs__speak spek">
-              <div className="spek__title">Zoom</div>
+                <div className="spek__value">{showedPhone.zoom}</div>
+              </div>
+            )}
 
-              <div className="spek__value">Zoom</div>
-            </div>
+            {showedPhone.cell && (
+              <div className="tech-specs__speak spek">
+                <div className="spek__title">Cell</div>
 
-            <div className="tech-specs__speak spek">
-              <div className="spek__title">Cell</div>
-
-              <div className="spek__value">GSM, LTE, UMTS</div>
-            </div>
+                <div className="spek__value">GSM, LTE, UMTS</div>
+              </div>
+            )}
           </div>
         </div>
         <div className="phone__recommended">

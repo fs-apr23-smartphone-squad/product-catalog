@@ -8,6 +8,7 @@ import { Phone } from '../../components/Types/Types';
 import { Pagination } from '../../components/Pagination/Pagination';
 import './TabletsPage.scss';
 import { Link } from 'react-router-dom';
+import { Search } from '../../components/Search/Search';
 
 /* eslint-disable no-console */
 /* eslint-disable */
@@ -34,41 +35,44 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
   const [filter, setFilter] = useState('Newest');
   const [sorting, setSorting] = useState('year');
   const [sortOrder, setSortOrder] = useState<'ASC' | 'DESC'>('DESC');
+  const [appliedQuery, setAppliedQuery] = useState('');
 
   useEffect(() => {
     fetchPhones();
-  }, [currentPage, perPage, filter, sorting, sortOrder]);
+  }, [currentPage, perPage, filter, sorting, sortOrder, appliedQuery]);
 
   interface PhoneApiResponse {
     count: number;
     rows: Phone[];
   }
-  
+
   const fetchPhones = async () => {
     console.log(filter, sorting, sortOrder);
     try {
+      const formattedQuery = appliedQuery.toLowerCase().trim();
       let updatedSorting = sorting;
       let updatedSortOrder = sortOrder;
-  
+
       if (filter === 'Newest') {
         updatedSorting = 'year';
         updatedSortOrder = 'DESC';
-      } else if (filter === 'Price ⇂') {
-        updatedSorting = 'price';
+      } else if (filter === 'priceRegular ⇂') {
+        updatedSorting = 'priceRegular';
         updatedSortOrder = 'DESC';
-      } else if (filter === 'Price ↾') {
-        updatedSorting = 'price';
+      } else if (filter === 'priceRegular ↾') {
+        updatedSorting = 'priceRegular';
         updatedSortOrder = 'ASC';
       }
-  
+
       const response = await getPhonesForPagination(
         perPage,
         (currentPage - 1) * perPage,
         updatedSorting,
         updatedSortOrder,
-        'tablets'
+        'tablets',
+        formattedQuery,
       );
-  
+
       setTotalPhones(response.count);
       setPhones(response.rows);
       setSorting(updatedSorting);
@@ -77,7 +81,7 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
       console.error('Error fetching phones:', error);
     }
   };
-  
+
 
   const handlePerPage = (option: number) => {
     setPerPage(option);
@@ -103,7 +107,7 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
         <h1 className='phones_page__title'>Tablets</h1>
         <h4 className='phones_page__quantity'>{`${totalPhones} models`}</h4>
       </div>
- 
+
       <div className='phones_page__filter'>
         <Sorting
           title="Sort by"
@@ -117,8 +121,12 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
           handlePerPage={handlePerPage}
           perPage={perPage}
         />
+
+        <Search
+          setAppliedQuery={setAppliedQuery}
+        />
       </div>
-      
+
       <Cardlist
         phonesToShow={phones}
         phoneIdsInCart={phoneIdsInCart}
