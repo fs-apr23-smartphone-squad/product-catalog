@@ -57,6 +57,8 @@
     border-bottom: 1px solid $like-border-color;
     cursor: pointer;
 
+    z-index: 1;
+
     background-color: #ffffff;
     cursor: pointer;
     user-select: none;

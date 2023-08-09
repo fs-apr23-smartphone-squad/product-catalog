@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom';
 import { Search } from '../../components/Search/Search';
 import { Loader } from '../../components/Loader';
 
-/* eslint-disable no-console */
 /* eslint-disable */
 interface Props {
   phoneIdsInCart: number[];
@@ -49,7 +48,6 @@ export const AccessoriesPage: React.FC<Props> = ({ phoneIdsInCart,
   }
 
   const fetchPhones = async () => {
-    console.log(filter, sorting, sortOrder);
     try {
       const formattedQuery = appliedQuery.toLowerCase().trim();
       let updatedSorting = sorting;

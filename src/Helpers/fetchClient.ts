@@ -5,7 +5,6 @@ const BASE_URL = 'https://api.smartphonesquad.shop';
 
 export async function get<T>(url: string): Promise<T> {
   const fullURL = BASE_URL + url;
-  console.log(fullURL);
 
   try {
     const res = await fetch(fullURL);

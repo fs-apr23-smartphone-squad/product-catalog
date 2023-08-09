@@ -61,6 +61,8 @@
     cursor: pointer;
     user-select: none;
 
+    z-index: 1;
+
     &:first-child {
       border-top: 1px solid $like-border-color;
     }

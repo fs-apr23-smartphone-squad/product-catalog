@@ -2,6 +2,9 @@
 @import '../../styles/utils/vars';
 
 .cart {
+  max-width: 1200px;
+  margin: 0 auto;
+
   min-height: calc(100vh - 48px - 283px);
 
   @include onTablet {
