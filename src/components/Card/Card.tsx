@@ -1,8 +1,8 @@
 import cn from 'classnames';
 import { PhoneImage } from './PhoneImage';
-import { Phone } from '../Types/Types';
+import { Phone } from '../../Types/Types';
 import './Card.scss';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 /* eslint-disable */
 interface Props {

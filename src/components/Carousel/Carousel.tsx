@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './Carousel.scss';
 import { Card } from '../Card';
-import { Phone } from '../Types/Types';
+import { Phone } from '../../Types/Types';
 
 /* eslint-disable */
 interface Props {

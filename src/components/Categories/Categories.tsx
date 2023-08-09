@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import './Categories.scss';
 import { useEffect, useState } from 'react';
-import { Phone } from '../Types/Types';
+import { Phone } from '../../Types/Types';
 import { getTablets,
   getAccessories,
-  getAllPhones } from '../Helpers/fetchClient';
+  getAllPhones } from '../../Helpers/fetchClient';
 
 const Base = 'https://api.smartphonesquad.shop/img/';
 

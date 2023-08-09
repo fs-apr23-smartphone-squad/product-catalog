@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Card } from '../Card/Card';
-import { Phone } from '../Types/Types';
+import { Phone } from '../../Types/Types';
 import './Cardlist.scss';
 
 /* eslint-disable */

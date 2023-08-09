@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
 import { Cardlist } from '../../components/Cardlist';
-import { getPhonesForPagination } from '../../components/Helpers/fetchClient';
+import { getPhonesForPagination } from '../../Helpers/fetchClient';
 import { Select } from '../../components/Select/Select';
 import { Sorting } from '../../components/Sorting/Sorting';
-import { Phone } from '../../components/Types/Types';
+import { Phone } from '../../Types/Types';
 import { Pagination } from '../../components/Pagination/Pagination';
 import './AccessoriesPage.scss';
 import { Link } from 'react-router-dom';

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Carousel } from '../../components/Carousel';
 import './HomePage.scss';
-import { Phone } from '../../components/Types/Types';
-import { getDiscount, getNew } from '../../components/Helpers/fetchClient';
+import { Phone } from '../../Types/Types';
+import { getDiscount, getNew } from '../../Helpers/fetchClient';
 import { Categories } from '../../components/Categories';
 import { TitleSlider } from '../../components/TitleSlider';
 import { Loader } from '../../components/Loader';

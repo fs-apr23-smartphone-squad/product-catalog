@@ -3,7 +3,7 @@ import cn from 'classnames';
 import './Pagination.scss';
 import {
   generateVisiblePages,
-} from '../Helpers/generateVisiblePages';
+} from '../../Helpers/generateVisiblePages';
 
 /* eslint-disable */
 interface Props {

@@ -5,9 +5,9 @@ import { NavLink } from 'react-router-dom';
 import {
   getProductIdWithoutColor,
   replaceProderty,
-} from '../Helpers/helpersFunctions';
-import { getPhones } from '../Helpers/fetchClient';
-import { Phone } from '../Types/Types';
+} from '../../Helpers/helpersFunctions';
+import { getPhones } from '../../Helpers/fetchClient';
+import { Phone } from '../../Types/Types';
 import { Loader } from '../Loader';
 
 interface Props {
