@@ -2,10 +2,7 @@ import React, { useEffect, useState } from 'react';
 import cn from 'classnames';
 import './PhoneActions.scss';
 import { NavLink } from 'react-router-dom';
-import {
-  getProductIdWithoutColor,
-  replaceProderty,
-} from '../../Helpers/helpersFunctions';
+import { changeItemId } from '../../Helpers/changeItemId';
 import { getPhones } from '../../Helpers/fetchClient';
 import { phoneDescription } from '../../Types/Types';
 import { Loader } from '../Loader';
@@ -89,7 +86,7 @@ export const PhoneActions: React.FC<Props> = ({
       <div className="phone-actions__color">
         {(avalibleColors && productId) && avalibleColors.map(col => (
           <NavLink
-            to={`/${category}/${getProductIdWithoutColor(productId)}${col}`}
+            to={`/${category}/${changeItemId(productId, selectedColor, col)}`}
             key={col}
             onClick={() => setSelectedColor(col)}
           >
@@ -106,7 +103,7 @@ export const PhoneActions: React.FC<Props> = ({
         {(capacityAvailable && productId) && capacityAvailable.map(cap => (
           <NavLink
             key={cap}
-            to={`/${category}/${replaceProderty(productId, selectedCapacity, cap)}`}
+            to={`/${category}/${changeItemId(productId, selectedCapacity, cap)}`}
           >
             <button
               className={cn(

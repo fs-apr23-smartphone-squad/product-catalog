@@ -1,12 +1,4 @@
-export const getProductIdWithoutColor = (itemId: string) => {
-  const result = itemId.split('-');
-
-  result.length = result.length - 1;
-
-  return result.join('-') + '-';
-};
-
-export const replaceProderty = (
+export const changeItemId = (
   itemId: string,
   oldProp: string,
   newProp: string,
