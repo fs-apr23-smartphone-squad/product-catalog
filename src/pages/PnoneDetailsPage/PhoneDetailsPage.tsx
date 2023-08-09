@@ -3,9 +3,7 @@ import './PhoneDetailsPage.scss';
 import { Carousel } from '../../components/Carousel';
 import { PhoneActions } from '../../components/PhoneActions';
 import { Phone, phoneDescription } from '../../Types/Types';
-import { getPhoneById,
-  getSingleItem,
-  getRecommendedById, 
+import { getSingleItem,
   getRecommendedBySingle} from '../../Helpers/fetchClient';
 import { Link, useParams } from 'react-router-dom';
 import { PhonePhotos } from '../../components/PhonePhotos';
@@ -30,10 +28,8 @@ export const PhoneDetailsPage: React.FC<Props> = ({
   removeFromFavourites,
 }) => {
   const BASE_API_URL = 'https://api.smartphonesquad.shop';
-  const category = 'phones';
   const [recommendedPhones, setRecommendedPhones] = useState<Phone[]>([]);
   const [showedPhone, setShowedPhone] = useState<phoneDescription>();
-  const productImages = (showedPhone?.images.slice(0, -1).slice(1))?.split(',');
   const [showedPhoto, setShowedPhoto] = useState<string | null>();
   const { category, itemId } = useParams();
 
@@ -72,11 +68,11 @@ export const PhoneDetailsPage: React.FC<Props> = ({
     return <Loader />
   };
 
+  console.log('description - ', showedPhone.description);
+
   const productImages = (showedPhone.images.slice(0, -1).slice(1))?.split(',');
   const productCapacityAvailable = (showedPhone.capacityAvailable.slice(0, -1).slice(1))?.split(',');
   const productColors = (showedPhone.colorsAvailable.slice(0, -1).slice(1))?.split(',');
-
-  // console.log(showedPhone.description)
 
   return (
     <div className="phone">
@@ -91,7 +87,7 @@ export const PhoneDetailsPage: React.FC<Props> = ({
         to={`/${category}`}
         >{category}</Link>
         <div className='breadcrumbs__arrow'></div>
-        <p>Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)</p>
+        <p>{showedPhone?.name}</p>
       </div>
       <a href="#" className="phone__back-link">Back</a>
 
@@ -115,6 +111,7 @@ export const PhoneDetailsPage: React.FC<Props> = ({
             color={showedPhone?.color}
             avalibleColors={productColors}
             productId={itemId}
+            category={category}
             priceRegular={showedPhone.priceRegular}
             priceDiscount={showedPhone.priceDiscount}
             phoneIdsInCart={phoneIdsInCart}
