@@ -65,7 +65,7 @@ export const FavouritesPage: React.FC<Props> = ({
     isLoaderVisisble
       ? <Loader />
       : (
-        <>
+        <div className="fav__container">
           <div className="breadcrumbs1">
             <Link className="breadcrumbs__home" to="/home"></Link>
 
@@ -95,7 +95,7 @@ export const FavouritesPage: React.FC<Props> = ({
               />
             ))}
           </div>
-        </>
+        </div>
       )
     ) : (
       <EmptyFavourites />

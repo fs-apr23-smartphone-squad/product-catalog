@@ -29,12 +29,13 @@
   &__clear {
     position: absolute;
     top: 50%;
-    right: 5px;
+    left: 225px;
     transform: translateY(-50%);
     padding: 10px;
     width: 15px;
     height: 15px;
     background-image: url(../../images/Icons/Close.svg);
     background-size: cover;
+    cursor: pointer;
   }
 }

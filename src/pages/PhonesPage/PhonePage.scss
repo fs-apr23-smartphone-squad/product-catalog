@@ -1,9 +1,11 @@
-@import '../../styles/utils/mixins';
+@import "../../styles/utils/mixins";
 
 .phones_page {
+  max-width: 1200px;
+  margin: 0 auto;
 
   &__header {
-    margin-left: 150px;
+    margin-left: 32px;
     margin-top: 40px;
   }
 
@@ -14,9 +16,13 @@
 
   &__filter {
     display: flex;
-    flex-direction: row;
-    gap: 30px;
-    margin-left: 150px;
+    flex-direction: column;
+    margin-left: 32px;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 30px;
+    }
   }
 
   &__quantity {
@@ -29,21 +35,28 @@
   display: flex;
   flex-direction: row;
   gap: 5px;
-  margin: 24px 0 40px 150px;
+  margin: 24px 0 40px 16px;
+
+  @include onTablet {
+    margin: 24px 0 40px 24px;
+  }
+
+  @include onDesctop {
+    margin: 24px 0 40px 32px;
+  }
 
   &__home {
     display: block;
     width: 16px;
     height: 16px;
-    background-image: url('../../images/Icons/Home.svg');
+    background-image: url("../../images/Icons/Home.svg");
     margin-right: 8px;
   }
 
   &__arrow {
     width: 16px;
     height: 16px;
-    background-image: url('../../images/Icons/ArrowForward.svg');
+    background-image: url("../../images/Icons/ArrowForward.svg");
     margin-right: 8px;
-
   }
 }
