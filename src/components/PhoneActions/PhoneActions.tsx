@@ -71,7 +71,7 @@ export const PhoneActions: React.FC<Props> = ({
     return <Loader />
   }
 
-  const changeProductColor = (color) => {
+  const changeProductColor = (color: string) => {
     setSelectedColor(color);
     setShowedPhoto(null);
   }
