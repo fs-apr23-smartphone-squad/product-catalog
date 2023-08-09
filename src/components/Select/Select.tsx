@@ -14,11 +14,11 @@ export const Select: React.FC<Props> = ({
   handlePerPage,
 }) => {
   const [droped, setDroped] = useState(false);
-  const [selectedQuantity, setSelectedQuantity] = useState(16);
+  const [selectedQuantity, setSelectedQuantity] = useState(12);
 
   const selectRef = useRef<HTMLDivElement>(null);
 
-  const options = [16, 32, 48, 64];
+  const options = [12, 24, 36, 48, 60];
 
   const handleClickOutside: EventListener = (event) => {
     const targetNode = event.target as Node;
