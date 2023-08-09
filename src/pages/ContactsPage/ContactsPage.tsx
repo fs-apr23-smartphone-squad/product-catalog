@@ -47,6 +47,7 @@ const developers = [
       github: 'https://github.com/amashutikov',
       linkedin: 'https://www.linkedin.com/in/andrii-mashutikov-1b8236284/',
     },
+    // eslint-disable-next-line max-len
     photo: 'https://avatars.githubusercontent.com/u/129765597?s=400&u=301000aacc76ba04d64454a3efb67dde566284ec&v=4',
   },
 ];

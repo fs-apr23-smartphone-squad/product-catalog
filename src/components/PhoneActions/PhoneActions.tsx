@@ -7,9 +7,10 @@ import {
   replaceProderty,
 } from '../../Helpers/helpersFunctions';
 import { getPhones } from '../../Helpers/fetchClient';
-import { Phone, phoneDescription } from '../../Types/Types';
+import { phoneDescription } from '../../Types/Types';
 import { Loader } from '../Loader';
 
+/* eslint-disable */
 interface Props {
   capacity: string;
   capacityAvailable: string[];
@@ -53,14 +54,13 @@ export const PhoneActions: React.FC<Props> = ({
   const [selectedCapacity, setSelectedCapacity] = useState(capacity);
   const [id, setId] = useState<number | undefined>();
 
-  useEffect(() => {
-    const fetchId = async () => {
+  useEffect(() => { const fetchId = async () => {
       try {
-        const phonesFromServer: Phone[] = await getPhones();
-        const id = phonesFromServer.find(phone => phone.itemId === productId)?.id;
+        const phonesFromServer = await getPhones();
+        const id = phonesFromServer
+          .find(phone => phone.itemId === productId)?.id;
 
         setId(id);
-        console.log(id);
       } catch (error) {
         console.error('Error fetching phones:', error);
       }

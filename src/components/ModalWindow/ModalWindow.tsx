@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 import './ModalWindow.scss';
 
+/* eslint-disable */
 interface Props {
   phoneIdsInCart: number[];
   removeAllFromCart: () => void;
