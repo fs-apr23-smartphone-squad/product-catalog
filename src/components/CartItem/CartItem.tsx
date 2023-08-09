@@ -24,6 +24,7 @@ export const CartItem: React.FC<Props> = ({
     name: phoneName,
     price,
     image,
+    category,
   } = phone;
 
   const [itemCount, setItemCount] = useState<number>(() => {
@@ -69,7 +70,7 @@ export const CartItem: React.FC<Props> = ({
 
         <NavLink
           className="cart-item__info"
-          to={`/products/${phone.itemId}`}
+          to={`/${category}/${phone.itemId}`}
         >
           <img
             className="cart-item__image"
