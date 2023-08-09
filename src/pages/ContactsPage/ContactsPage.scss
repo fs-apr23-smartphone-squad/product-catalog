@@ -1,0 +1,24 @@
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/vars";
+
+.card__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+  gap: 20px;
+
+  max-width: 1200px;
+  min-height: calc(100vh - 48px - 283px);
+  margin: 0 auto;
+  padding: 24px;
+
+  @include onTablet {
+    min-height: calc(100vh - 48px - 101px);
+  }
+
+  @include onDesctop {
+    min-height: calc(100vh - 64px - 101px);
+  }
+}

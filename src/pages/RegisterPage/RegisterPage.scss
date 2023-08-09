@@ -1,0 +1,118 @@
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/vars";
+
+.register {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  height: calc(100vh - 48px - 283px);
+
+  @include onTablet {
+    height: calc(100vh - 48px - 101px);
+  }
+
+  @include onDesctop {
+    height: calc(100vh - 64px - 101px);
+  }
+}
+
+.register__form {
+  margin: 20px auto;
+  padding: 40px 50px;
+  width: 400px;
+  background: $c-white;
+
+  border: 1px solid $like-border-color;
+}
+
+.register__form input {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  margin: 10px 0;
+  padding: 14px 12px;
+  font-size: 16px;
+}
+
+.register__form input[type="text"],
+.register__form input[type="password"] {
+  border: 1px solid $like-border-color;
+  transition: 0.2s;
+
+  &:hover {
+    border-color: $text-color;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:focus {
+    border: 1px solid $text-color;
+  }
+}
+
+.register__form input[type="submit"] {
+  border: none;
+  background: $text-color;
+  border: 1px solid $text-color;
+  color: $c-white;
+  font-weight: bold;
+  transition: 0.2s;
+  margin: 20px 0px;
+}
+
+.register__form input[type="submit"]:hover {
+  background: $c-white;
+  color: $text-color;
+}
+
+.register__form h2 {
+  margin: 20px 0 0;
+  color: $text-color;
+  font-size: 28px;
+}
+
+.register__form p {
+  margin-bottom: 40px;
+}
+
+.links {
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid #c0c0c0;
+  margin-bottom: 10px;
+}
+
+.links a {
+  display: table-cell;
+  padding-top: 10px;
+}
+
+.links a:first-child {
+  text-align: left;
+}
+
+.links a:last-child {
+  text-align: right;
+}
+
+.register__form h2,
+.register__form p,
+.register__form a {
+  text-align: center;
+}
+
+.register__form a {
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+.register__form a:visited {
+  color: inherit;
+}
+
+.register__form a:hover {
+  text-decoration: underline;
+}

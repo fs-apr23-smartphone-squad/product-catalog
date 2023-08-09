@@ -12,6 +12,9 @@ import { CartPage } from './pages/CartPage';
 import { PageNotFound } from './pages/PageNotFound';
 import { Footer } from './components/Footer';
 import { PhoneDetailsPage } from './pages/PnoneDetailsPage';
+import { AuthModal } from './components/AuthModal';
+import { RegisterPage } from './pages/RegisterPage';
+import { ContactsPage } from './pages/ContactsPage/ContacstPage';
 
 function App() {
   const [phoneIdsInCart, setPhoneIdsInCart] = useState<number[]>(() => {
@@ -19,6 +22,7 @@ function App() {
 
     return storedIds ? JSON.parse(storedIds) : [];
   });
+  const [isAuthVisible, setIsAuthVisible] = useState(false);
 
   const [phoneIdsInFavourites, setPhoneIdsInFavourites] = useState<number[]>(
     () => {
@@ -48,8 +52,15 @@ function App() {
     setPhoneIdsInFavourites(filter);
   };
 
+  const handleCloseModalClick = () => {
+    setIsAuthVisible(false);
+  };
+
   return (
     <div className="App">
+      {isAuthVisible && <AuthModal onCloseModalClick={handleCloseModalClick} />}
+      {/* This is authentification modal set isAuthVisible=true to see it */}
+
       <Header
        phoneIdsInFavourites={phoneIdsInFavourites}
        phoneIdsInCart={phoneIdsInCart}
@@ -121,9 +132,12 @@ function App() {
             removeFromCart={removeFromCart}
           />
         } />
+        <Route path="register" element={<RegisterPage />} />
+
+        <Route path="contacts" element={<ContactsPage />} />
+
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-
       <Footer />
     </div>
   );
