@@ -4,7 +4,7 @@ import './PhoneActions.scss';
 import { NavLink } from 'react-router-dom';
 import { changeItemId } from '../../Helpers/changeItemId';
 import { getPhones } from '../../Helpers/fetchClient';
-import { phoneDescription } from '../../Types/Types';
+import { Phone, phoneDescription } from '../../Types/Types';
 import { Loader } from '../Loader';
 
 /* eslint-disable */
@@ -23,6 +23,7 @@ interface Props {
   phoneIdsInFavourites: number[];
   handleAddToFavourites: (id: number) => void;
   removeFromFavourites: (id: number) => void;
+  setShowedPhoto: (photo: string | null) => void;
   product: phoneDescription;
 }
 
@@ -38,7 +39,7 @@ export const PhoneActions: React.FC<Props> = ({
   phoneIdsInFavourites,
   handleAddToFavourites,
   removeFromFavourites,
-
+  setShowedPhoto,
 }) => {
   const {
     capacity,
@@ -70,8 +71,10 @@ export const PhoneActions: React.FC<Props> = ({
     return <Loader />
   }
 
-  console.log(priceRegular);
-
+  const changeProductColor = (color) => {
+    setSelectedColor(color);
+    setShowedPhoto(null);
+  }
 
   const isPhoneInCart = phoneIdsInCart.includes(id);
   const isPhoneInFavs = phoneIdsInFavourites.includes(id);
@@ -88,7 +91,7 @@ export const PhoneActions: React.FC<Props> = ({
           <NavLink
             to={`/${category}/${changeItemId(productId, selectedColor, col)}`}
             key={col}
-            onClick={() => setSelectedColor(col)}
+            onClick={() => changeProductColor(col)}
           >
             <button className={cn(
               `phone-actions__color-select ${col}`,
