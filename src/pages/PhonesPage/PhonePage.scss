@@ -1,10 +1,10 @@
 @import '../../styles/utils/mixins';
 
 .phones_page {
-  
+
   &__header {
     margin-left: 150px;
-  margin-top: 40px;
+    margin-top: 40px;
   }
 
   &__title {
@@ -18,7 +18,7 @@
     gap: 30px;
     margin-left: 150px;
   }
-  
+
   &__quantity {
     text-align: left;
     margin-bottom: 40px;

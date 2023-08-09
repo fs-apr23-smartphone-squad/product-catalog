@@ -8,6 +8,7 @@ import { getPhonesByIds } from '../../Helpers/fetchClient';
 import { Phone } from '../../Types/Types';
 import { Link } from 'react-router-dom';
 import { EmptyCart } from '../../components/EmptyCart';
+import { Loader } from '../../components/Loader';
 
 /* eslint-disable */
 interface Props {
@@ -25,9 +26,10 @@ export const CartPage: React.FC<Props> = ({
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [totalItems, setTotalItems] = useState<number>(0);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const [
-    phonesInCartFromServer, setPhonesInCartFromServer,
-  ] = useState<Phone[]>([]);
+  const [phonesInCartFromServer, setPhonesInCartFromServer] = useState<Phone[]>(
+    []
+  );
+  const [isLoaderVisisble, setIsLoaderVisible] = useState(true);
 
   useEffect(() => {
     async function getPhonesFromServer(ids: number[]) {
@@ -39,12 +41,12 @@ export const CartPage: React.FC<Props> = ({
 
       try {
         const phonesFromServer = await getPhonesByIds(
-          ids.map((id) => String(id)),
+          ids.map((id) => String(id))
         );
 
         setPhonesInCartFromServer(phonesFromServer);
       } catch {
-        throw new Error('Unable to load data');
+        throw new Error("Unable to load data");
       }
     }
 
@@ -52,7 +54,7 @@ export const CartPage: React.FC<Props> = ({
   }, [phoneIdsInCart]);
 
   useEffect(() => {
-    localStorage.setItem('phoneIds', JSON.stringify(phoneIdsInCart));
+    localStorage.setItem("phoneIds", JSON.stringify(phoneIdsInCart));
   }, [phoneIdsInCart]);
 
   useEffect(() => {
@@ -99,23 +101,27 @@ export const CartPage: React.FC<Props> = ({
     }, 0);
 
     setTotalItems(total);
+    setTimeout(() => setIsLoaderVisible(false), 500);
   }, [phoneIdsInCart, totalItems, isLoaded]);
 
-  const isSmthInCart = phonesInCartFromServer.length !== 0;
+  const isSmthInCart = phoneIdsInCart.length !== 0;
 
-  return (
-    isSmthInCart
-      ? (
-        <div className="cart">
-        <div className='breadcrumbs'>
-      <Link
-      className='breadcrumbs__home'
-      to='/home'
-      ></Link>
-      <div className='breadcrumbs__arrow'></div>
-      <p>Cart</p>
-    </div>
-    <a href="#" className="cart__link">Back</a>
+  return isSmthInCart ? (
+    isLoaderVisisble ? (
+      <Loader />
+    ) : (
+      <div className="cart">
+        <div className="breadcrumbs">
+          <Link className="breadcrumbs__home" to="/home"></Link>
+
+          <div className="breadcrumbs__arrow"></div>
+
+          <p>Cart</p>
+        </div>
+
+        <a href="#" className="cart__link">
+          Back
+        </a>
 
         <h1 className="cart__title">Cart</h1>
 
@@ -133,26 +139,27 @@ export const CartPage: React.FC<Props> = ({
               ))}
             </div>
           </div>
+
           <div className="cart__total">
             <h3 className="cart__price">${totalPrice}</h3>
             <span className="cart__amount">Total for {totalItems} items</span>
-            <button
-              className="cart__button"
-              onClick={() => setIsModal(true)}
-            >
+            <button className="cart__button" onClick={() => setIsModal(true)}>
               Checkout
             </button>
           </div>
         </div>
 
-        {isModal && <ModalWindow
-          phoneIdsInCart={phoneIdsInCart}
-          removeAllFromCart={removeAllFromCart}
-          isModal={isModal}
-          setIsModal={setIsModal}
-        />}
+        {isModal && (
+          <ModalWindow
+            phoneIdsInCart={phoneIdsInCart}
+            removeAllFromCart={removeAllFromCart}
+            isModal={isModal}
+            setIsModal={setIsModal}
+          />
+        )}
       </div>
     )
-      : <EmptyCart />
+  ) : (
+    <EmptyCart />
   );
 };

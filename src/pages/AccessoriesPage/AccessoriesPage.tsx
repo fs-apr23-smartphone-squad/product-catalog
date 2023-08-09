@@ -9,6 +9,7 @@ import { Pagination } from '../../components/Pagination/Pagination';
 import './AccessoriesPage.scss';
 import { Link } from 'react-router-dom';
 import { Search } from '../../components/Search/Search';
+import { Loader } from '../../components/Loader';
 
 /* eslint-disable no-console */
 /* eslint-disable */
@@ -36,6 +37,7 @@ export const AccessoriesPage: React.FC<Props> = ({ phoneIdsInCart,
   const [sorting, setSorting] = useState('year');
   const [sortOrder, setSortOrder] = useState<'ASC' | 'DESC'>('DESC');
   const [appliedQuery, setAppliedQuery] = useState('');
+  const [isLoaderVisible, setIsLoaderVisible] = useState(true);
 
   useEffect(() => {
     fetchPhones();
@@ -77,6 +79,7 @@ export const AccessoriesPage: React.FC<Props> = ({ phoneIdsInCart,
       setPhones(response.rows);
       setSorting(updatedSorting);
       setSortOrder(updatedSortOrder);
+      setTimeout(() => (setIsLoaderVisible(false)), 500);
     } catch (error) {
       console.error('Error fetching phones:', error);
     }
@@ -93,7 +96,10 @@ export const AccessoriesPage: React.FC<Props> = ({ phoneIdsInCart,
   };
 
   return (
-    <div className='phones_page'>
+    isLoaderVisible
+      ? <Loader />
+      : (
+        <div className='phones_page'>
       <div className='breadcrumbs1'>
         <Link
         className='breadcrumbs__home'
@@ -145,5 +151,6 @@ export const AccessoriesPage: React.FC<Props> = ({ phoneIdsInCart,
       />
 
     </div>
+      )
   );
 };
