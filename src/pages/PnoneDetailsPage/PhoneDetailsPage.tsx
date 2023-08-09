@@ -33,14 +33,12 @@ export const PhoneDetailsPage: React.FC<Props> = ({
   const [showedPhoto, setShowedPhoto] = useState<string | null>();
   const { category, itemId } = useParams();
 
-  console.log(category)
   useEffect(() => {
     const fetchPhones = async () => {
       try {
         const phonesFromServer: Phone[] = await getRecommendedBySingle(category!, itemId!);
 
         setRecommendedPhones(phonesFromServer);
-        console.log(phonesFromServer);
       } catch (error) {
         console.error('Error fetching phones:', error);
       }
@@ -55,7 +53,6 @@ export const PhoneDetailsPage: React.FC<Props> = ({
         const phoneFromServer = await getSingleItem(category!, itemId!);
 
         setShowedPhone(phoneFromServer);
-        console.log(phoneFromServer);
       } catch (error) {
         console.error('Error fetching phone:', error);
       }
@@ -67,8 +64,6 @@ export const PhoneDetailsPage: React.FC<Props> = ({
   if (!showedPhone) {
     return <Loader />
   };
-
-  console.log('description - ', showedPhone.description);
 
   const productImages = (showedPhone.images.slice(0, -1).slice(1))?.split(',');
   const productCapacityAvailable = (showedPhone.capacityAvailable.slice(0, -1).slice(1))?.split(',');
@@ -120,6 +115,7 @@ export const PhoneDetailsPage: React.FC<Props> = ({
             phoneIdsInFavourites={phoneIdsInFavourites}
             handleAddToFavourites={handleAddToFavourites}
             removeFromFavourites={removeFromFavourites}
+            setShowedPhoto={setShowedPhoto}
             product={showedPhone}
           />
         </div>
