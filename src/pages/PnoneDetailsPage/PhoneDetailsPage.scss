@@ -126,6 +126,10 @@
     margin-right: 8px;
   }
 
+  &__category {
+    text-transform: capitalize;
+  }
+
   &__phones {
     text-decoration: none;
     font-weight: 500;
