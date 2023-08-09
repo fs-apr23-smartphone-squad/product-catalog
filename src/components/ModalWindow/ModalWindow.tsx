@@ -1,45 +1,45 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 import './ModalWindow.scss';
 
-export const ModalWindow = () => {
-  const [isModal, setIsModal] = useState(true);
-  const closeModal = () => {
+interface Props {
+  phoneIdsInCart: number[];
+  removeAllFromCart: () => void;
+  isModal: boolean;
+  setIsModal: (state: boolean) => void;
+}
+
+export const ModalWindow: React.FC<Props> = ({
+  phoneIdsInCart,
+  removeAllFromCart,
+  isModal,
+  setIsModal,
+}) => {
+  const confirmOrder = () => {
+    removeAllFromCart();
+
     return () => setIsModal(false);
   };
 
   return (
     <div
+      onClick={() => setIsModal(false)}
       className={cn(
         'modal', { 'is-active': isModal },
       )}
     >
       <div className="modal__content">
-        <div className="modal__header">
-          thx
-
-          <NavLink
-            onClick={closeModal}
-            to="/"
-          >
-            <button
-              className="icon icon--close"
-              onClick={closeModal}
-            ></button>
-          </NavLink>
-        </div>
-
         <div className="modal__message">
-          Thank you for shopping in our store!
+          Thanks for shopping!
         </div>
 
         <NavLink
-          onClick={closeModal}
+          onClick={confirmOrder}
           to="/"
         >
           <button className="modal__button">
-            OK
+            Back to Store
           </button>
         </NavLink>
       </div>
