@@ -77,17 +77,22 @@
   }
 
   &__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
     margin-bottom: 56px;
 
-    @include onTablet {
-      display: flex;
-      justify-content: space-between;
-      gap: 64px;
-      margin-bottom: 64px;
-    }
+    // @include onTablet {
+      //   margin-bottom: 64px;
+      // }
 
     @include onDesctop {
+      flex-direction: row;
+      gap: 64px;
       margin-bottom: 80px;
+      align-items: start;
     }
   }
 
@@ -139,9 +144,15 @@
 }
 
 .about {
+  min-width: 250px;
+  width: 100%;
+  max-width: 560px;
+
   font-family: "Mont", sans-serif;
 
-  max-width: 60%;
+  @include onDesctop {
+    width: 560px;
+  }
 
   &__header {
     display: block;
@@ -170,20 +181,25 @@
     font-size: 14px;
     font-weight: 500;
 
+    text-align: justify;
+
     line-height: 21px;
 
     margin-bottom: 32px;
 
     color: #89939A;
   }
-
-  &__tech-specs {
-    min-width: 250px;
-  }
 }
 
 .tech-specs {
 
+  min-width: 250px;
+  width: 100%;
+  max-width: 560px;
+
+  @include onDesctop {
+    width: 516px;
+  }
 
   &__header {
     display: block;
