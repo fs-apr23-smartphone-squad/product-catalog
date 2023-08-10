@@ -133,6 +133,7 @@ export const PhonesPage: React.FC<Props> = ({
         phoneIdsInFavourites={phoneIdsInFavourites}
         handleAddToFavourites={handleAddToFavourites}
         removeFromFavourites={removeFromFavourites}
+        appliedQuery={appliedQuery}
       />
 
       <Pagination
