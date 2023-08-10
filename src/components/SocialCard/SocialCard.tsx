@@ -1,5 +1,4 @@
 import './SocialCard.scss';
-import { Icon } from '@iconify/react';
 
 /* eslint-disable */
 type Props = {
