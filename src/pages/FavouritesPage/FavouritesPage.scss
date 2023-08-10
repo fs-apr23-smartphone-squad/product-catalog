@@ -16,14 +16,14 @@
     @include title-text();
     font-weight: 600;
     color: #89939A;
-    margin: 8px 0 0 16px;
+    margin: 8px 0 32px 16px;
 
     @include onTablet {
-      margin: 8px 0 0 24px;
+      margin: 8px 0 32px 24px;
     }
 
     @include onDesctop {
-      margin: 8px 0 0 32px;
+      margin: 8px 0 40px 32px;
     }
   }
 }
