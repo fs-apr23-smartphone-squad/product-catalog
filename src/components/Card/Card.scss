@@ -109,12 +109,12 @@
     margin-right: 8px;
     transition: 0.2s;
     padding: 0;
+    cursor: pointer;
 
     &:hover {
       border: 1px solid $border-color;
       background-color: $c-white;
       color: $text-color;
-      cursor: pointer;
     }
   }
 
@@ -131,6 +131,7 @@
     padding: 0;
     color: #27AE60;
     border: 1px solid $border-color;
+    cursor: pointer;
   }
 
   &_like_button {
