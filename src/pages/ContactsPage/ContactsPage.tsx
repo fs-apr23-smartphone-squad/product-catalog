@@ -34,11 +34,11 @@ const developers = [
   {
     devName: 'Cherepinec Anton',
     links: {
-      gmail: 'mailto:',
-      github: '',
-      linkedin: '',
+      gmail: 'mailto:manickmage@ukr.net',
+      github: 'https://github.com/thienlaoo',
+      linkedin: 'https://www.linkedin.com/in/anton-cherepynets-aab19b285/',
     },
-    photo: '',
+    photo: 'https://media.licdn.com/dms/image/D4E03AQECccbcHOl7oA/profile-displayphoto-shrink_800_800/0/1690128916701?e=1697068800&v=beta&t=R4gnFj4wGwO27dqpcUhdXgjya9DEA25qbVf2j0LFafU',
   },
   {
     devName: 'Andrii Mashutikov',

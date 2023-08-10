@@ -7,11 +7,13 @@
   flex-wrap: wrap;
   margin-bottom: 24px;
   user-select: none;
+  // font-family:;
 
   &__label {
     text-align: left;
     width: max-content;
     margin-bottom: 5px;
+    color: $description-color;
   }
 
   &__select {

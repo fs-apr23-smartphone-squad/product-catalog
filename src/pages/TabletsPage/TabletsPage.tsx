@@ -100,11 +100,11 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
         <div className='phones_page'>
         <div className='breadcrumbs1'>
           <Link
-          className='breadcrumbs__home'
+          className='breadcrumbs1__home'
           to='/home'
           ></Link>
-          <div className='breadcrumbs__arrow'></div>
-          <p>Tablets</p>
+          <div className='breadcrumbs1__arrow'></div>
+          <p className='breadcrumbs1__text'>Tablets</p>
         </div>
 
         <div className='phones_page__header'>
@@ -128,6 +128,7 @@ export const TabletsPage: React.FC<Props> = ({ phoneIdsInCart,
 
           <Search
             setAppliedQuery={setAppliedQuery}
+            category='tablets'
           />
         </div>
 
