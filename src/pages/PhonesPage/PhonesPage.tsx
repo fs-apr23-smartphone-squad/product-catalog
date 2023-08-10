@@ -54,15 +54,15 @@ export const PhonesPage: React.FC<Props> = ({
       let updatedSorting = sorting;
       let updatedSortOrder = sortOrder;
 
-      if (filter === "Newest") {
-        updatedSorting = "year";
-        updatedSortOrder = "DESC";
-      } else if (filter === "Price ⇂") {
-        updatedSorting = "price";
-        updatedSortOrder = "DESC";
-      } else if (filter === "Price ↾") {
-        updatedSorting = "price";
-        updatedSortOrder = "ASC";
+      if (filter === 'Newest') {
+        updatedSorting = 'year';
+        updatedSortOrder = 'DESC';
+      } else if (filter === 'Price 🠣') {
+        updatedSorting = 'price';
+        updatedSortOrder = 'DESC';
+      } else if (filter === 'Price 🠡') {
+        updatedSorting = 'price';
+        updatedSortOrder = 'ASC';
       }
 
       const response = await getPhonesForPagination(

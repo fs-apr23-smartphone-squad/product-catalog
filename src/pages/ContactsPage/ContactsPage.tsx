@@ -25,11 +25,11 @@ const developers = [
   {
     devName: 'Shevtsov Ihor',
     links: {
-      gmail: 'mailto:',
-      github: '',
-      linkedin: '',
+      gmail: 'mailto:contact.shevtsov@gmail.com',
+      github: 'https://github.com/Shevtsooov',
+      linkedin: 'https://www.linkedin.com/in/ihor--shevtsov',
     },
-    photo: '',
+    photo: 'https://avatars.githubusercontent.com/u/97849888?v=4',
   },
   {
     devName: 'Cherepinec Anton',

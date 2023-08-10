@@ -33,6 +33,10 @@
   }
 
   &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
     font-size: 12px;
     font-family: "Mont", sans-serif;
     font-weight: bold;
