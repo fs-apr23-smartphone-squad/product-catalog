@@ -16,11 +16,11 @@ const developers = [
   {
     devName: 'Balandiukh Iryna',
     links: {
-      gmail: 'mailto:',
-      github: '',
-      linkedin: '',
+      gmail: 'mailto:iryna.balandiukh@gmail.com',
+      github: 'https://github.com/IrynaBalandiukh',
+      linkedin: 'https://www.linkedin.com/in/iryna-balandiukh-1064b6283/',
     },
-    photo: '',
+    photo: 'https://avatars.githubusercontent.com/u/73065167?s=400&u=240c03c7e60f7984b93027ffc09b249435b61c72&v=4',
   },
   {
     devName: 'Shevtsov Ihor',
