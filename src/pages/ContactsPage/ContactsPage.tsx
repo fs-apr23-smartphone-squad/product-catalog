@@ -20,6 +20,7 @@ const developers = [
       github: 'https://github.com/IrynaBalandiukh',
       linkedin: 'https://www.linkedin.com/in/iryna-balandiukh-1064b6283/',
     },
+// eslint-disable-next-line max-len
     photo: 'https://avatars.githubusercontent.com/u/73065167?s=400&u=240c03c7e60f7984b93027ffc09b249435b61c72&v=4',
   },
   {
@@ -38,6 +39,7 @@ const developers = [
       github: 'https://github.com/thienlaoo',
       linkedin: 'https://www.linkedin.com/in/anton-cherepynets-aab19b285/',
     },
+// eslint-disable-next-line max-len
     photo: 'https://media.licdn.com/dms/image/D4E03AQECccbcHOl7oA/profile-displayphoto-shrink_800_800/0/1690128916701?e=1697068800&v=beta&t=R4gnFj4wGwO27dqpcUhdXgjya9DEA25qbVf2j0LFafU',
   },
   {
