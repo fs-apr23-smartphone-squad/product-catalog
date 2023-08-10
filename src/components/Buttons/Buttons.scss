@@ -82,36 +82,16 @@
 }
 
 .ellipse {
-  @include description-text();
-  font-size: 8px;
+  font-size: 9px;
   color: white;
-  background-image: url(../../images/Icons/Ellipse.svg);
-  position: absolute;
-  top: -3px;
-  right: -5px;
-  width: 12px;
-  height: 12px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.ellipse-for-cart {
-  @include description-text();
-  font-size: 8px;
-  color: white;
-  background-image: url(../../images/Icons/Ellipse.svg);
-  position: absolute;
-  top: 13px;
-  right: 11px;
-  width: 12px;
-  height: 12px;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #EB5757;
+  position: relative;
+  top: -6px;
+  right: -6px;
+  width: 15px;
+  height: 15px;
+  border: 1px solid white;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;

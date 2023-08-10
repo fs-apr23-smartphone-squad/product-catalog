@@ -1,8 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 import './BurgerMenu.scss';
+import React from 'react';
 
-export const BurgerMenu = () => (
+interface Props {
+  productsInFavorites: number;
+  productsInCart: number;
+}
+
+export const BurgerMenu: React.FC<Props> = ({
+  productsInFavorites,
+  productsInCart,
+}) => (
   <div className='burger'>
     <nav className="burger__nav">
       <ul className="burger__list">
@@ -53,21 +62,47 @@ export const BurgerMenu = () => (
     </nav>
 
     <div className="burger__buttons">
-      <NavLink
-        to="favourites"
-        className="burger__icon"
-      >
-        <div className="icon icon--favourites"></div>
-      </NavLink>
-
-      <NavLink
-        to="cart"
-        className={({ isActive }) => cn(
-          'burger__icon', { 'is-active': isActive },
+      {productsInFavorites
+        ? (
+          <NavLink
+          to="favourites"
+          className="burger__icon"
+        >
+          <div className="icon icon--favourites">
+            <div className='ellipse'>{productsInFavorites}</div>
+          </div>
+        </NavLink>
+        ) : (
+          <NavLink
+            to="favourites"
+            className="burger__icon"
+          >
+            <div className="icon icon--favourites"></div>
+          </NavLink>
         )}
-      >
-        <div className="icon icon--cart"></div>
-      </NavLink>
+
+        {productsInCart
+        ? (
+          <NavLink
+            to="cart"
+            className={({ isActive }) => cn(
+              'burger__icon', { 'is-active': isActive },
+            )}
+          >
+            <div className="icon icon--cart">
+              <div className='ellipse'>{productsInCart}</div>
+            </div>
+          </NavLink>
+        ) : (
+          <NavLink
+            to="cart"
+            className={({ isActive }) => cn(
+              'burger__icon', { 'is-active': isActive },
+            )}
+          >
+            <div className="icon icon--cart"></div>
+          </NavLink>
+        )}
     </div>
   </div>
 );

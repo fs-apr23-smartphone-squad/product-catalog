@@ -31,7 +31,10 @@ export const Buttons: React.FC<Props> = ({ phoneIdsInFavourites, phoneIdsInCart 
         <div
           onClick={() => setIsActiveBurger(false)}
         >
-          <BurgerMenu />
+          <BurgerMenu
+            productsInFavorites={phoneIdsInFavourites.length}
+            productsInCart={phoneIdsInCart.length}
+          />
         </div>
       )}
 
@@ -59,7 +62,7 @@ export const Buttons: React.FC<Props> = ({ phoneIdsInFavourites, phoneIdsInCart 
           className='icon-wrapper'
         >
           <div className="icon icon--cart">
-            <div className='ellipse-for-cart'>{phoneIdsInCart.length}</div>
+            <div className='ellipse'>{phoneIdsInCart.length}</div>
           </div>
         </NavLink>
       ) : (
