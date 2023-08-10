@@ -48,6 +48,10 @@
       left: 190px;
       width: 15px;
       height: 15px;
+
+      @include onTablet {
+        left: 63px;
+      }
     }
   }
 
