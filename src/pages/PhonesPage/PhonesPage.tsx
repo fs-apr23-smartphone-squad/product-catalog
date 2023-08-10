@@ -98,9 +98,9 @@ export const PhonesPage: React.FC<Props> = ({
   ) : (
     <div className="phones_page">
       <div className="breadcrumbs1">
-        <Link className="breadcrumbs__home" to="/home"></Link>
-        <div className="breadcrumbs__arrow"></div>
-        <p>Phones</p>
+        <Link className="breadcrumbs1__home" to="/home"></Link>
+        <div className="breadcrumbs1__arrow"></div>
+        <p className="breadcrumbs1__text">Phones</p>
       </div>
 
       <div className="phones_page__header">
@@ -122,7 +122,10 @@ export const PhonesPage: React.FC<Props> = ({
           perPage={perPage}
         />
 
-        <Search setAppliedQuery={setAppliedQuery} />
+        <Search
+          setAppliedQuery={setAppliedQuery}
+          category='phones'
+        />
       </div>
 
       <Cardlist

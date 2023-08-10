@@ -17,6 +17,9 @@
     height: 16px;
     background-image: url('../../images/Icons/ArrowForward.svg');
     margin-right: 8px;
+  }
 
+  &__text {
+    color: $description-color;
   }
 }

@@ -4,9 +4,13 @@ import './Search.scss';
 /* eslint-disable */
 interface Props {
   setAppliedQuery: (query: string) => void;
+  category: string;
 }
 
-export const Search: React.FC<Props> = ({ setAppliedQuery }) => {
+export const Search: React.FC<Props> = ({
+  setAppliedQuery,
+  category,
+ }) => {
   const [query, setQuery] = useState('');
   const [isClearVisible, setIsClearVisible] = useState(false);
   const timerId = useRef(0);
@@ -36,7 +40,7 @@ export const Search: React.FC<Props> = ({ setAppliedQuery }) => {
   return (
     <div className="search">
       <label htmlFor="search-query" className="search__label">
-        Search phone
+        {`Search ${category}`}
       </label>
 
       <div className="search__control">

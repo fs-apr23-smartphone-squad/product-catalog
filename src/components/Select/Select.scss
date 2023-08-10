@@ -1,5 +1,6 @@
 @import '../../styles/utils/vars';
 @import '../../styles/utils/mixins';
+@import '../../styles/_fonts';
 
 .select {
   display: flex;
@@ -7,11 +8,13 @@
   flex-wrap: wrap;
   margin-bottom: 24px;
   user-select: none;
+  font-family: "Mont", sans-serif;
 
   &__label {
     text-align: left;
     width: max-content;
     margin-bottom: 5px;
+    color: $description-color;
   }
 
   &__select {
