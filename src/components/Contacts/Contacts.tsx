@@ -19,7 +19,13 @@ export const Contacts = () => (
       </li>
 
       <li className="contacts__item">
-        <a className="contacts__link" href="#rights"> rights </a>
+        <a
+          className="contacts__link"
+          href="https://creativecommons.org/licenses/by/4.0/deed.uk"
+          target='_blank'
+        >
+          rights
+        </a>
       </li>
     </ul>
   </div>

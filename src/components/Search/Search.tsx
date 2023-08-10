@@ -8,10 +8,18 @@ interface Props {
 
 export const Search: React.FC<Props> = ({ setAppliedQuery }) => {
   const [query, setQuery] = useState('');
+  const [isClearVisible, setIsClearVisible] = useState(false);
   const timerId = useRef(0);
 
   const handleSearchChange = (event:React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
+
+    if (event.target.value === '') {
+      setIsClearVisible(false);
+    } else {
+      setIsClearVisible(true);
+    }
+
     window.clearTimeout(timerId.current);
 
     timerId.current = window.setTimeout(() => {
@@ -21,6 +29,7 @@ export const Search: React.FC<Props> = ({ setAppliedQuery }) => {
 
   const handleClear = () => {
     setQuery('');
+    setIsClearVisible(false);
     setAppliedQuery('');
   }
 
@@ -39,7 +48,10 @@ export const Search: React.FC<Props> = ({ setAppliedQuery }) => {
           value={query}
           onChange={handleSearchChange}
         />
-        <div className="search__clear" onClick={handleClear}></div>
+        <div
+          className={"search__clear" + (isClearVisible ? '' : 'disabled')}
+          onClick={handleClear}
+        ></div>
       </div>
     </div>
   );
