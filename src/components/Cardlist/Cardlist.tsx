@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Card } from '../Card/Card';
 import { Phone } from '../../Types/Types';
 import './Cardlist.scss';
+import { FoundNothing } from '../FoundNothing';
 
 /* eslint-disable */
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
   phoneIdsInFavourites: number[];
   handleAddToFavourites: (id: number) => void;
   removeFromFavourites: (id: number) => void;
+  appliedQuery: string;
 }
 
 export const Cardlist: React.FC<Props> = ({
@@ -22,6 +24,7 @@ export const Cardlist: React.FC<Props> = ({
   phoneIdsInFavourites,
   handleAddToFavourites,
   removeFromFavourites,
+  appliedQuery,
 }) => {
   useEffect(() => {
     localStorage.setItem('phoneIds', JSON.stringify(phoneIdsInCart))
@@ -33,19 +36,21 @@ export const Cardlist: React.FC<Props> = ({
 
   return (
     <div className='grid'>
-      {phonesToShow.map((phone: Phone) => (
-        <div key={phone.id} className="card-container">
-          <Card
-            phone={phone}
-            handleAddToCart={handleAddToCart}
-            removeFromCart={removeFromCart}
-            phoneIdsInCart={phoneIdsInCart}
-            handleAddToFavourites={handleAddToFavourites}
-            removeFromFavourites={removeFromFavourites}
-            phoneIdsInFavourites={phoneIdsInFavourites}
-          />
-        </div>
-      ))}
+      {phonesToShow.length
+        ? phonesToShow.map((phone: Phone) => (
+          <div key={phone.id} className="card-container">
+            <Card
+              phone={phone}
+              handleAddToCart={handleAddToCart}
+              removeFromCart={removeFromCart}
+              phoneIdsInCart={phoneIdsInCart}
+              handleAddToFavourites={handleAddToFavourites}
+              removeFromFavourites={removeFromFavourites}
+              phoneIdsInFavourites={phoneIdsInFavourites}
+            />
+          </div>
+        )) : ( <FoundNothing appliedQuery={appliedQuery} />
+      )}
     </div>
   );
 };

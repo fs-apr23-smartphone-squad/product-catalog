@@ -139,6 +139,7 @@ export const AccessoriesPage: React.FC<Props> = ({ phoneIdsInCart,
         phoneIdsInFavourites={phoneIdsInFavourites}
         handleAddToFavourites={handleAddToFavourites}
         removeFromFavourites={removeFromFavourites}
+        appliedQuery={appliedQuery}
       />
 
       <Pagination
