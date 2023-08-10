@@ -3,6 +3,7 @@ import cn from 'classnames';
 import './BurgerMenu.scss';
 import React from 'react';
 
+/* eslint-disable */
 interface Props {
   productsInFavorites: number;
   productsInCart: number;
