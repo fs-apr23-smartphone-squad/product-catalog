@@ -100,7 +100,7 @@ export const HomePage: React.FC<Props> = ({
           phoneIdsInFavourites={phoneIdsInFavourites}
           handleAddToFavourites={handleAddToFavourites}
           removeFromFavourites={removeFromFavourites}
-          title='Hot priceRegulars'
+          title='Hot price'
         />
       </div>
     </div>
