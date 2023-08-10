@@ -22,7 +22,7 @@
     margin-left: 16px;
 
     @include onTablet {
-      margin-left: 0;
+      margin: 24px auto;
     }
 
     max-width: 1136px;
