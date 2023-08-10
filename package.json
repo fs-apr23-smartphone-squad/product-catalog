@@ -42,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "@iconify/react": "^4.1.1",
     "@linthtml/linthtml": "^0.8.3",
     "@mate-academy/bemlint": "^0.1.1",
     "@mate-academy/eslint-config": "*",
