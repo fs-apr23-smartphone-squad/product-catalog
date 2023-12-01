@@ -28,6 +28,7 @@ export const HomePage: React.FC<Props> = ({
   const [newPhones, setNewPhones] = useState<Phone[]>([]);
   const [bestDiscountPhones, setBestDiscountPhones] = useState<Phone[]>([]);
   const [pageIsLoading, setPageIsLoading] = useState(true);
+  const [longLoad, setLongLoad] = useState(false);
 
   useEffect(() => {
     const fetchNewPhones = async() => {
@@ -46,6 +47,7 @@ export const HomePage: React.FC<Props> = ({
   useEffect(() => {
     const fetchNewPhones = async() => {
       try {
+        setTimeout(() => setLongLoad(true), 5000)
         const fetchedPhones = await getDiscount();
 
         setBestDiscountPhones(fetchedPhones);
@@ -60,7 +62,7 @@ export const HomePage: React.FC<Props> = ({
 
   return (
     pageIsLoading
-      ? (<Loader />)
+      ? (<Loader longLoad={longLoad} />)
       : (
         <div className="home-page">
       <h1 className="home-page__title">
