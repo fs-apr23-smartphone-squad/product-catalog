@@ -30,8 +30,15 @@
   }
 
   &__alert {
-    margin-top: 20px;
+    margin-top: -10px;
     font-size: 20px;
+    opacity: 0%;
+    transition-duration: 1s;
+
+    &-visible {
+      margin-top: 20px;
+      opacity: 100%;
+    }
   }
 }
 

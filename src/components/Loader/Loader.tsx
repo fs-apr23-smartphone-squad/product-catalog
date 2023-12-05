@@ -28,11 +28,9 @@ export const Loader = ({ longLoad = false }) => {
         </div>
       </div>
 
-      {longLoad && (
-        <span className="loader__alert">
-          Database is waking up. Please wait...
-        </span>
-      )}
+      <span className={`loader__alert ${longLoad && 'loader__alert-visible'}`}>
+        Database is waking up. Please wait...
+      </span>
     </div>
   );
 };
