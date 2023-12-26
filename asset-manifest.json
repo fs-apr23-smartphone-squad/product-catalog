@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/product-catalog/static/css/main.6974e923.css",
-    "main.js": "/product-catalog/static/js/main.0fe31611.js",
+    "main.js": "/product-catalog/static/js/main.0b694073.js",
     "static/js/787.1ed3cf1d.chunk.js": "/product-catalog/static/js/787.1ed3cf1d.chunk.js",
     "static/media/logo.svg": "/product-catalog/static/media/logo.3c6bd1886792ca6da9d59ce7bea7dc78.svg",
     "static/media/Mont-Regular.otf": "/product-catalog/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
@@ -21,11 +21,11 @@
     "static/media/Chevron.svg": "/product-catalog/static/media/Chevron.dbcfbcafc20dbfe9d8c9.svg",
     "static/media/Minus.svg": "/product-catalog/static/media/Minus.e7ca08225306197731df.svg",
     "main.6974e923.css.map": "/product-catalog/static/css/main.6974e923.css.map",
-    "main.0fe31611.js.map": "/product-catalog/static/js/main.0fe31611.js.map",
+    "main.0b694073.js.map": "/product-catalog/static/js/main.0b694073.js.map",
     "787.1ed3cf1d.chunk.js.map": "/product-catalog/static/js/787.1ed3cf1d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6974e923.css",
-    "static/js/main.0fe31611.js"
+    "static/js/main.0b694073.js"
   ]
 }
