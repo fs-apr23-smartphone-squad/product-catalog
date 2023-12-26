@@ -85,6 +85,7 @@ export const FavouritesPage: React.FC<Props> = ({
           <div className="grid">
             {favPhones.map((phone) => (
               <Card
+                key={phone.id}
                 phone={phone}
                 phoneIdsInFavourites={phoneIdsInFavourites}
                 removeFromFavourites={removeFromFavourites}
