@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { Phone, PhoneApiResponse, phoneDescription } from '../Types/Types';
 
-const BASE_URL = 'https://nice-gadgets-m04y.onrender.com';
+const BASE_URL = 'https://api.smartphonesquad.shop';
 
 export async function get<T>(url: string): Promise<T> {
   const fullURL = BASE_URL + url;
